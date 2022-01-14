@@ -1,0 +1,332 @@
+# Exercício Python - Seção 13
+
+# Exercício 1
+'''
+
+
+with open('arq.txt','a') as arquivo:
+    while True:
+        caracteres = input('Digite tudo que quiser, 0 para sair: ')
+        if caracteres != '0':
+            arquivo.write(caracteres)
+        else:
+            break
+
+
+abrir = open('arq.txt')
+print(abrir)
+#print(abrir.read())
+abc = abrir.read()
+print(abc)
+abrir.close()
+'''
+
+'''
+
+# Exercício 2
+
+with open('teste.txt') as arquivo:
+    print(len(arquivo.readlines()))
+    print(arquivo.closed)
+print(arquivo.closed)
+
+'''
+
+# Exercício 3
+'''
+
+count = 0
+with open('SDHASD.txt') as arquivo:
+    lista = arquivo.readlines()
+    for n in lista:
+        for vogal in n:
+            if vogal in 'aeiou':
+                count += 1
+            if vogal in 'AEIOU':
+                count += 1
+print(count)
+
+'''
+
+'''
+
+# Exercício 4
+
+countv = 0
+countc = 0
+with open('SDHASD.txt') as arquivo:
+    lista = arquivo.readlines()
+    for n in lista:
+        for x in n:
+            if x in 'aeiou':
+                countv += 1
+            elif x in 'AEIOU':
+                countv += 1
+            else:
+                countc += 1
+print(f'{countv} VOGAIS')
+print(f'{countc} CONSOANTES')
+
+'''
+
+'''
+
+# Exercicio 5
+
+count = 0
+letra = input('Caractere: ')
+with open('SDHASD.txt') as arquivo:
+    lista = arquivo.readlines()
+    for n in lista:
+        for x in n:
+            if x == letra:
+                count += 1
+print(f'O caractere aparece {count} vezes dentro no arquivo.')
+
+'''
+
+# Exercício 6
+
+# Exercício 7
+'''
+
+with open('SDHASD.txt') as arquivo:
+    lista = arquivo.readlines()
+    with open('criado.txt','w') as novo:
+        for n in lista:
+            for m in n:
+                if m in 'aeiou' or m in 'AEIOU':
+                    novo.write('*')
+                else:
+                    novo.write(m)
+
+'''
+
+# Exercício 8
+
+'''
+
+nomearquivo = input('Digite o nome do arquivo a ser aberto : ')
+nomearquivo2 = input('Digite o nome do novo arquivo com as letras já convertidas : ')
+with open(nomearquivo) as arquivo:
+    with open(nomearquivo2,'w') as novo:
+        lista = arquivo.readlines()
+        for n in lista:
+            novo.write(n.upper())
+
+'''
+
+# Exercício 9
+'''
+
+
+nomearquivo = input('Digite o nome do primeiro arquivo: ')
+nomearquivo2 = input('Digite o nome do segundo arquivo: ')
+with open(nomearquivo) as arquivo:
+    with open(nomearquivo2) as arquivo2:
+        with open('terceiro.txt','w') as arquivo3:
+            for n in arquivo:
+                arquivo3.write(n)
+            for m in arquivo2:
+                arquivo3.write(m)
+
+
+'''
+
+'''
+
+# Exercício 10
+
+
+aux = []
+
+entrada = input('Digite o nome do arquivo de entrada: ')
+saida = input('Digite o nome do arquivo de saída: ')
+with open(entrada) as arquivo:
+    lista = arquivo.readlines()
+    with open(saida, 'w') as novo:
+        for n in lista:
+            cidade, povo = n.split(':')
+            aux.append(povo)
+        for index in range(len(aux)):
+            aux[index] = aux[index].rstrip('\n')
+        for n in lista:
+            if max(aux) in n:
+                novo.write(n)
+print(aux)
+
+'''
+
+'''
+
+# Exercício 11
+
+entrada = input('Digite o nome do arquivo: ')
+palavra = input('Digite a palavra a ser verificada: ')
+count = 0
+with open(entrada) as arquivo:
+    lista = arquivo.readline()
+    lista2 = lista.split(' ')
+    for n in lista2:
+        if n in palavra:
+            count += 1
+print(f'A palavra {palavra} apareceu {count} vezes no texto.')
+
+'''
+
+'''
+
+# Exercicio 12
+count = 0
+with open('SDHASD.txt') as arquivo:
+    for n in arquivo:
+        for m in n:
+            count += 1
+    arquivo.seek(0)
+    print(f'Número de linhas = {len(arquivo.readlines())}')
+    print(f'Número de caracteres = {count}')
+
+'''
+
+'''
+
+# Exercício 13
+count = 1
+nome = input('Digite o nome do arquivo a ser criado: ')
+with open(nome + '.txt', 'w') as arquivo:
+    while True:
+        nomes = input(f'Digite o nome da pessoa {count} da lista = ')
+        tel = input(f'Digite o telefone de {nomes} = ')
+        if tel != '0':
+            arquivo.write(nomes + ' - ' + tel + '\n')
+            count += 1
+        else:
+            break
+
+'''
+
+'''
+
+# Exercício 14
+
+nomearq = input('Digite o nome do arquivo = ')
+with open(nomearq + '.txt') as arquivo:
+    lista = arquivo.readlines()
+    for index in range(len(lista)):
+        lista[index] = lista[index].rstrip('\n')
+    with open('arquivonovo.txt','w') as novo:
+        arquivo.seek(0)
+        for n in range(0, len(lista)):
+            lista2 = arquivo.readline().split('-')
+            idade = lista2[1].split(' ')
+            calculo = int(idade[2])
+            calculo1 = 2021 - calculo
+            novo.write(lista2[0] + ' - ' + str(calculo1) + ' anos' + '\n')
+
+'''
+
+'''
+
+# Exercício 15
+
+anoc = int(input('Digite o ano corrente = '))
+arquivo1 = input('Digite o nome do arquivo de entrada = ')
+arquivo2 = input('Digi o nome do arquivo de saída = ')
+with open(arquivo1 + '.txt') as arquivo:
+    with open(arquivo2 + '.txt','w') as novo:
+        lista = arquivo.readlines()
+        for index in range(len(lista)):
+            lista[index] = lista[index].rstrip('\n').split(' -  ')
+        for x in range(len(lista) - 1):
+            novo.write(lista[x][0])
+            idade = anoc - int(lista[x][1])
+            if idade < 18:
+                novo.write(' - menor de idade\n')
+            elif idade == 18:
+                novo.write(' - entrando na maior \n')
+            else:
+                novo.write(' - maior de idade\n')
+
+'''
+
+'''
+
+# Exercício 19
+
+with open('exercicio19.txt') as arquivo:
+    count = len(arquivo.readlines())
+    arquivo.seek(0)
+    armazena = []
+    for n in range(count):
+        lista = arquivo.readline().rstrip('\n').split(' ')
+        armazena.append(int(lista[3]))
+    arquivo.seek(0)
+    for n in range(count):
+        linha = arquivo.readline()
+        if str(max(armazena)) in linha:
+            print(linha)
+
+'''
+
+'''
+
+# Exercício 22
+
+entrada = input('Digite o nome do arquivo de entrada = ')
+saida = input('Digite o nome do arquivo de saída a ser criado = ')
+with open(entrada + '.txt') as arquivo:
+    with open(saida + '.txt','w') as novo:
+        count = len(arquivo.readlines())
+        arquivo.seek(0)
+        for n in range(count):
+            lista = arquivo.readline().rstrip('\n').rsplit(' ')
+            counter = len(lista) - 3
+            for m in range(0, counter - 1):
+                novo.write(lista[m] + ' ')
+            novo.write(' - NOTA:')
+            if int(lista[counter]) > int(lista[counter + 1]) and int(lista[counter]) > int(lista[counter + 2]):
+                if int(lista[counter + 1]) > int(lista[counter + 2]):
+                    novo.write(lista[counter + 2] + ' ' + lista[counter + 1] + ' ' + lista[counter])
+                else:
+                    novo.write(lista[counter + 1] + ' ' + lista[counter + 2] + ' ' + lista[counter])
+            elif int(lista[counter + 1]) > int(lista[counter]) and int(lista[counter + 1]) > int(lista[counter + 2]):
+                if int(lista[counter]) > int(lista[counter + 2]):
+                    novo.write(lista[counter + 2] + ' ' + lista[counter] + ' ' + lista[counter + 1])
+                else:
+                    novo.write(lista[counter] + ' ' + lista[counter + 2] + ' ' + lista[counter + 1])
+            elif int(lista[counter + 2]) > int(lista[counter]) and int(lista[counter + 2]) > int(lista[counter + 1]):
+                if int(lista[counter]) > int(lista[counter + 2]):
+                    novo.write(lista[counter + 1] + ' ' + lista[counter] + ' ' + lista[counter + 2])
+                else:
+                    novo.write(lista[counter] + ' ' + lista[counter + 1] + ' ' + lista[counter + 2])
+            if int(lista[counter] == lista[counter + 1]):
+                if int(lista[counter + 1] > lista[counter + 2]):
+                    novo.write(lista[counter + 2] + ' ' + lista[counter + 1] + ' ' + lista[counter])
+                else:
+                    novo.write(lista[counter] + ' ' + lista[counter + 1] + ' ' + lista[counter + 2])
+            elif int(lista[counter + 1] == lista[counter + 2]):
+                if int(lista[counter + 1] > lista[counter]):
+                    novo.write(lista[counter] + ' ' + lista[counter + 2] + ' ' + lista[counter + 1])
+                else:
+                    novo.write(lista[counter + 1] + ' ' + lista[counter + 2] + ' ' + lista[counter])
+            novo.write('\n')
+
+'''
+
+'''
+
+# Exercício 26
+counter = 1
+qtd = int(input('Quantos alunos serão armazenados agora?\nQuantidade =  '))
+with open('armazenalunos.txt', 'w') as arquivo:
+    while qtd != 0:
+        print(f'-------------DADOS ALUNO {counter}-------------')
+        mt = str(input(f'Digite a matrícula do aluno {counter} = '))
+        sn = str(input(f'Digite o sobrenome (apenas UM) do aluno {counter} = '))
+        an = str(input(f'Digite o ano de nascimento do aluno {counter} =  '))
+        arquivo.write('MATRÍCULA = ' + mt + '  SOBRENOME = ' + sn + '  ANO NASCIMENTO = ' + an + '\n')
+        qtd -= 1
+        counter += 1
+
+'''
+

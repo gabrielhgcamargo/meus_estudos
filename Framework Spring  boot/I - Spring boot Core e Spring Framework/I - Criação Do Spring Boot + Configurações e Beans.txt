@@ -1,0 +1,162 @@
+Passo a Passo para a criação de um projeto Sprint Boot
+
+1. Adicionar ao 'pom.xml' o parent, depencencies e build do Spring boot:
+
+// Exemplo de parent versão 2.2.4 do spring boot starter parent:
+
+ <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.4.RELEASE</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
+// Ao adicionar o parent, dependencies e build, a aplicação passa a ser Spring Boot.
+
+
+2. Ir para o código fonte 'src', entrar em 'main', depois clicar com botão direito em Java.
+   Clicar em NEW,  New Java Class.
+	Por convenção, colocar o nome da classe que vai inicializar a aplicação com o sufixo 'Application'.
+	Exemplo:  'VendasApplication'
+
+3. Nessa classe nova Java, criar o método main. (psvm + crtl + space)
+   Acima da classe, escrever @SpringBootApplication.
+   Dentro da main, para inicializar a aplicação Spring boot: SpringApplication.run('nome_da_classe'.class, args);
+
+
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+
+Hello World com Spring Boot
+
+Após os passos anteriores:
+
+- Em cima de  @SpringBootApplication, colocar @RestController
+- Adicionar ao pom.xml dentro de dependencies:
+	
+	<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+- Criar o seguinte metodo fora da main:
+
+	@GetMapping("/hello")
+    public String helloWord(){
+        return "hello world";
+    }
+
+
+- Assim sendo o hello world aparecerá no browser : http://localhost:8080/hello
+
+
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+
+Configurações and Beans
+
+
+Para configurações gerais da aplicação.
+Deve ser criada uma classe especificamente para essas configurações.
+Onde só deve existir configurações dentro dela.
+
+Exemplo:
+
+
+
+@Configuration                                                     // obrigatório a inserção desta notação!
+public class Minha_Configuration {
+
+        @Bean(name = "applicationName")				  // obrigatório a inserção desta notação!
+        public String applicationName(){
+            return "Sistema de Vendas";
+        }
+}
+
+
+Dentro da classe principal da aplicação, para "puxar" essa config:
+
+
+    @Autowired                                          // Puxa a configuração da classe dela.
+    @Qualifier("applicationName")                       // Coloca a configuração na variável abaixo.
+    private String applicationName;
+
+
+
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

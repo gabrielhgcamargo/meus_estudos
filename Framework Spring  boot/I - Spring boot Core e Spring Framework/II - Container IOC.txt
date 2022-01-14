@@ -1,0 +1,19 @@
+O Container IOC é o contexto de toda a aplicação.
+Onde se encontra todas as configurações, todos os Beans, etc.
+
+
+
+Utilizar component scan quando houver a necessidade de reastrear outros pacotes.
+Pois o que está no mesmo pacote da Aplicação, já estará sendo rastreado automaticamente. 
+Seja @Configuration, @Repository, qualquer coisa.
+
+
+
+Caso realmente seja necessário o uso do Component Scan:
+
+
+	@ComponentScan(
+			basePackages = {
+					"io.github.gabrielhgcamargo.repository",
+					"io.github.gabrielhgcamargo.nome_do_pacote"}
+			)

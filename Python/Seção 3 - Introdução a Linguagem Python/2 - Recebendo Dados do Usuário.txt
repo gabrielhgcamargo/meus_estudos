@@ -1,0 +1,25 @@
+"""
+Recebendo dados do usuário
+
+"""
+# Entrada de Dados
+#print("Qual seu nome? ")
+nome = input('Qual seu nome ? ') #input e pergunta numa linha
+#nome = input()  #Input -> Entrada
+#print ('Seja bem vindo(a) %s' % nome) #PRINT ANTIGO
+#print('Seja bem vindo(a) {0}'.format(nome)) #PRINT MODERNO
+print(f'Seja bem vindo(a) {nome}') #PRINT MAIS MODERNO
+#print ("Qual sua idade? ")
+#idade = input()
+
+#idade = input('Qual sua idade ? ') #input idade como string e pergunta numa linha
+idade = int(input('Qual sua idade ? ')) #input idade como INT e pergunta numa linha
+
+#Processamento
+
+#Saída de Dados
+#print('O(a) %s tem %s anos de idade.' %(nome,idade)) #PRINT ANTIGO
+#print ('O(a) {0} tem {1} anos de idade' .format(nome, idade)) #PRINT MODERNO
+print(f'O(a) {nome} tem {idade} anos de idade.') #PRINT MAIS MODERNO
+#print(f'pois {nome} nasceu em {2021 - int(idade)}') #PRINT MAIS MODERNO COM cast por conta da idade ser inserida como STRING
+print(f'pois {nome} nasceu em {2021 - idade}') #PRINT MAIS MODERNO SEM cast por conta da idade ser inserida como INT

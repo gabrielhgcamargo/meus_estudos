@@ -1,0 +1,36 @@
+Fazer igual foi mapeado no notepad IV.
+
+
+Única diferença são as Foreign Keys, como realizar esses relacionamentos ?
+
+
+Colocamos na propriedade da entidade que é a Foreign Key, a annotation:
+
+	- @ManyToOne -> Many se refere a entidade atual, onde se está colocando essa annotation.
+			Ou seja, em um exemplo, se estou colocando isso na classe 'Pedido', e essa
+			Foreign Key se trata do ID do Cliente, ou seja, MUITOS pedidos para UM cliente.
+
+			Neste caso, para poder ser realizado um JOIN, podemos criar o seguinte método em
+			cliente :
+			
+			@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+    			private Set<Pedido> pedidos;
+		
+			Criar Getters and Setters para este método também.
+	
+	- Em vez de colocar @Column, colocar @JoinColumn(name = "nome_da_coluna/propriedade")
+
+ACIMA É APENAS PARA FOREIGN KEYS e PRIMARY KEYS!!!
+
+--------------------------------------------------
+
+Se a propriedade/coluna for do tipo Big Decimal:
+
+	@Column(name = "total", precision = 20, scale = 2)
+    	private BigDecimal total;
+	
+
+Se a propriedade/coluna for do tipo LocalDate:
+
+	@Column(name = "data_pedido")
+   	 private LocalDate dataPedido;

@@ -1,0 +1,616 @@
+# Exercicios Seção 7 PARTE 1
+
+"""
+# Exercicio 1
+
+# A)
+vetA = [1, 0, 5, -2, -5, 7]
+print(vetA)
+
+#B)
+soma= 0
+soma += vetA[0]
+soma += vetA[1]
+soma += vetA[5]
+print(soma)
+
+#C)
+vetA[4] = 100
+print(vetA)
+
+#D)
+for n in vetA:
+    print(n)
+"""
+
+"""
+# Exercicio 2
+
+lista = []
+print(type(lista))
+for n in range(0, 6 ):
+    i = int(input("Digite o valor a ser inserido na lista:  "))
+    lista.append(i)
+print(lista)
+"""
+
+"""
+#  Exercicio 3
+
+valores = []
+quadrados = []
+
+for n in range(0,10):
+    i = int(input(f"Digite o valor {n+1} :  "))
+    valores.append(i)
+
+for m in range(0,10):
+    quadrados.append(valores[m] * valores[m])
+
+print(valores)
+print(quadrados)
+"""
+
+"""
+
+# Exercicio 4
+
+
+lista = []
+for n in range(0,8):
+    i =  int(input(f'Digite o valor da posição [{n}] = '))
+    lista.append(i)
+x = int(input('Digite uma posição = '))
+y = int(input('Digite outra posição = '))
+
+soma = lista[x] + lista[y]
+print(soma)
+
+"""
+"""
+# Exercicio 5
+count = 0
+vet = []
+for n in range(0,10):
+    i =  int(input(f'Digite o valor da posição [{n}] = '))
+    vet.append(i)
+    if i % 2 == 0:
+        count+= 1
+print(f'Inseridos e pares : {count}')
+
+"""
+
+"""
+
+# Exercicio 6
+
+vet = []
+for n in range(0,10):
+    i = int(input(f'Digite o valor da posição [{n}] = '))
+    vet.append(i)
+
+print(max(vet))
+print(min(vet))
+
+"""
+
+"""
+
+# Exercicio 7
+
+vet = []
+for n in range(0,10):
+    i = int(input(f'Digite um número, posição [{n}] = '))
+    vet.append(i)
+print(vet)
+print(max(vet))
+print(vet.index(max(vet)))
+
+"""
+
+"""
+
+# Exercício 8
+
+vet = []
+for n in range(0,6):
+    i = int(input(f'Digite um número, posiçao [{n}] =  '))
+    vet.append(i)
+    
+print(vet)
+vet.reverse()
+print(vet)
+
+"""
+"""
+# Exercício 10
+
+soma = 0
+vet = []
+for n in range(0,15):
+    i = int(input(f'Digite a nota do aluno [{n+1}] = '))
+    vet.append(i)
+    soma += i
+print(f'Média = {soma / 15}')
+    
+"""
+
+"""
+
+# Exercício 11
+count = 0
+soma = 0
+vet = []
+for n in range(0,10):
+    i = int(input(f'Digite um número, posiçao [{n}] =  '))
+    vet.append(i)
+
+for n in vet:
+    if n < 0:
+        count += 1
+    else:
+        soma += n
+
+print(f'soma dos positivos = {soma}')
+print(f'quantidade de negativos = {count}')
+
+"""
+
+"""
+
+# Exercício 12
+
+vet = []
+for n in range(0,5):
+    i = int(input('Digite = '))
+    vet.append(i)
+
+print(vet)
+print(max(vet))
+print(min(vet))
+print(sum(vet) / len(vet))
+
+"""
+
+"""
+
+# Exercício 13
+
+vet = []
+for n in range(0,5):
+    i = int(input('Digite : '))
+    vet.append(i)
+print(vet.index(max(vet)))
+print(vet.index(min(vet)))
+
+"""
+
+# Exercício 15
+
+"""
+
+vet = []
+rept = []
+for n in range(0,10):
+    i = int(input('Digite : '))
+    vet.append(i)
+
+for n in vet:
+    if vet.count(n) < 2:
+        print(n)
+"""
+
+"""
+
+# Exercício 16
+i = 1
+vet = []
+codigo = 5
+for n in range(0,5):
+    i = float(input(f'Digite o valor [{n}] = '))
+    vet.append(i)
+while(codigo < 0 or codigo > 2):
+    codigo = int(input('Digite 0 para sair, 1 para ordem normal, 2 para ordem inversa = '))
+    if codigo == 1:
+        print(vet)
+    elif codigo == 2:
+        vet.reverse()
+        print(vet)
+    elif codigo == 0:
+        print('Finalizado')
+        break
+    else:
+        print('Digite um valor válido!!!')
+
+"""
+
+"""
+
+# Exercício 17
+
+vet = []
+for n in range(0,10):
+    i = int(input(f'Digite o valor [{n}] = '))
+    vet.append(i)
+print(vet)
+
+for n in range(0,10):
+    if vet[n] < 0:
+        vet[n] = 0
+print(vet)
+
+"""
+
+"""
+
+# Exercício 18
+
+vet = []
+multiplos = []
+for n in range(0,10):
+    i = int(input(f'Digite o valor [{n}] = '))
+    vet.append(i)
+
+x = int(input('Digite um valor = '))
+
+for n in vet:
+    if x % n == 0:
+        multiplos.append(n)
+print(multiplos)
+
+"""
+
+# Exercício 19
+"""
+
+vet = []
+for i in range(0,50):
+    vet.append((i + 5 * i) % (i + 1))
+    print(i)
+print(vet)
+
+"""
+
+"""
+
+# Exercício 20
+
+
+vet = []
+impar = []
+for n in range(0,10):
+    i = int(input(f'Digite o valor [{n}] ENTRE 0 A 50 = '))
+    vet.append(i)
+
+for j in vet:
+    if j % 2 != 0:
+        impar.append(j)
+print(vet)
+print(impar)
+
+"""
+
+"""
+
+# Exercício 21
+
+vetA = []
+vetB = []
+vetC = list(range(10))
+
+for n in range(0,10):
+    i = int(input('Digite os valores do Vetor A = '))
+    vetA.append(i)
+for n in range(0,10):
+    i = int(input('Digite os valores do Vetor B = '))
+    vetB.append(i)
+
+print(vetB[2])
+for n in range(0,10):
+    vetC[n] = vetA[n] - vetB[n]
+
+print(vetA)
+print(vetB)
+print(vetC)
+
+
+"""
+
+"""
+
+# Exercício 22
+
+vet1 = []
+vet2 = []
+vet3 = [15,2,3,4,5,6,7,8,9,10]
+
+for n in range(0,10):
+    i = int(input('Digite os valores do vetor 1: '))
+    vet1.append(i)
+    
+for n in range(0,10):
+    i = int(input('Digite os valores do vetor 2: '))
+    vet2.append(i)
+
+for n in range(0,10):
+    if n % 2 == 0:
+        vet3[n] = vet1[n]
+    else:
+        vet3[n] = vet2[n]
+
+
+print(vet3)
+
+"""
+"""
+# Exercício 24
+
+num = []
+h = []
+for n in range(0,10):
+    numero = int(input(f'Digite o número do aluno {n+1}: '))
+    num.append(numero)
+    altura = int(input(f'Agora, digite a altura ( em cm) do aluno {n+1}: '))
+    h.append(altura)
+
+print(f'MAIOR = Aluno número [{num[h.index(max(h))]}] com {max(h)} de altura')
+print(f'MENOR = Aluno número [{num[h.index(min(h))]}] com {min(h)} de altura')
+
+"""
+
+"""
+
+# Exercício 25
+
+vet = []
+num = 0
+print(len(vet))
+while (len(vet) < 100):
+    if num == 0:
+        vet.append(num)
+    elif num % 7 == 0 or num % 10 == 7:
+        print(f'O número {num} é multiplo de 7 ou possui 7 em seu final.')
+    else:
+        vet.append(num)
+    num += 1
+print(vet)
+
+"""
+
+"""
+
+# Exercicio 27
+
+vet = []
+count = 0
+
+for n in range(0,10):
+    i = int(input('Digite alguns números : '))
+    vet.append(i)
+
+for m in vet:
+    count = 0
+    for x in range(2,m):
+        if m % x == 0:
+            count += 1
+    if count > 0:
+        print(f'{m} não é primo.')
+    else:
+        print(f'{m} é primo, posição {vet.index(m)}')
+        
+"""
+
+"""
+
+# Exercicio 28
+
+v = []
+v1 = []
+v2 = []
+
+for n in range(0,10):
+    i = int(input('Insira números: '))
+    v.append(i)
+
+for n in range(0,10):
+    if v[n] % 2 == 0:
+        v2.append(v[n])
+    else:
+        v1.append(v[n])
+
+
+print(v)
+print(v1)
+print(v2)
+
+"""
+
+"""
+
+# Exercicio 29
+vet = []
+somapar = 0
+somaimpar = 0
+for n in range(0,6):
+    i = int(input('Insira números: '))
+    vet.append(i)
+
+for m in vet:
+    if m % 2 == 0:
+        somapar += m
+        print(f'{m} é par!')
+    else:
+        somaimpar += m
+        print(f'{m} é ímpar!')
+
+print(f'Soma dos pares = {somapar}')
+print(f'Soma dos ímpares = {somaimpar}')
+
+"""
+
+"""
+
+# Exercício 30
+
+vet1 = set({})
+vet2 = set({})
+vet3 = set({})
+
+for n in range(0,10):
+    i = int(input('Digite os elementos do Vet1 = '))
+    vet1.add(i)
+
+for n in range(0,10):
+    i = int(input('Digite os elementos do Vet2 = '))
+    vet2.add(i)
+
+vet3 = vet1.intersection(vet2)
+print(vet1)
+print(vet2)
+print(vet3)
+
+"""
+
+"""
+
+# Exercício 31
+vet1 = set({})
+vet2 = set({})
+vet3 = set({})
+
+for n in range(0,10):
+    i = int(input('Digite os elementos do Vet1 = '))
+    vet1.add(i)
+
+for n in range(0,10):
+    i = int(input('Digite os elementos do Vet2 = '))
+    vet2.add(i)
+
+vet3 = vet1.union(vet2)
+print(vet1)
+print(vet2)
+print(vet3)
+"""
+
+"""
+
+# Exercício 32
+
+x = []
+y = []
+soma = []
+produto = []
+dif = set({})
+inter = set({})
+uniao = set({})
+for n in range(0,5):
+    i = int(input('Digite vetor 1 (sem repetir numeros) = '))
+    x.append(i)
+for n in range(0,5):
+    i = int(input('Digite vetor 2 (sem repetir numeros) = '))
+    y.append(i)
+print(f'VETOR X = {x}')
+print(f'VETOR Y = {y}')
+for n in range(0,5):
+    soma.append(x[n] + y[n])
+    produto.append(x[n] * y[n])
+interX = set(x)
+interY = set(y)
+print(type(x))
+print(type(interX))
+dif = interX.difference(interY)
+inter = interX.intersection(interY)
+uniao = interX.union(interY)
+print(f'SOMA = {soma}')
+print(f'PRODUTO = {produto}')
+print(f'Apenas X = {dif}')
+print(f'Ambos = {inter}')
+print(f'TODOS = {uniao}')
+
+"""
+
+"""
+
+# Exercício 33
+
+teste = []
+for n in range(0,15):
+    i = int(input(f'Digite um valor de cada vez, restam {15-n}: '))
+    teste.append(i)
+print(teste)
+for m in teste:
+    if m == 0:
+        teste.pop(teste.index(m))
+print(teste)
+
+"""
+
+"""
+# Exercício 34
+
+vet = [0]
+for n in range(0,10):
+    i = int(input(f'Digite o valor, faltam {10-n}  : '))
+    if n > 0:
+        while i == vet[n]:
+            print('VALOR JÁ INSERIDO!')
+            i = int(input(f'Digite o valor, faltam {10 - n}  : '))
+    vet.append(i)
+print(vet)
+
+"""
+
+"""
+
+# Exercicio 36
+
+vet = []
+for n in range(0,10):
+    i = int(input(f'Digite ( faltam {10-n} ):  '))
+    vet.append(i)
+vet.sort()
+print(vet)
+
+"""
+
+"""
+
+# Exercício 37
+
+vet = []
+vet1 = []
+vet2 = []
+resultante = []
+for n in range(0,10):
+    i = int(input(f'Digite ( faltam {10-n} ):  '))
+    vet.append(i)
+for n in vet:
+    if vet.index(n) < 6:
+        vet1.append(n)
+    else:
+        vet2.append(n)
+vet1.sort()
+vet2.sort(key=int, reverse=True)
+print(vet)
+print(vet1)
+print(vet2)
+resultante = vet1.copy()
+resultante.append(vet2)
+print(resultante)
+
+"""
+
+"""
+
+# Exercício 38
+
+vet = []
+for n in range(0,10):
+    i = int(input(f'Digite ( faltam {10-n} ):  '))
+    vet.append(i)
+    vet.sort()
+print(vet)
+
+"""
+
+

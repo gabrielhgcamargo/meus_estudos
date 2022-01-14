@@ -1,0 +1,644 @@
+Exercício 1 
+
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+// Escrevendo em arquivos
+public class Escrevendo_em_arqiovps {
+
+	static boolean x = true;
+	static char condition = 48;
+	public static void main(String[] args) {
+		
+		Scanner teclado = new Scanner(System.in);
+		try {
+		PrintStream escrever = new PrintStream(new FileOutputStream("arquivo.txt", true));
+			
+		while(x) {
+			System.out.print("Escreva algo : ");
+			String msg = teclado.nextLine();
+			escrever.println(msg);
+			for(int i = msg.length() - 1; i >= 0 ; i--) {
+				if(msg.charAt(i) == condition)
+					x = false;
+			}
+		}
+		escrever.close();
+		teclado.close();
+		}catch (FileNotFoundException e) {
+			System.out.println("Não foi possível criar o arquivo!");
+		}
+		try {
+			Scanner ler = new Scanner(new FileInputStream("arquivo.txt"));
+			while(ler.hasNextLine()) {
+				String linha = ler.nextLine();
+				System.out.println(linha);
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println("Não foi possivel achar o arquivo ! ");
+		}
+	}
+
+}
+
+Exercício 2
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+// Escrevendo em arquivos
+public class Escrevendo_em_arqiovps {
+	static int count = 0;
+	public static void main(String[] args) {
+	Scanner teclado = new Scanner(System.in);
+	System.out.println("Digite o nome do arquivo : ");
+	String name = teclado.nextLine();
+	teclado.close();
+	
+	try {
+		Scanner ler = new Scanner(new FileInputStream(name + ".txt"));
+		while(ler.hasNextLine()) {
+			ler.nextLine();
+			count += 1;
+		}
+		ler.close();
+	} catch (FileNotFoundException e) {
+		System.out.println("Não existe um arquivo com o nome " + name + ".txt") ;
+	}	
+		System.out.println("O arquivo possui " + count + " linhas.");
+	}
+
+}
+
+Exercício 3 
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+// Escrevendo em arquivos
+public class Escrevendo_em_arqiovps {
+	static int count = 0;
+	static char a = 97, e = 101, i = 105, o = 111, u = 117;
+	public static void main(String[] args) {
+	Scanner teclado = new Scanner(System.in);
+	System.out.println("Digite o nome do arquivo : ");
+	String name = teclado.nextLine();
+	teclado.close();
+	
+	try {
+		Scanner ler = new Scanner(new FileInputStream(name + ".txt"));
+		while(ler.hasNextLine()) {
+			String linha = ler.nextLine();
+			for(int x = 0; x < linha.length(); x++) {
+				char letra = linha.charAt(x);
+				if(letra == a) {
+					count += 1;
+				}
+				else if(letra == e) {
+					count += 1;
+				}
+				else if(letra == i) {
+					count += 1;
+				}
+				else if(letra == o) {
+					count += 1;
+				}
+				else if(letra == u) {
+					count += 1;
+				}
+			}
+		}
+		ler.close();
+	} catch (FileNotFoundException e) {
+		System.out.println("Não existe um arquivo com o nome " + name + ".txt") ;
+	}	
+	System.out.println("O arquivo possui " + count + " letras vogais.");
+	}
+
+}
+
+
+
+
+Exercício 4 
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+// Escrevendo em arquivos
+public class Escrevendo_em_arqiovps {
+	static int count = 0, cons = 0;
+	static char a = 97, e = 101, i = 105, o = 111, u = 117;
+	public static void main(String[] args) {
+	Scanner teclado = new Scanner(System.in);
+	System.out.println("Digite o nome do arquivo : ");
+	String name = teclado.nextLine();
+	teclado.close();
+	
+	try {
+		Scanner ler = new Scanner(new FileInputStream(name + ".txt"));
+		while(ler.hasNextLine()) {
+			String linha = ler.nextLine();
+			for(int x = 0; x < linha.length(); x++) {
+				char letra = linha.charAt(x);
+				if(letra == a) {
+					count += 1;
+				}
+				else if(letra == e) {
+					count += 1;
+				}
+				else if(letra == i) {
+					count += 1;
+				}
+				else if(letra == o) {
+					count += 1;
+				}
+				else if(letra == u) {
+					count += 1;
+				}
+				else if(letra >= 97) {
+					cons += 1;
+				}
+			}
+		}
+		ler.close();
+	} catch (FileNotFoundException e) {
+		System.out.println("Não existe um arquivo com o nome " + name + ".txt") ;
+	}	
+	System.out.println("O arquivo possui " + count + " letras vogais e " + cons + " letras consoantes");
+	}
+
+}
+
+
+
+Exercício 5
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+// Escrevendo em arquivos
+public class Escrevendo_em_arqiovps {
+	static char caracter;
+	static int count = 0;
+	public static void main(String[] args) {
+	Scanner teclado = new Scanner(System.in);
+	System.out.print("Digite o nome do arquivo = ");
+	String name = teclado.nextLine();
+	System.out.print("Agora, digite o caracter a ser contado dentro do arquivo = ");
+	caracter = teclado.next().charAt(0);
+	teclado.close();
+	
+	try {
+		Scanner ler = new Scanner(new FileInputStream(name + ".txt"));
+		while(ler.hasNextLine()) {
+			String linha = ler.nextLine();
+			for(int x = 0; x < linha.length(); x++) {
+				char letra = linha.charAt(x);
+				if(letra == caracter) {
+					count += 1;
+				}
+			}
+		}
+		ler.close();
+	} catch (FileNotFoundException e) {
+		System.out.println("Não existe um arquivo com o nome " + name + ".txt") ;
+	}	
+	
+	System.out.println("A letra " + caracter + " apareceu " + count + " vezes no arquivo. ");
+	}
+
+}
+
+
+Exercício 7
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+// Escrevendo em arquivos
+public class Escrevendo_em_arqiovps {
+	public static void main(String[] args) {
+	try {
+		PrintStream escrever = new PrintStream(new FileOutputStream("arquivonovo.txt", true));		
+	try {
+		Scanner ler = new Scanner(new FileInputStream("arquivo.txt"));
+		
+		
+		while(ler.hasNextLine()) {
+			String linha = ler.nextLine();
+			for(int i = 0; i < linha.length(); i++) {
+				char letra = linha.charAt(i);
+				if(letra == 'a' || letra == 'A') {
+					escrever.print("*");
+				}
+				else if(letra == 'e' || letra == 'E') {
+					escrever.print("*");
+				}
+				else if(letra == 'i' || letra == 'I') {
+					escrever.print("*");
+				}
+				else if(letra == 'o' || letra == 'O') {	
+					escrever.print("*");
+				}
+				else if(letra == 'u' || letra == 'U') {	
+					escrever.print("*");
+				}
+				else {
+					escrever.print(letra);
+				}
+				if(i == linha.length() - 1) {
+					escrever.println("");
+				}
+				}
+		}
+	} catch (FileNotFoundException e) {
+		System.out.println("Arquivo não encontrado!");
+	}
+	escrever.close();
+	}catch (FileNotFoundException e) {
+		System.out.println("Não foi possível criar o arquivo!");
+	}
+	}
+
+}
+
+
+
+Exercício 8 
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+// Escrevendo em arquivos
+public class Escrevendo_em_arqiovps {
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		System.out.print("Digite o nome do arquivo a ser lido = ");
+		String name = teclado.nextLine();
+		System.out.println("Digite o nome do arquivo que será criado = ");
+		String name2 = teclado.nextLine();
+		teclado.close();
+	try {
+		PrintStream escrever = new PrintStream(new FileOutputStream(name2 + ".txt", true));		
+	try {
+		Scanner ler = new Scanner(new FileInputStream(name +".txt"));
+		
+		
+		while(ler.hasNextLine()) {
+			String linha = ler.nextLine();
+			for(int i = 0; i < linha.length(); i++) {
+				char letra = linha.charAt(i);
+				letra = Character.toUpperCase(letra);
+				escrever.print(letra);
+				}
+			escrever.println("");
+		}
+	} catch (FileNotFoundException e) {
+		System.out.println("Arquivo não encontrado!");
+	}
+	escrever.close();
+	}catch (FileNotFoundException e) {
+		System.out.println("Não foi possível criar o arquivo!");
+	}
+	}
+
+}
+
+
+Exercício 9
+
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+// Escrevendo em arquivos
+public class Escrevendo_em_arqiovps {
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		System.out.print("Digite o nome do primeiro arquivo a ser lido = ");
+		String name = teclado.nextLine();
+		System.out.print("Digite o nome do segundo arquivo a ser lido = ");
+		String name0 = teclado.nextLine();
+		System.out.println("Digite o nome do arquivo que será criado = ");
+		String name2 = teclado.nextLine();
+		teclado.close();
+	try {
+		PrintStream escrever = new PrintStream(new FileOutputStream(name2 + ".txt", true));		
+	try {
+		Scanner ler = new Scanner(new FileInputStream(name +".txt"));
+		Scanner ler2 = new Scanner(new FileInputStream(name0 + ".txt"));
+		
+		while(ler.hasNextLine()) {
+			String linha = ler.nextLine();
+			for(int i = 0; i < linha.length(); i++) {
+				char letra = linha.charAt(i);
+				escrever.print(letra);
+				}
+			if(ler.hasNextLine()) {
+				escrever.println("");
+			}
+		}
+		while(ler2.hasNextLine()) {
+			String linha = ler2.nextLine();
+			for(int i = 0; i < linha.length(); i++) {
+				char letra = linha.charAt(i);
+				escrever.print(letra);
+				}
+			escrever.println("");
+		}
+	} catch (FileNotFoundException e) {
+		System.out.println("Arquivo não encontrado!");
+	}
+	escrever.close();
+	}catch (FileNotFoundException e) {
+		System.out.println("Não foi possível criar o arquivo!");
+	}
+	}
+
+}
+
+
+
+Exercício 10
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+// Escrevendo em arquivos
+public class Escrevendo_em_arqiovps {
+	static int count = 0;
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		System.out.print("Digite o nome do arquivo a ser lido = ");
+		String name = teclado.nextLine();
+		System.out.println("Digite o nome do arquivo que será criado = ");
+		String name2 = teclado.nextLine();
+		teclado.close();
+	try {
+		PrintStream escrever = new PrintStream(new FileOutputStream(name2 + ".txt", true));		
+	try {
+		Scanner ler = new Scanner(new FileInputStream(name +".txt"));
+		while(ler.hasNextLine()) {
+			String linha = ler.nextLine();
+			String[] separado = linha.split(" - ");
+			int aux = Integer.parseInt(separado[1]);
+			if(aux > count)
+				count = aux;
+		}
+		Scanner ler2 = new Scanner(new FileInputStream(name + ".txt"));
+		
+		while(ler2.hasNextLine()) {
+		String linha = ler2.nextLine();
+		String[] separado = linha.split(" - ");
+		int aux = Integer.parseInt(separado[1]);
+		if(aux == count) {
+			System.out.println(linha);
+			escrever.println(linha);
+		}
+		}
+	} catch (FileNotFoundException e) {
+		System.out.println("Arquivo não encontrado!");
+	}
+	escrever.close();
+	}catch (FileNotFoundException e) {
+		System.out.println("Não foi possível criar o arquivo!");
+	}
+	}
+
+}
+
+
+
+Exercício 11
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+// Escrevendo em arquivos
+public class Escrevendo_em_arqiovps {
+	public static void main(String[] args) {
+		int count = 0;
+		Scanner teclado = new Scanner(System.in);
+		System.out.print("Nome do arquivo: ");
+		String name = teclado.nextLine();
+		System.out.print("Palavra a ser contada: ");
+		String palavra = teclado.nextLine();
+		teclado.close();
+		
+		try {
+			Scanner ler = new Scanner(new FileInputStream(name + ".txt"));
+			while(ler.hasNextLine()) {
+				String linha = ler.nextLine();
+				String[] list = linha.split(" ");
+				for(int i = 0; i < list.length ; i++)
+				{
+					if(palavra.equals(list[i])) {
+						count += 1;
+					}
+				}
+			}
+			ler.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Arquivo não encontrado!");
+		}
+		
+		System.out.println("A palavra " + palavra + " aparece " + count + " vezes no arquivo.");
+	}
+
+}
+
+Exercício 12
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+// Escrevendo em arquivos
+public class Escrevendo_em_arqiovps {
+	static int countlinha = 0, countletra = 0, countpalavra = 0;
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		System.out.print("Nome do arquivo: ");
+		String name = teclado.nextLine();
+		teclado.close();
+		
+		try {
+			Scanner ler = new Scanner(new FileInputStream(name + ".txt"));
+			while(ler.hasNextLine()) {
+				countlinha += 1;
+				String linha = ler.nextLine();
+				for(char letra : linha.toCharArray()) {
+					if(letra == ' ') {
+						
+					}
+					else {
+						countletra += 1;
+						System.out.println(letra);
+					}
+				}
+				String[] list = linha.split(" ");
+				countpalavra += list.length;
+				
+			}
+			ler.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Arquivo não encontrado!");
+		}
+		System.out.println("Número de Caracteres : " + countletra + "\nNúmero de Linhas : " + countlinha + "\nNúmero de Palavras : " + countpalavra);	
+	}
+
+}
+
+Exercício 13
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+// Escrevendo em arquivos
+public class Escrevendo_em_arqiovps {
+	static String nome, telefone = "1";
+	public static void main(String[] args) {
+	Scanner teclado = new Scanner(System.in);
+	try {
+		PrintStream escrever = new PrintStream(new FileOutputStream("arquivonov.txt", true));
+		while(telefone.equals("0") == false) {
+			System.out.print("Nome = ");
+			nome = teclado.nextLine();
+			System.out.print("Telefone = ");
+			telefone = teclado.nextLine();
+			escrever.println(nome + " - " + telefone);
+		}
+		escrever.close();
+		teclado.close();
+	} catch (FileNotFoundException e) {
+		System.out.println("Não foi possível criar o arquivo!");
+	}
+	}
+
+}
+
+
+Exercício 14
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+// Escrevendo em arquivos
+public class Escrevendo_em_arqiovps {
+	public static void main(String[] args) {
+	Scanner teclado = new Scanner(System.in);
+	System.out.print("Qual a data de hoje ? = ");
+	String atual = teclado.nextLine();
+	String anosep[] = atual.split(" ");
+	int anoatual = Integer.parseInt(anosep[2]);
+	System.out.println("Nome do arquivo = ");
+	String name = teclado.nextLine();
+	teclado.close();
+	try {
+		Scanner ler = new Scanner(new FileInputStream(name + ".txt"));
+		PrintStream escrever = new PrintStream(new FileOutputStream("arquivonovo.txt",true));
+		while(ler.hasNextLine()) {
+			String linha = ler.nextLine();
+			String[] separado = linha.split(" ");
+			int count = separado.length - 3;
+			for(int i = 0; i < count; i++) {
+				escrever.print(separado[i]);
+			}
+			 int anonasc = Integer.parseInt(separado[count + 2]);
+			 
+			 int idade = anoatual - anonasc;
+			 escrever.println(" tem " + idade + " anos de idade." );
+		}
+		escrever.close();
+		ler.close();
+	} catch (FileNotFoundException e) {
+		System.out.println("Arquivo não encontrado!");
+	}
+	//MAIN SPACE
+	}
+
+}
+
+Exercício 15
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+// Escrevendo em arquivos
+public class Escrevendo_em_arqiovps {
+	public static void main(String[] args) {
+	Scanner teclado = new Scanner(System.in);
+	System.out.print("Ano atual =  ");
+	int anoatual = Integer.parseInt(teclado.nextLine());
+	System.out.print("Nome do arquivo de entrada  = ");
+	String name = teclado.nextLine();
+	System.out.print("Nome do arquivo de saída = ");
+	String name2 = teclado.nextLine();
+	teclado.close();
+	try {
+		Scanner ler = new Scanner(new FileInputStream(name + ".txt"));
+		PrintStream escrever = new PrintStream(new FileOutputStream(name2 + ".txt",true));
+		while(ler.hasNextLine()) {
+			String linha = ler.nextLine();
+			String[] separado = linha.split(" ");
+			int count = separado.length - 3;
+			for(int i = 0; i < count; i++) {
+				escrever.print(separado[i]);
+			}
+			 int anonasc = Integer.parseInt(separado[count + 2]);
+			 
+			 int idade = anoatual - anonasc;
+			 if(idade < 18) {
+				 escrever.println(" é menor de idade.");
+			 }
+			 else if(idade == 18) {
+				 escrever.println(" está entrando na maior idade.");
+			 }
+			 else
+				 escrever.println(" é maior de idade.");
+		}
+		escrever.close();
+		ler.close();
+	} catch (FileNotFoundException e) {
+		System.out.println("Arquivo não encontrado!");
+	}
+	//MAIN SPACE
+	}
+
+}
+

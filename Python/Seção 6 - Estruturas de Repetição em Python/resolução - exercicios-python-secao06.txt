@@ -1,0 +1,799 @@
+# Exercício 1
+'''
+\\\\
+num = 1
+while num < 6:
+    print(f'{3 * num}')
+    num += 1
+    
+'''
+
+# Exercício 2
+
+'''
+
+for num in range(1, 101):
+    print(num)
+
+num = 1
+while num < 101:
+    print(num)
+    num+= 1
+
+'''
+
+# Exercício 3
+
+'''
+
+num = 10
+while num >= 0:
+    print(num)
+    if num == 0:
+        print('FIM!')
+    num -= 1
+
+'''
+
+# Exercício 4
+
+'''
+
+for num in range(0,100001,1000):
+    print(num)
+    if num > 100000:
+        break
+
+'''
+
+# Exercício 5
+
+'''
+
+total = 0
+for num in range(1, 11):
+    soma = int(input(f' Digite o {num}o valor = '))
+    total += soma
+    if num == 10:
+        print(f'total = {total}')
+
+'''
+
+# Exercício 6
+
+'''
+
+total = 0
+for num in range (10, 0 , -1):
+    soma = int(input(f'Digite números inteiros afim de calcular a média (faltam {num}): '))
+    total += soma
+    if num == 1:
+        total /= 10
+        print (f'Média = {total}')
+        
+'''
+
+# Exercício 7
+
+'''
+
+soma = 0
+num = 10
+while num != 0:
+    valor = int(input(f'Digite 10 números inteiros (negativos serão ignorados) afim de calcular sua média (faltam {num} números)= '))
+    if valor >= 0:
+        soma += valor
+        num -= 1
+    if num == 0:
+        print(f'Média = {soma / 10}')
+        
+'''
+
+# Exercício 8
+
+'''
+maior = 0
+menor = 0
+for num in range(10, 0, -1):
+    valor = float(input(f'Digite 10 valores afim de exibir o maior e o menor entre eles (faltam {num}) = '))
+    if num == 10:
+        maior = valor
+        menor = valor
+    if maior < valor:
+        maior = valor
+    if menor > valor:
+        menor = valor
+print(f'Maior valor = {maior}\nMenor Valor = {menor}')
+
+'''
+
+'''
+
+    # Exercício 9
+
+num = int(input('Digite um número inteiro, e vão aparecer os primeiros números ímpares = '))
+while num != 0:
+    if num % 2 == 0:
+        print(f'{num + 1}')
+    else:
+        print(f'{num + 2}')
+    num -= 1
+
+'''
+
+# Exercicio 10
+
+'''
+
+soma = 0
+for num in range(1, 101):
+    if num % 2 == 0:
+        soma = soma + num
+print(soma)
+
+'''
+
+# Exercício 11
+
+'''
+n = int(input('Digite um número para que se exiba a ordem crescente até ele = '))
+for num in range(0, n + 1):
+    print(num)
+
+'''
+
+# Exercício 12
+
+'''
+
+n = int(input('Digite um número para que se exiba até o 0 = '))
+for n in range (n, -1, -1):
+    print(n)
+
+'''
+
+# Exercício 13
+
+'''
+
+n = int(input('Digite um número inteiro positivo PAR = '))
+for n in range(0, n + 2):
+    if n % 2 == 0:
+        print(n)
+        
+'''
+
+# Exercício 14
+
+'''
+
+n = int(input('Digite um número inteiro positivo PAR = '))
+for n in range(n, -1, -1):
+    if n % 2 == 0:
+        print(n)
+
+'''
+
+# Exercício 15
+
+'''
+
+n = int(input('Digite um número inteiro positivo ÍMPAR = '))
+for n in range(1, n, 2):
+    print(n)
+    
+'''
+
+# Exercício 16
+
+'''
+
+n = int(input('Digite um número inteiro positivo ÍMPAR = '))
+for n in range(n, 0, -2):
+    print(n)
+
+'''
+
+# Exercício 17
+
+'''
+
+n = int(input('Digite um número inteiro positivo = '))
+soma = 0
+for n in range(n, 0, -1):
+    soma += n
+    print(soma)
+print(f'TOTAL = {soma}')
+
+'''
+
+# Exercício 18
+
+'''
+
+qtd = int(input('Digite a quantidade de números a serem lidos = '))
+mv = 0
+count = 0,
+0
+for qtd in range(qtd, 0, -1):
+    num = int(input(f'número (faltam {qtd}) = '))
+    if mv == qtd:
+        mv = num
+    if mv < num:
+        mv = num
+    if mv == num:
+        count += 1
+    
+print(f'Maior valor inserido = {mv}\nDigitado {count} veze(s)')
+
+'''
+
+# Exercício 19
+
+'''
+
+num = int(input('Digite um valor entre 100 e 999 = '))
+c = int(num / 100)
+d = num - (c * 100)
+e = int(d / 10)
+f = num - ((e * 10)  + (c * 100))
+print(f'[ {c} ] [ { e } ] [ {f} ] ')
+
+'''
+
+# Exercício 20
+
+'''
+
+count = 0
+total = 0
+num = 0
+while num != 1000:
+    num =int(input('Digite valores afim de verificar quais deles são pares = '))
+    if num % 2 == 0:
+        print(f'Número {num} é par.')
+        count += 1
+    total += 1
+print(f'Total números inseridos = {total}\nTotal números pares = {count}')
+
+'''
+
+# Exercício 21
+
+'''
+num1 = int(input('Digite o primeiro valor = '))
+num2 = int(input('Digite o segundo valor = '))
+soma = 0
+produto = 1
+if num1 > num2:
+    for num1 in range(num2,num1 + 1):
+        if num1 % 2 == 0:
+            soma += num1
+        else:
+            produto *= num1
+else:
+    for num2 in range(num1, num2):
+        if num2 % 2 == 0:
+            soma += num2
+        else:
+            produto *= num2
+print(f'Soma dos pares = {soma}\nProduto dos ímpares = {produto}')
+
+
+'''
+
+# Exercício 22
+
+'''
+
+nota = 10
+count = 0
+soma = 0
+while 10 <= nota <= 20:
+    nota = float(input('Digite uma sequência arbitrária de notas ( 10 a 20 ) = '))
+    soma += nota
+    count += 1
+print(f'Média Aritmética = {soma / count}')
+
+'''
+
+# Exercício 23
+
+'''
+
+num = int(input('Digite um número inteiro positivo afim de verificar seus divisores = '))
+for n in range(1,10):
+    if num % n == 0:
+        print(f'O número {num} é divisível por {n}')
+
+'''
+
+# Exercício 24
+
+'''
+
+soma = 0
+num = int(input('Digite um número inteiro positivo afim de verificar seus divisores = '))
+for n in range(1,100):
+    if num % n == 0:
+        soma = soma + n
+print(f'Soma divisores = {soma - num}')
+
+
+# Exercício 25
+'''
+'''
+
+soma = 0
+for n in range(1, 1000):
+    if n % 3 == 0:
+        soma += n
+    elif n % 5 == 0:
+        soma += n
+print(f'Soma de todos os números divisíveis por 3 ou 5 = {soma}')
+
+'''
+
+# Exercício 26
+
+'''
+
+saida = 0
+num = int(input('Digite um número, e encontrará o primeiro divisivel por 11,13 ou 17 após esse valor = '))
+for n in range(num + 1, 1000):
+    if saida == 0:
+        if n % 11 == 0:
+            print(f'Primeiro divisivel = {n}, por 11')
+            saida += 1
+        if n % 13 == 0:
+            print(f'Primeiro divisivel = {n}, por 13')
+            saida += 1
+        if n % 17 == 0:
+            print(f'Primeiro divisivel = {n}, por 17')
+            saida += 1
+
+'''
+
+# Exercício 33
+
+'''
+
+n = int(input("Digite n: "))
+i = int(input("Digite i: "))
+j = int(input("Digite j: "))
+mult = 0
+k = 0
+while k < n:
+    if mult % i == 0 or mult % j == 0:
+        print(mult, end=',')
+        k += 1
+    mult = mult + 1
+
+'''
+
+# Exercício 35
+
+'''
+
+x =  int(input('Digite o valor do início do intervalo = '))
+y = int(input('Digite o valor final do intervalo = '))
+soma = 0
+for n in range(x, y+1):
+    if n % 2 != 0:
+        soma += n
+print(soma)
+
+'''
+
+# Exercício 36
+
+'''
+
+soma = 0
+soma2 = 0
+for n in range(1,101):
+    soma += n ** 2
+    soma2 += n
+print(f'{soma2 ** 2} - {soma} = {(soma2 ** 2) - soma}' )
+
+'''
+
+# Exercício 37
+
+'''
+
+for n in range(1000,10000):
+    p1 = int(n / 100)
+    p2 = n % 100
+    soma = p1 + p2
+    prod = soma ** 2
+    if n == prod:
+        print(f'{p1} + {p2} = {soma}\n {soma} ** 2 = {prod}\n--------------------')
+
+
+'''
+
+# Exercício 38
+
+# Exercício 39
+
+'''
+
+b = float(input('Digite o tamanho da base do triângulo = '))
+h = float(input('Digite o tamanho da altura do triângulo = '))
+while b < 1 or h < 1:
+    print('DADOS INVÁLIDOS.')
+    b = float(input('Digite o tamanho da base do triângulo = '))
+    h = float(input('Digite o tamanho da altura do triângulo = '))
+print(f'área do triângulo = {(b * h) / 2}')
+
+'''
+
+# Exercício 40
+
+'''
+
+num = int(input('Digite números inteiros (número negativo finaliza a digitação) = '))
+maior = num
+menor = num
+while num >= 0:
+    num = int(input('Digite números inteiros (número negativo finaliza a digitação) = '))
+    if maior < num:
+        maior = num
+    if menor > num:
+        menor = num
+print(f' Maior número = {maior} /// Menor número = {menor}')
+
+'''
+
+# Exercício 41
+
+'''
+
+for n in range(1,1000):
+    r1 = float(input('Digite o valor do R1 (RESISTOR) = '))
+    r2 = float(input('Digite o valor do R2 (RESISTOR) = '))
+    res = (r1 * r2) / (r1 + r2)
+    if r1 == 0 or r2 == 0:
+        break
+    else:
+        print(f'R = {res}')
+
+'''
+
+# Exercício 42
+
+'''
+
+num = 1
+while num > 0:
+    num = int(input('Digite um valor para que seja calculada sua raiz quadrada, seu quadrado e seu cubo (inserir <= 0 para finalizar) =  '))
+    if num > 0:
+        print(f'Raiz quadrada de {num} = {num ** 0.5}\nQuadrado de {num} = {num ** 2}\nCubo de {num} = {num ** 3}')
+print('Finalizado!')
+
+'''
+
+# Exercício 43
+
+'''
+
+div = 0
+soma = 0
+idade = 1
+while idade > 0:
+    idade = int(input('Digite idades afim de achar a média entre elas, digite 0 para finalizar = '))
+    if idade > 0:
+        soma += idade
+        div += 1
+    else:
+        print(f'Finalizado!\n Média  = {int(soma / div)} anos')
+
+'''
+
+# Exercício 44
+
+# Exercício 45
+
+'''
+
+for n in range(0,100000):
+    opcao = int(input('Digite a opção desejada \n(1) - Km/h para M/s\n(2) - M/s para Km/h \n(3) - Finalizar programa\nOpção : '))
+    if opcao == 1:
+        a = float(input('Velocidade em KM/H : '))
+        print(f'Velocidade em M/s : {a / 3.6}')
+    elif opcao == 2:
+        a = float(input('Velocidade em M/s: '))
+        print(f'Velocidade em KM/h : {a * 3.6}')
+    elif opcao == 3:
+        break
+    else:
+        print('Opção Inválida')
+print('Finalizado.')
+
+'''
+
+# Exercício 46
+'''
+
+import random
+
+count = 0
+n = 0
+x = random.randint(1,1000)
+print (x)
+
+while n != x:
+    n = int(input('Tente adivinhar o número ( intervalo de 1 a 1000) = '))
+    if n < x:
+        print(f' O número surpresa é maior que {n}.')
+        count += 1
+    elif n > x:
+        print(f' O número surpresa é menor que {n}.')
+        count += 1
+print(f' O número surpresa é {n}, e você acertou após digitar {count + 1} vezes')
+
+'''
+
+# Exercício 47
+
+'''
+
+for n in range(0,10000):
+    op = int(input('Digite a opção desejada \n( 1 ) - Adição\n( 2 ) - Subtração\n( 3 ) - Multiplicação\n( 4 ) - Divisão\n( 5 ) - Saída\nOPÇÃO : '))
+    if op == 1:
+        a = float(input('Valor 1 : '))
+        b = float(input('Valor 2 : '))
+        print(f'{a} + {b} = {a + b}')
+    elif op == 2:
+        a = float(input('Valor 1 : '))
+        b = float(input('Valor 2 : '))
+        print(f'{a} - {b} = {a - b}')
+    elif op == 3:
+        a = float(input('Valor 1 : '))
+        b = float(input('Valor 2 : '))
+        print(f'{a} * {b} = {a * b}')
+    elif op == 4:
+        a = float(input('Valor 1 : '))
+        b = float(input('Valor 2 : '))
+        print(f'{a} / {b} = {a / b}')
+    elif op == 5:
+        break
+    else:
+        print('Opção Inválida!')
+print('Finalizado.')
+
+'''
+
+# Exercício 49
+
+'''
+
+SalarioCarlos = 1400
+SalarioJoao = 466
+count = 0
+fixCarlos = 1400
+fixJoao = 466
+while SalarioCarlos > SalarioJoao:
+    SalarioCarlos += (SalarioCarlos * 0.02) + fixCarlos
+    SalarioJoao += (SalarioJoao * 0.05) + fixJoao
+    count += 1
+print(f'Salário Carlos: {SalarioCarlos}\nSalário Joao:{SalarioJoao}\nMeses de aplicação = {count} meses')
+
+'''
+# Exercicio 50
+
+'''
+
+chico = 150
+ze = 110
+count = 0
+
+while chico > ze:
+    chico = 150
+    ze = 110
+    chico += (2 * count)
+    ze += (3 * count)
+    count += 1
+print(f'Demorou {count} anos')
+
+
+'''
+
+# Exercício 51
+
+'''
+
+count = 1
+aumento = 0.015
+salario = 2000
+
+for ano in range(1996, 2022):
+    salario = (salario + (salario * aumento))
+    aumento *= 2
+    print(f'Salário = {salario}\nAno = {ano}')
+    
+'''
+
+# Exercício 52
+
+'''
+
+saque = float(input('Digite o valor do saque = R$'))
+
+while saque != 0:
+    if saque >= 100:
+        print(f'{int(saque / 100)} nota(s) de 100')
+        saque = saque - (int(saque / 100) * 100)
+    if saque >= 50:
+        print(f'{int(saque/50)} nota(s) de 50')
+        saque = saque - (int(saque / 50) * 50)
+    if saque >= 20:
+        print(f'{int(saque/20)} nota(s) de 20')
+        saque = saque - (int(saque / 20) * 20)
+    if saque >= 10:
+        print(f'{int(saque/10)} nota(s) de 10')
+        saque = saque - (int(saque / 10) * 10)
+    if saque >= 5:
+        print(f'{int(saque/5)} nota(s) de 5')
+        saque = saque - (int(saque / 5) * 5)
+    if saque >= 2:
+        print(f'{int(saque/2)} nota(s) de 2')
+        saque = saque - (int(saque / 2) * 2)
+    if saque >= 1:
+        print(f'{int(saque/1)} nota(s) de 1')
+        saque = saque - (int(saque / 1) * 1)
+
+'''
+
+# Exercício 53
+
+'''
+
+c = 0
+num = int(input('Digite um numero inteiro positivo = '))
+
+for n in range(0, num):
+    for j in range(0, n + 1 ):
+        c += 1
+        print(f'{c} ', end='')
+    print('')
+
+'''
+
+# Exercício 54
+
+
+'''
+
+num = int(input('Digite um número inteiro maior do que 1 : '))
+count = 0
+for n in range(2, num):
+    if num % n == 0:
+        print(f'Multiplo de {n}')
+        count += 1
+if count == 0:
+    print('é primo')
+else:
+    print('não é primo')
+
+
+
+# Exercício 55
+
+
+
+
+n = int(input('Digite um número inteiro positivo: '))
+soma = 0
+conta = 0
+num = 2
+while conta < n:
+    primo = True
+    for i in range(2, num):
+        if num % i == 0:
+           primo = False
+           break
+    if primo:
+        print(num)
+        soma += num
+        conta += 1
+    num += 1
+print(f'soma = {soma}')
+
+'''
+
+#  Exercício 56
+
+'''
+
+num = 2000000
+soma = 0
+while num > 0:
+    primo = True
+    for i in range(2, num):
+        if num % i == 0:
+            primo = False
+            break
+    if primo:
+        soma += num
+        print(num)
+    num -= 1
+print(soma)
+
+'''
+
+# Exercício 57
+
+'''
+
+a = int(input('Digite o primeiro valor do intervalo = '))
+b = int(input('Digite o segundo valor do intervalo = '))
+
+soma = 0
+while b >= a:
+    primo = True
+    for i in range(2, b):
+        if b % i == 0:
+            primo = False
+            break
+    if primo:
+        soma += 1
+        print(b)
+    b -= 1
+print(f'números = {soma}')
+
+'''
+
+# Exercício 58
+
+'''
+
+a = int(input('Digite o primeiro valor do intervalo = '))
+b = int(input('Digite o segundo valor do intervalo = '))
+
+soma = 0
+while b >= a:
+    primo = True
+    for i in range(2, b):
+        if b % i == 0:
+            primo = False
+            break
+    if primo:
+        soma += b
+        print(b)
+    b -= 1
+print(f'soma = {soma}')
+
+'''
+
+# Exercício 59
+num = 1
+count = 0
+maior = 0
+menor = 0
+soma = 0
+somapar = 0
+countpar = 0
+
+while num != 0:
+    num = int(input('Digite números ( 0 STOPA o programa ) = '))
+    if num != 0:
+        soma += num
+        count += 1
+        if num % 2 == 0:
+            somapar += num
+            countpar += 1
+        if count == 1:
+            maior = num
+            menor = num
+        if maior < num :
+            maior = num
+        if menor > num:
+            menor = num
+    else:
+        print(f'Finalizado')
+print(f'[a] - SOMA = {soma}\n[b] - Quantidade de números digitados = {count}\n[c] - Média = {soma / count}\n[d] - Maior digitado = {maior}\n[e] - Menor digitado = {menor}\n[f] - Média dos PARES = {somapar / countpar}')
+
+
+

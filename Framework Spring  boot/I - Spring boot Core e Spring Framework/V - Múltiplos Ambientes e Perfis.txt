@@ -1,0 +1,55 @@
+Digamos que precisamos definir um perfil de desenvolvimento, 
+ e outro de produção.
+
+Para cada um destes, são necessárias configurações específicas
+ para cada um deles.
+
+Ou seja, um application.properties para cada um.
+
+-----
+
+Para cada perfil de uso, é criado um application.properties específico.
+Dentro da pasta Java/resources do projeto.
+Por convenção é 'application-nome_do_ambiente.properties'
+	
+   Exemplo:
+	   para perfil de desenvolvimento: application-development.properties
+	   para perfil de produção: application-production.properties
+
+
+Digamos que em todos os perfis/ambientes existam o application.name.
+E é diferente em cada um.
+
+Para utilizar o perfil de configuração desejado na aplicação,
+deve-se colocar em application.properties o seguinte:
+
+spring.profiles.active=nome_do_ambiente.
+	
+   Exemplo:
+	    spring.profiles.active=production
+	    ou
+	    spring.profiles.active=development
+
+
+---
+
+Agora para definir uma configuração específica para um pefil:
+
+Colocar @Profile abaixo do @Configuration, e em seguida o perfil.
+
+
+@Configuration
+@Profile("development")   // AQUI!
+public class Minha_Configuration {
+
+    @Bean
+    public CommandLineRunner executar() {
+        return args -> {
+            System.out.println("rodando a configuração de desenvolvimento");
+        };
+
+    }
+}
+
+
+OBS: @Beans de commandlinerunner são lidos toda vez que a aplicaçao é iniciada.

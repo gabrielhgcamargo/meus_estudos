@@ -1,0 +1,4 @@
+O que é ?
+
+É um padrão de projeto, onde eu delego outras classes ou um container que instancie e injetem onde é preciso.
+

@@ -1,0 +1,152 @@
+'''
+Dicionários
+
+Em algumas linguagens de programação, os dicionários Python são conhecidos por mapas.
+
+Dicionários são coleções do tipo chave/valor.
+
+Dicionários são representados por chaves {}.
+
+print(type({}))
+
+OBS: Sobre Dicionários
+    - Chave e valor são separados por dois pontos 'BR': 'Brasil'
+    - Tanto chave quanto valor pode ser de qualquer tipo de dado.
+    - Podemos misturar todos os dados
+
+
+# Criação de Dicionários
+
+# Forma 1 ( Mais Comum)
+paises = {'br': 'Brasil', 'eua': 'Estados Unidos', 'arg': 'Argentina'}
+print(paises)
+print(type(paises))
+
+# Forma 2 ( Menos Comum)
+paises =  dict(br='Brasil',eua= 'Estados Unidos', arg = 'Argentina')
+print(paises)
+print(type(paises))
+
+# Acessando elementos
+
+# Forma 1 - Acessando via Chave, da mesma forma que lista/tupla
+paises = {'br': 'Brasil', 'eua': 'Estados Unidos', 'arg': 'Argentina'}
+print(paises['br'])
+#print(paises['ru']) # Caso tentamos acessar utilizando uma chave inexistente, dará erro.
+
+# Forma 2 - Acessando via get ( RECOMENDADO )
+print(paises.get('br'))
+print(paises.get('ru')) # Na forma 2, exibe o NONE caso não exista a chave.
+
+pais = paises.get('br')
+if pais:
+    print(f'Encontrei o país {pais}')
+else:
+    print('Não encontrei')
+
+pais = paises.get('ru','Não encontrei') # Podemos definir o valor caso não exista a chave
+print(f'Encontrei o pais {pais}')
+
+paises = {'br': 'Brasil', 'eua': 'Estados Unidos', 'arg': 'Argentina'}
+print('br' in paises) # existe
+print('ru' in paises) # não existe
+print('Estados Unidos' in paises) # busca pela chave , e NÃO pelo valor
+
+# Podemos utilizar qualquer tipo de dado (int, float, string, float, lista, tupla como chaves de dicionários)
+
+# Exemplo (TUPLA com valores Float, e String)
+localidades = {
+    (27.5123, 15.1515): 'Escritório em Nova York',
+    (15.1212, 30.1551): 'Escritório em Xangai',
+    (21.7824, 47.1212): 'Escrítório em São Paulo'
+}
+print(localidades)
+print(type(localidades))
+
+# ADICIONAR ELEMENTOS EM UM DICIONÁRIO
+
+receita = {'jan': 100, 'fev': 200, 'mar': 300}
+print(receita)
+print(type(receita))
+
+# Forma 1 ( mais comum)
+receita['abr'] = 400
+print(receita)
+print(type(receita))
+
+# Forma 2
+novo_dado = {'mai': 500}
+receita.update(novo_dado)
+print(receita)
+
+# Atualizando Dados
+
+# Forma 1
+receita['mai'] = 550
+print(receita)
+
+# Forma 2
+receita['abr'] = 700
+print(receita)
+
+# OBS: adicionar elementos no dicionário onde a chave já exista, em vez de adicionar, o valor será substituido.
+# Caso não exista, então daí sim será ADICIONADO.
+
+# Como remover dados de um dicionário
+
+# Forma 1
+receita = {'jan': 100, 'fev': 200, 'mar': 300}
+print(receita)
+receita.pop('mar')
+print(receita)
+
+#OBS: Aqui precisamos sempre informar a chave e caso não encontre será retornado um KEY ERROR
+
+# Forma 2
+del receita['fev']
+print(receita)
+
+
+
+# Métodos de dicionários
+
+d = {'a': 1,'b': 2,'c': 3}
+print(d)
+print(type(d))
+
+# Limpar dicionário (zerar dados)
+
+d.clear()
+print(d)
+
+# Copiando um dicionário para outro
+
+# forma 1 - DEEP COPY
+d = {'a': 1,'b': 2,'c': 3}
+novo = d.copy()
+novo['d'] = 4
+print(d)
+print(novo)
+
+# forma 2 -  Shallow Copy
+d = {'a': 1,'b': 2,'c': 3}
+novo = d
+novo['d'] = 4
+print(d)
+print(novo)
+
+# Forma não usual de criação de dicionários
+
+outro = {}.fromkeys('a', 'b')
+
+print(outro)
+print(type(outro))
+
+usuario = {}.fromkeys(['nome','pontos','email','profile'], 'desconhecido') # COM FROM KEYS, Cada elemento da lista se torna uma chave do dicionário, e 'desconhecido' se torna o valor destas chaves.
+print(usuario)
+print(type(usuario))
+
+veja = {}.fromkeys(range(1, 11), 'novo')
+print(veja)
+
+'''

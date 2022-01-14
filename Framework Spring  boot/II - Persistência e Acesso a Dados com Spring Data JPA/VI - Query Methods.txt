@@ -1,0 +1,46 @@
+Query Methods
+É um método que se transforma numa query.
+
+Devem respeitar uma convenção para funcionar.
+São inseridos no repositório de Clientes.
+
+Os itens de parâmetro do método devem ser pedidos na ordem da escrita do query method.
+		findByNomeOrIdOrCpfOrTelefone(String nome, Integer Id, String cpf, String telefone)	
+	
+
+Alguns exemplos completos:
+
+List<Cliente> findyByNomeLike (String nome);
+// Onde findBy realiza uma busca, onde os nomes encontrados serão colocados nessa lista. 
+	A escrita de "nome" em findByNomeLike deve ser igual ao da propriedade dessa entidade,
+	pois ele buscará na coluna nome, os nomes que são iguais ao que foi passado de parâmetro ao método.
+
+
+
+List<Cliente> findByNomeOrIdOrderById(String nome, Integer Id);
+// Onde findBy realiza uma busca, onde os nomes ou IDs encontrados serão colocados nessa lista. 
+   A escrita de "nome" e "id"em findByNomeOrIdOrderById deve ser igual ao da propriedade dessa entidade,
+   pois ele buscará na coluna nome ou id, os nomes ou IDs que são iguais ao que foi passado de parâmetro ao método.
+   O OrderBy vai determinar a ordem desta lista com base nos IDs, ou seja, ordenação por IDs.
+
+
+ou seja, FindBy é utilizado quando se está afim de obter coleções (Lists).
+Se quisermos obter apenas um elemento (no caso, um cliente no exemplo utilizado), utilizamos findOne.
+
+Cliente findOneByNome(String nome);
+// Utilizado se os nomes forem únicos, ou seja, não se repitam.
+   Também a escrita de "nome" em  findOneByNome deve ser igual ao da propriedade dessa entidade,
+   pois ele buscará na coluna nome, o nome que é igual ao que foi passado de parâmetro ao método. 
+
+
+Podemos também retornar um booleano.
+
+boolean existsByNome(String nome);
+// retorna um boolean.
+   Também a escrita de "nome" em  existsByNome deve ser igual ao da propriedade dessa entidade,
+   pois ele buscará na coluna nome, o nome que é igual ao que foi passado de parâmetro ao método, se este existir.
+
+
+Podemos também deletar com
+
+void deleteByNome(String nome);

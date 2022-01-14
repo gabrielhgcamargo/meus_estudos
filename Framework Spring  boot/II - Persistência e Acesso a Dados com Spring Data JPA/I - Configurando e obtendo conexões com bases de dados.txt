@@ -1,0 +1,146 @@
+Configurando e obtendo conexões com bases de dados
+
+I - Primeiramente será utilizada esta configuração no pom.xml:
+
+   <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.4.RELEASE</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+-------------------------------------
+
+II - Configurar o application.properties.
+
+A conexão com a base de dados é configurada por convenção no Spring por : spring.datasource
+
+Quando queremos nos conectar a um banco de dados, precisamos de quatro informações:
+
+1 -	URL -> qual o URL da base de dados. ( spring.datasource.url )
+
+2 -	Driver do H2Database -> Classe que vai estabelecer a conexão com a base de dados ( spring.datasource.driverClassName )
+
+3 -	Username ->  ( spring.datasource.username )
+
+4 -	Password ->  ( spring.datasource.password )
+
+
+Além destes:
+
+Dialeto do banco de Dados ( JPA trabalha independente do Banco de Dados, por isto devemos passar o Dialeto do banco) -> ( spring.jpa.database-platform )
+
+Configurações referentes ao H2Database, onde:
+
+-	Habilita o console do H2Database = spring.h2.console.enabled
+
+-	Url para acesso ao banco de dados = spring.h2.console.path
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+
+	Exemplo de configuração de conexão a um Banco de Dados (H2Database)(Utilizado no aprendizado)
+
+
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=password
+
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+
+
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+
+Com as configurações acima, o acesso fica disponivel em: http://localhost:8080/h2-console
+
+Onde se encontra um banco de dados SQL.
+
+Inserida a seguinte tabela no aprendizado desta aula:
+
+
+CREATE TABLE cliente(
+id INT NOT NULL PRIMARY KEY,
+nome varchar(100)
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

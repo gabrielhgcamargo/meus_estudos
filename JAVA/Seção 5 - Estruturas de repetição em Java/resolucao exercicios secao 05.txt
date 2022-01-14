@@ -1,0 +1,147 @@
+19:37 04/11/2021Exercício 1
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		//Scanner teclado = new Scanner(System.in);
+		int i;
+		for(i = 1; i < 6; i++)
+			System.out.println(3 * i);
+	}	
+}
+
+
+
+Exercício 2
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		//Scanner teclado = new Scanner(System.in);
+		int i;
+		System.out.println("FOR = ");
+		for(i = 1; i < 101; i++)
+			System.out.println(i);
+		i = 1;
+		System.out.println("WHILE = ");
+		while(i < 101)
+		{
+			System.out.println(i);
+			i++;
+		}	
+		System.out.println("DO WHILE = ");
+		i = 1;
+		do {
+			System.out.println(i);
+			i++;
+		}while(i<101);
+			
+	}	
+}
+
+
+Exercício 3
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		//Scanner teclado = new Scanner(System.in);
+		int i = 10;
+		while(i >= 0) {
+			System.out.println(i);
+			i--;
+		}
+		System.out.println("FIM!");
+	}	
+}
+
+
+Exercício 4
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		//Scanner teclado = new Scanner(System.in);
+		int i;
+		for(i = 1000; i < 100001; i = i + 1000)
+			System.out.println(i);
+}
+	}
+
+
+
+Exercício 5
+
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		int i, soma = 0, aux;
+		for(i = 10; i > 0 ; i--) {
+			System.out.println("Digite um número (FALTAM " + i + ") : ");
+			aux = teclado.nextInt();
+			soma += aux;
+		}
+		System.out.println(soma);
+}
+	}
+
+
+Exercício 6
+
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		int i, soma = 0, aux;
+		for(i = 10; i > 0 ; i--) {
+			System.out.println("Digite um número (FALTAM " + i + ") : ");
+			aux = teclado.nextInt();
+			soma += aux;
+		}
+		System.out.println(soma / 10);
+}
+	}
+
+
+
+Exercício 7
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		int i, soma = 0, aux, count = 0;
+		for(i = 10; i > 0 ; i--) {
+			System.out.println("Digite um número (FALTAM " + i + ") : ");
+			aux = teclado.nextInt();
+			if(aux > 0)	{
+				soma += aux;
+				count += 1;
+			}
+		}
+		System.out.println((float) soma / count);
+}
+	}
+
+
+Exercício 8
+
+
+
+
+
+Exercício 9
+
+
+
+
+Exercício 10

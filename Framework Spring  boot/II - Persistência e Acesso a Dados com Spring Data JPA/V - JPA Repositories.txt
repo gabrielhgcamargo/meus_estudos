@@ -1,0 +1,49 @@
+Neste notepad veremos uma feature do Spring Data, que são os JPA Repositories.
+
+Nos notepads anteriores, implementamos os métodos de salvar, deletar, busca por nome, obter todos.
+E o Spring Data possui interfaces e implementações que já possuem esses métodos acima, nos livrando de ter que
+ realizar toda essa criação na mão.
+
+
+Começamos refatorando os repositórios para a interface do Spring Data JPA.
+
+	- Removemos o @Repository
+	- trocamos de "public class nome_da_classe", para "public interface nome_da_interface extends JpaRepository<Cliente, Integer>"
+	- excluimos todas as implementações e imports não utilizados
+	
+
+	Método de Salvar: save()
+	Exemplo:	 clientes.save(new Cliente("Gabriel"));
+            		 clientes.save(new Cliente("Kamille"));
+            		 clientes.save(new Cliente("Sandro"));
+
+	
+	Método de Obter Todos : findAll()
+	Exemplo:	List<Cliente> todosClientes = clientes.findAll();
+            		todosClientes.forEach(System.out::println);
+
+			// verifica se ta vazio
+				todosClientes = clientes.findAll();
+           	 		if(todosClientes.isEmpty()){
+               	 			System.out.println("Nenhum cliente encontrado!");
+            						   }
+            			else
+               			     todosClientes.forEach(System.out::println);
+
+        };
+
+	Método de Buscar Por Nome : List<Cliente> findByNomeLike(String nome); -> colocar no JpaRepository
+			
+				clientes.findByNomeLike("Kamille").forEach(System.out::println);
+				
+
+	Método de Atualizar : save()
+	todosClientes.forEach(c -> {
+                c.setNome(c.getNome() + " Sobrenome!");
+                clientes.save(c);
+            });
+	
+	Método de Deletar : delete()
+            clientes.findAll().forEach(c -> {
+                clientes.delete(c);
+            });

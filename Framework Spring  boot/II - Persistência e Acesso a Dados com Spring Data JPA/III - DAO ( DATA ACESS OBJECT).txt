@@ -1,0 +1,257 @@
+No caso, vamos ver como salvamos e recuperamos clientes ( exemplo sistema de vendas ).
+Para isso devemos criar os repositórios para as classes. 
+
+-----------------------------------------------------------
+Repositório é uma classe que tem acesso a base de dados !!!
+-----------------------------------------------------------
+
+Criar no pacote raiz, da seguinte maneira: Criar nova Classe Java -> domain.repositorio.nome_da_classe
+Para que seja criado dentro do pacote domain, o pacote repositorio.
+
+Para que seja reconhecido como um repositório deve ser colocada a Annotation @Repository.
+Assim sendo, o Spring registre essa classe criada no Container, como um repositório 
+
+
+Nessa classe de Repositório de exemplo, é criado o método salvarCliente.
+Onde este método recebe como parâmetro um objeto do tipo Cliente.
+
+Para que salve isso na base de dados definitivamente, para realizar essa conexão, 
+	deve-se utilizar uma classe do Spring Data JPA chamada JbdcTemplate.
+	Junto ao JbdcTemplate utilizar a annotation Autowired para que o Spring boot
+	injete uma instância desse tipo (JdbcTemplate).
+
+A classe JbdcTemplate possui alguns métodos que permite realizar operações nesta base de dados.
+
+--------------------------------------------------------------------------------------------------------
+Exemplo do aprendizado vai se basear em salvar Clientes.
+
+Para isso, o repositório deve seguir a estrutura explicada acima.
+Exemplo do script:
+
+@Repository
+public class Clientes {
+
+    private static String INSERT = "insert into cliente (nome) values (?)";
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    public Cliente salvar(Cliente cliente){
+        jdbcTemplate.update( INSERT, new Object[]{cliente.getNome()} );
+        return cliente;
+    }
+}
+
+
+
+//---
+
+E também criado dentro da classe da aplicação um CommandLineRunner para que seja executado assim que 
+a aplicação for iniciada.
+
+  @Bean
+    public CommandLineRunner init(@Autowired Clientes clientes){
+        return args -> {
+            Cliente cliente = new Cliente();
+            cliente.setNome("Gabriel");
+            clientes.salvar(cliente);
+        };
+    }
+
+Para que isso funcione acima, deve se implementar todos getters e setters na Classe Cliente:
+
+
+E também o construtor sem parãmetro, outro pedindo os dois parâmetros e por fim o último pedindo o parâmetro nome:
+	
+	Sem parâmetro:
+
+		public Cliente() {
+    }
+---------------------------------------------------
+	Com parâmetro:
+
+	public Cliente(Integer id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+---------------------------------------------------	
+	Com parâmetro nome:
+
+	public Cliente(String nome) {
+        this.nome = nome;
+    }
+
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+
+Como listar (SELECT) esses clientes ?
+
+Ação de printar no console o ID e Nome desses clientes.
+Inserir no repositório de clientes o seguinte método:
+
+
+
+  private static String SELECT_ALL = "SELECT * FROM CLIENTE";
+
+  public List<Cliente> obterTodos(){
+        return jdbcTemplate.query(SELECT_ALL, new RowMapper<Cliente>() {
+            @Override
+            public Cliente mapRow(ResultSet resultSet, int i) throws SQLException {
+                Integer id = resultSet.getInt("id");   // pega o valor do tipo int da coluna ID
+                String nome = resultSet.getString("nome"); //pega o valor do tipo String da coluna Nome
+               return new Cliente(id,nome);
+            }
+        });
+    }
+
+----
+
+Implementar o método ToString na classe Cliente para que possa receber o valor dos campos da tabela:
+
+ @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
+
+---
+
+
+Para verificar o funcionamento, alterar o CommandLineRunner para inserir mais nomes e enfim exibi-los com o método obterTodos()
+
+
+@Bean
+    public CommandLineRunner init(@Autowired Clientes clientes){
+        return args -> {
+            clientes.salvar(new Cliente("Gabriel"));
+            clientes.salvar(new Cliente("Kamille"));
+            clientes.salvar(new Cliente("Sandro"));
+
+            List<Cliente> todosClientes = clientes.obterTodos();
+            todosClientes.forEach(System.out::println);
+        };
+    }
+
+
+
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+
+Como Atualizar e Deletar esses clientes?
+
+
+-- Criar um método no repositório de Cliente, chamado de atualizar.
+
+
+private static String UPDATE = "update cliente set nome = ? where id = ?";
+
+public Cliente atualizar(Cliente cliente){
+        jdbcTemplate.update(UPDATE, new Object[]{cliente.getNome(), cliente.getId()});
+        return cliente;
+    }
+
+
+-- Criar os métodos para deletar Cliente.
+
+private static String DELETE = "delete from cliente where id = ?";
+
+
+    public void deletar(Cliente cliente){
+        deletar(cliente.getId());
+    }
+
+    public void deletar(Integer id){
+        jdbcTemplate.update(DELETE, new Object[]{id});
+    }
+
+
+
+
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+
+Como realizar pesquisa:
+
+
+public List<Cliente> buscarPorNome(String nome){
+        return jdbcTemplate.query(
+                SELECT_ALL.concat(" where nome like ?"),
+                new Object[]{"%" + nome + "%"},
+                obterClienteMapper());
+    }
+
+
+// ObterClienteMapper() é o rowMapper utilizado também pelo obter todos. Mas agora é um método,
+	podendo ser chamado por obterClienteMapper quando necessário em vez de re-implementar.
+
+
+
+O método  ObterClienteMapper():
+
+  private RowMapper<Cliente> obterClienteMapper() {
+        return new RowMapper<Cliente>() {
+            @Override
+            public Cliente mapRow(ResultSet resultSet, int i) throws SQLException {
+                Integer id = resultSet.getInt("id");
+                String nome = resultSet.getString("nome");
+                return new Cliente(id, nome);
+            }
+        };
+    }
+
+
+
+// Com esta mudança, o método para listar todos os clientes ficou assim:
+
+   public List<Cliente> obterTodos(){
+        return jdbcTemplate.query(SELECT_ALL, obterClienteMapper());
+    }
+
+
+
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+
+------------------------
+Teste de atualizar:
+
+
+todosClientes.forEach(c -> {
+                c.setNome(c.getNome() + " Sobrenome!");
+                clientes.atualizar(c);
+            });
+
+------------------------
+Teste de pesquisar:
+
+
+clientes.buscarPorNome("Kamille").forEach(System.out::println);
+
+
+------------------------
+Teste de deletar:
+
+clientes.obterTodos().forEach(c -> {
+                clientes.deletar(c);
+            });
+
+	Verificar se foram deletados:
+
+ 	todosClientes = clientes.obterTodos();
+ 	           if(todosClientes.isEmpty()){
+   	             System.out.println("Nenhum cliente encontrado!");
+    	        }
+      	      else
+              	  todosClientes.forEach(System.out::println);
+		
+
+
+
+
+

@@ -1,0 +1,211 @@
+Exercício 1
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		int num1, num2, valor;
+		
+		System.out.println("Informe o número 1 = ");
+		num1 = teclado.nextInt();
+		System.out.println("Informe o número 2 = ");
+		num2 = teclado.nextInt();
+		
+		valor = (num1 > num2) ? num1 : num2;
+		System.out.println("Valor mais alto = " + valor);
+		
+		
+		
+	}
+}
+
+
+Exercício 2
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		int num;
+		System.out.println("Digite o número = ");
+		num = teclado . nextInt();
+		
+		if(num > 0) {
+			System.out.println(Math.sqrt(num));
+		}
+		else
+			System.out.println("Número inválido");
+	}
+}
+
+
+Exercício 3
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		int num;
+		System.out.println("Digite o número = ");
+		num = teclado . nextInt();
+		
+		if(num > 0) {
+			System.out.println(Math.sqrt(num));
+		}
+		else
+			System.out.println(num * num);
+	}
+}
+
+
+Exercício 4
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		int num;
+		
+		System.out.println("Digite o número = ");
+		num = teclado.nextInt();
+		if(num > 0) {
+			System.out.println("Ao quadrado = " + num * num + "\nRaiz Quadrada = " +  Math.sqrt(num));
+		}
+	}
+}
+
+
+Exercício 5
+
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		int num;
+		System.out.println("Digite um número = ");
+		num = teclado.nextInt();
+		if(num % 2 == 0) {
+			System.out.println("PAR");
+		}
+		else
+			System.out.println("ÍMPAR");
+	}
+}
+
+
+Exercício 6
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		int num1, num2;
+		System.out.println("Digite o número1 = ");
+		num1 = teclado.nextInt();
+		System.out.println("Digite o número 2 = ");
+		num2 = teclado.nextInt();
+		
+		if(num1 > num2) 
+			System.out.println("Maior = " + num1 + " Diferença = " + (num1 - num2));
+		else
+			System.out.println("Maior = " + num2 + " Diferença = " + (num2 - num1));
+	}
+}
+
+
+Exercício 7
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		int num1, num2;
+		System.out.println("Digite o número 1 : ");
+		num1 = teclado.nextInt();
+		System.out.println("Digiten o número 2: ");
+		num2 = teclado.nextInt();
+		
+		if(num1 > num2)
+			System.out.println(num1);
+		else if(num1 == num2)
+			System.out.println("Números Iguais");
+		else
+			System.out.println(num2);
+		
+	}
+}
+
+Exercício 8
+
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		float nota1, nota2;
+		System.out.println("Insira as notas = ");
+		nota1 = teclado.nextInt();
+		nota2 = teclado.nextInt();
+		if(nota1 > 0) {
+			if(nota2 > 0) {
+				System.out.println("MÉDIA = " + (nota1 + nota2) / 2 );
+			}
+			else
+				System.out.println("Nota inválida");
+		}
+		else
+			System.out.println("Nota inválida");
+			
+		
+	}
+}
+
+
+Exercício 9
+
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		float salario, prestacao;
+		
+		System.out.println("Digite o salário = ");
+		salario = teclado.nextFloat();
+		System.out.println("Digite a prestação = ");
+		prestacao = teclado.nextFloat();
+		
+		if(prestacao < (salario / 5)) {
+			System.out.println("Empréstimo concedido");
+		}
+		else
+			System.out.println("Empréstimo não concedido");
+		
+	}
+}
+
+
+Exercício 10
+
+
+
+

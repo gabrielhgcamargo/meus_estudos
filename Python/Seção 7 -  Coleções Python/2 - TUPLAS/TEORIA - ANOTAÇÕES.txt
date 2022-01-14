@@ -1,0 +1,138 @@
+'''
+TUPLAS
+
+Tuplas são bastante parecidas com listas.
+
+Existem duas diferenças:
+
+1 - Representadas por parenteses
+
+2 - As tuplas são imutáveis : Isso significa que ao criar uma tupla ela não muda.
+Toda operação em uma tupla gera uma nova tupla.
+
+# POR QUE UTILIZAR TUPLAS:
+#  - Tuplas são mais rápidas que listas. (performance)
+#  - Tuplas deixam seu código mais seguro ( imutabilidade ) .
+
+'''
+'''
+# CUIDADO 1 : As tuplas são representadas por parenteses (), mas veja:
+
+tupla1 = (1, 2, 3, 4, 5, 6)
+print(tupla1)
+print(type(tupla1))
+
+tupla2 = 1, 2, 3, 4, 5, 6
+print(tupla2)
+print(type(tupla2))
+
+# CUIDADO 2 : Tuplas com 1 elemento
+
+tupla3 = (4) # Isso não é uma TUPLA!
+print(tupla3)
+print(type(tupla3))
+
+tupla4 = (4,)
+print(tupla4)
+print(type(tupla4))
+
+# CONCLUSÃO = Tuplas são definidas pelo uso da vírgula, e não pelo uso do ().
+
+# Podemos gerar uma tupla com range:
+tupla = tuple(range(11))
+print(tupla)
+
+# Desempacotamento de Tupla
+tupla = ('Geek University', 'Programação TOP')
+
+escola, curso = tupla
+print(escola)
+print(tupla)
+
+# Métodos para adição e remoção de elementos em tuplas não existem, pois são imutáveis.
+
+# Soma, máximo e mínimo, e tamanho podem ser calculados se todos os valores forem do mesmo tipo. 
+tupla = (1, 2, 3, 5, 6)
+print(sum(tupla))
+print(max(tupla))
+print(min(tupla))
+print(len(tupla))
+
+
+# Concatenação de tuplas (imutáveis, não são alteráveis), apenas se sobreescrever (ex: tupla += tupla2 )
+
+tupla1 = (1, 2, 3)
+print(tupla1)
+
+tupla2 = (4, 5, 6)
+print(tupla2)
+
+print(tupla1 + tupla2)
+
+print(tupla1)
+print(tupla2)
+
+
+# Verificar se determinado elemento está contido na tupla
+
+tupla = (1, 2, 3)
+print(3 in tupla)
+
+# Iterando sobre uma tupla
+
+tupla = (1, 2, 3)
+
+for n in tupla:
+    print(n)
+
+for indice, valor in enumerate(tupla):
+    print(indice, valor)
+
+
+# Contando elementos dentro de uma tupla
+
+tupla = ('a','b','c','d','a','b')
+print(tupla.count('a'))
+
+# Dica na utilização de tuplas
+# Devemos utilizar tuplas sempre que nao precisarmos modificar os dados contidos numa coleção
+# EXEMPLO 1
+
+
+meses = ('Janeiro', 'Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setemebro','Outubro','Novembro','Dezembro')
+
+# Acesso de elementos de uma tupla é semelhante a de uma lista
+print(meses[5])
+
+# iterar com while
+
+i = 0
+
+while i < len(meses):
+    print(meses[i])
+    i += 1
+
+# Em qual indice se encontrra um elemento da tupla
+meses = ('Janeiro', 'Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setemebro','Outubro','Novembro','Dezembro')
+print(meses.index('Junho'))
+
+# Slicing
+# Tupla( inicio: fim : passo )
+
+print(meses[1:9:2])
+
+# copiando tupla para outra
+# Na tupla não tem shallow copy
+tupla = (1, 2, 3)
+nova = tupla
+
+print(nova)
+print(tupla)
+
+outra = (4, 5, 6)
+nova += outra
+
+print(nova)
+print(tupla)
+
+'''

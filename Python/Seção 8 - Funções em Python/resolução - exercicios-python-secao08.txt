@@ -1,0 +1,477 @@
+'''
+
+# Exercício 1
+
+def dobro(numero):
+    return numero * 2
+
+print(dobro(15))
+
+'''
+
+'''
+
+# Exercício 2
+def converte(dia, mes, ano):
+    meses = ('Janeiro', 'Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro')
+    mes -= 1
+    return f'{dia} de {meses[mes]} de {ano}'
+
+
+d = int(input('Digite o dia: '))
+m = int(input('Digite o mês: '))
+a = int(input('Digite o ano: '))
+print(f'DATA INFORMADA = {d}/{m}/{a}')
+print(converte(d, m, a))
+
+'''
+
+'''
+
+# Exercicio 3
+
+def verif(numero):
+    if numero < 0:
+        return -1
+    elif numero == 0:
+        return 0
+    return 1
+
+num = int(input('Digite um numero para verificar se é positivo negativo ou igual a 0: '))
+print(verif(num))
+
+'''
+
+'''
+
+# Exercício 4
+
+def verifica(numero):
+    n = int
+    n = numero ** 0.5
+    if n * n > 0:
+        if int(n) % n == 0:
+            return 'É QUADRADO PERFEITO'
+    return 'Não é quadrado perfeito'
+
+num = int(input('Digite o numero para verificar se é um quadrado perfeito: '))
+print(verifica(num))
+
+'''
+
+'''
+
+# Exercício 5
+
+def volume(raio):
+    v = ((4/3) * 3.14) * (raio ** 3)
+    return v
+r = int(input('Digite o raio afim de achar o volume da esfera: '))
+print(f'Volume é {volume(r)}')
+
+'''
+
+'''
+
+# Exercicio 6
+
+
+def calcula(hora,minuto,segundo):
+    soma = 0
+    soma += hora * 3600
+    soma += minuto * 60
+    soma += segundo
+    return soma
+
+h = int(input('Digite a hora: '))
+m = int(input('Digite o minuto: '))
+s = int(input('E o segundo: '))
+print(f'{h}h{m}m{s}s')
+print(f'TOTAL DE {calcula(h, m, s)} segundos')
+
+'''
+
+'''
+
+# Exercicio 7
+
+def calcula(tempc):
+    tempf = (tempc * (9.0/5.0)) + 32.0
+    return tempf
+
+temperatura = float(input('Digite a temperatura em Celsius: '))
+print(f'{temperatura} graus Celsius = {calcula(temperatura)} graus Fahrenheit')
+
+'''
+
+'''
+
+# Exercicio 8
+
+
+def calcula(cat1, cat2):
+    hip = ((a*a) + (b*b)) ** 0.5
+    return hip
+
+a = float(input('Digite o cateto A: '))
+b = float(input('Digite o cateto B: '))
+print(f'Hipotenusa = {calcula(a, b)}')
+
+'''
+
+'''
+
+# Exercício 9
+
+def calcula(altura, raio):
+    v = 3.141592 * (raio ** 2) * altura
+    return v
+
+
+h = float(input('Digite a altura: '))
+r = float(input('Digite o raio: '))
+print(f'Volume = {calcula(h, r)}')
+
+'''
+
+'''
+
+# Exercicio 10
+
+
+def calcula(num1, num2):
+    if num1 > num2:
+        return num1
+    return num2
+
+
+a = int(input('Digite um número = '))
+b = int(input('Digite outro número = '))
+print(f'O maior é {calcula(a, b)}')
+
+'''
+
+'''
+
+# Exercício 11
+
+def calcula(n1, n2, n3, m):
+    if m == 'A':
+        soma = (n1 + n2 + n3) / 3
+        return soma
+    soma = 0
+    soma += (n1 * 0.5)
+    soma += (n2 * 0.3)
+    soma += (n3 * 0.2)
+    return soma
+
+nota1 = float(input('Digite a nota 1: '))
+nota2 = float(input('Digite a nota 2: '))
+nota3 = float(input('Digite a nota 3: '))
+media = input('Digite A para MédiaAritmética e P para MédiaPonderada: ')
+print(f'Média = {calcula(nota1, nota2, nota3, media)}')
+
+'''
+
+'''
+
+# Exercício 12
+
+def calcula(numero):
+    aux = numero % 100
+    aux1 = (numero - aux) / 100
+    aux2 = (aux - (aux % 10)) / 10
+    aux3 = aux % 10
+    soma = aux1 + aux2 + aux3
+    return int(soma)
+
+num = int(input('Digite um numero inteiro > 0 : '))
+
+if num > 0:
+    print(f'Soma = {calcula(num)}')
+else:
+    print('Número Inválido!')
+
+'''
+
+'''
+
+# Exercício 13
+
+def calcula(num1, num2, operacao):
+    if operacao == '+':
+        return num1 + num2
+    elif operacao == '-':
+        return num1 - num2
+    elif operacao == '/':
+        return num1 / num2
+    elif operacao == '*':
+        return num1 * num2
+
+a = int(input('Digite o valor 1: '))
+b = int(input('Digie o valor 2: '))
+op = input('Digite a operação: \n+ para adição\n- para subtração\n/ para divisão\n* para multiplicação\n Escolha = ')
+print(f'Resultado = {calcula(a, b, op)}')
+
+'''
+
+'''
+
+# Exercício 14
+
+def calcula(d,c):
+    if d/c > 12:
+        return 'Super Economico!'
+    elif 8 < d/c < 14:
+        return 'Economico!'
+    return 'Venda o carro!'
+
+km = int(input('Digite a distancia em KM: '))
+l = int(input('Digite o consumo de gasolina em LITROS: '))
+print(calcula(km,l))
+
+'''
+
+'''
+
+# Exercício 15
+
+def verifica(l1, l2, l3):
+    if l1 < l2 + l3:
+        if l2 < l1 + l3:
+            if l3 < l1 + l2:
+                return 'é triangulo'
+    return 'não é triangulo'
+
+
+def verifica2(l1, l2, l3):
+    if l1 == l2 or l1 == l3:
+        if l2 == l3:
+            return 'triangulo equilatero'
+        return 'triangulo isosceles'
+    return 'triangulo escaleno'
+
+
+lado1 = int(input('Digite o lado 1: '))
+lado2 = int(input('Digite o lado 2: '))
+lado3 = int(input('Digite o lado 3: '))
+print(verifica(lado1, lado2, lado3))
+print(verifica2(lado1, lado2, lado3))
+
+'''
+
+'''
+
+# Exercício 16
+def imprime(num):
+    return '=' * num
+
+
+n = int(input('Deseja quantos sinais ? = '))
+print(imprime(n))
+
+'''
+
+'''
+
+# Exercício 17
+
+def calcula(x, y):
+    soma = 0
+    for n in range(x + 1, y):
+        soma += n
+    return soma
+
+a = int(input('Digite um número: '))
+b = int(input('Digite outro número: '))
+print(f'Soma dos numeros entre eles = {calcula(a, b)}')
+
+'''
+
+'''
+
+
+# Exercício 18
+
+def calcula(x, y):
+    exp = x
+    for n in range(0, y-1):
+        exp = exp * x
+    return exp
+
+
+a = int(input('Digite um número: '))
+b = int(input('Digite outro número: '))
+print(f'Resultado = {calcula(a, b)}')
+
+'''
+
+'''
+
+# Exercício 20
+
+
+def calcula(x):
+    fat = x
+    for n in range(1,x):
+        fat *= n
+    return fat
+
+a = int(input('Digite um numero afim de calcular seu fatorial: '))
+print(f'Fatorial de {a} é igual a {calcula(a)}')
+
+'''
+
+
+'''
+
+# Exercício 22
+
+def imprime(x):
+        return '!' * x
+
+i = int(input('Digite um numero: '))
+for n in range(0,i+1):
+    print(f'{imprime(n)}')
+
+'''
+
+'''
+
+# Exercício 23
+
+def imprime(x):
+    return '*' * x
+
+i = int(input('Digite o valor de N = '))
+for n in range(1, i+1):
+    print(f'{imprime(n)}')
+for n in range(i-1, 0, -1):
+    print(f'{imprime(n)}')
+
+'''
+
+'''
+
+# Exercício 24
+
+def imprime(x, y):
+    return (' ' * x) + ('*' * y)
+
+
+m = 1
+i = int(input('Digite o valor de N = '))
+for n in range(i, 0, -1):
+    print(f'{imprime(n, m)}')
+    m += 2
+
+'''
+
+'''
+
+# Exercicio 26
+def calcula(x):
+    soma = 0
+    for n in range(0,x+1):
+        soma += n
+    return soma
+
+i = int(input('Digite o valor de N = '))
+print(f'{calcula(i)}')
+
+'''
+
+'''
+
+# Exercício 41
+
+def maior(x):
+    aux = 0
+    for n in x:
+        if aux < n:
+            aux = n
+    return aux
+vet = [1, 2, 3, 4, 1000, 10, 500, 15]
+print(f'{maior(vet)}')
+
+'''
+
+'''
+
+# Exercício 42
+
+def maior(x):
+    soma = 0
+    for n in x:
+        soma += n
+    return soma / len(x)
+vet = [1.2, 5.5, 15.9, 10.1, 15]
+print(f'{maior(vet)}')
+
+'''
+
+'''
+
+# Exercício 43
+
+def preenche(x):
+    import random
+    x.append(random.random())
+    return x
+vet = []
+print(f'{preenche(vet)}')
+
+'''
+
+'''
+
+
+# Exercício 44
+
+def separa(vet):
+    a = []
+    b = []
+    for n in vet:
+        if n % 2 == 0:
+            a.append(n)
+        else:
+            b.append(n)
+    return f'Vetor A (PARES) = {a}\nVetor B (IMPARES) = {b}'
+x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+print(f'{separa(x)}')
+
+'''
+
+'''
+
+# Exercício 46
+def imprime(x):
+    return x
+
+def imprimeinverso(x):
+    x.reverse()
+    return x
+
+def media(x):
+    soma = 0
+    for n in x:
+        soma += n
+    return soma / len(x)
+
+v = [1.1, 0.5, 15.4, 10.2, 9.8, 15, 6, 5.27]
+print(f'Impressão normal = {imprime(v)}\nImpressão inversa = {imprimeinverso(v)}\nMédia aritmética = {media(v)}')
+
+'''
+
+'''
+
+# Exercício 59
+def uniao(x, y):
+    union = a.union(b)
+    return union
+
+a = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19}
+b = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20}
+print(f'{uniao(a, b)}')
+
+'''

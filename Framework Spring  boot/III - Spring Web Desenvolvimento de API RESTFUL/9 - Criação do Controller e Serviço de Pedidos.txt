@@ -1,0 +1,37 @@
+Neste notepad, criaremos o Controller de Pedidos.
+
+Por se tratar de uma entidade mais complexa do que Clientes e Produtos,
+vamos ter de criar uma classe de serviço em vez de injetar o repository no Controller de Pedidos.
+
+
+1 - Criar no pacote raiz do projeto, um pacote chamado service, e dentro dele a interface 'PedidoService'
+ 
+2 - No controller de pedidos agora, implementar:
+
+	 private PedidoService service;
+
+    public PedidoController(PedidoService service) {
+        this.service = service;
+    }
+
+Como se fosse o repository feito nas entidades mais simples, mas agora utilizando o PedidoService.
+
+3 - Criar no pacote Service, o pacote 'Impl', e dentro dele a classe 'PedidoServiceImpl'.
+	3.1 - Colocar nessa classe a annotation @Service.
+
+	3.2 - Implementar a interface PedidoService à classe PedidoServiceImpl, ficando assim:
+
+	public class PedidoServiceImpl implements PedidoService
+
+	3.3 -  E nela, injetar o repositorio:
+
+	   private Pedidos repository;
+
+    	public PedidoServiceImpl(Pedidos repository) {
+        this.repository = repository;
+    	}	
+
+	-------------
+
+
+	

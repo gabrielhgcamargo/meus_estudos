@@ -1,0 +1,199 @@
+Exercício 1
+
+package geek;
+
+public class Pessoa {
+	String nome;
+	int idade, altura;
+	
+	public Pessoa() {} // Construtor VAZIO
+	public Pessoa(String nome, int idade, int altura){   // CONSTRUTOR PERSONALIZADO
+		this.nome = nome;
+		this.idade = idade;
+		this.altura = altura;
+	}
+	
+	void imprime_informacoes() {
+		System.out.println("NOME = " + this.nome);
+		System.out.println("IDADE = " + this.idade);
+		System.out.println("ALTURA = " + this.altura);
+	}
+}
+
+
+Exercício 2
+
+package geek;
+
+public class Agenda {
+	String nome;
+	int idade, altura;
+	
+	void armazena_pessoa(String name, int age, int height) {
+		this.nome = name;
+		this.idade = age;
+		this.altura = height;
+	}
+	
+	void imprime_informacoes() {
+		System.out.println("NOME = " + this.nome);
+		System.out.println("IDADE = " + this.idade);
+		System.out.println("ALTURA = " + this.altura);
+	}
+	
+}
+
+Exercício 3
+
+package geek;
+
+public class Elevador {
+	
+	int andar_atual = 0, terreo = 0, total_andares, capacidade_pessoas, qtd_pessoas = 0;
+	
+	public Elevador() {}
+	
+	void inicializa(int total, int capacidade) {
+		this.total_andares = total;
+		this.capacidade_pessoas = capacidade;
+	}
+	
+	void entra() {
+		if(this.qtd_pessoas < this.capacidade_pessoas) {
+			this.qtd_pessoas += 1;
+			System.out.println("Entrou 1 pessoa no elevador, agora nele estão ao total " + this.qtd_pessoas + " pessoas no elevador.");
+		}
+		else {
+			System.out.println("Elevador lotado! Há " + this.qtd_pessoas + " pessoas já dentro do elevador.");
+		}
+	}
+	
+	void sai() {
+		if(this.qtd_pessoas > 0) {
+			this.qtd_pessoas -= 1;
+			System.out.println("Uma pessoa saiu do elevador, agora nele estão ao total " + this.qtd_pessoas + " pessoas no elevador.");
+		}
+		else {
+			System.out.println("NADA ALTERADO! Não há como sair uma pessoa do elevador, se nele não há nenhuma.");
+		}
+	}
+	
+	void sobe() {
+		if(this.andar_atual < this.total_andares) {
+			this.andar_atual += 1;
+			System.out.println("SUBINDO PARA O ANDAR " + this.andar_atual + " !!!");
+		}
+		else {
+			System.out.println("Já estamos no topo do prédio. Andar = " + this.andar_atual);
+		}
+	}
+	
+	void desce() {
+		if(this.andar_atual > this.terreo){
+			this.andar_atual -= 1;
+			System.out.println("DESCENDO PARA O ANDAR " + this.andar_atual + "!!!");
+		}
+		else {
+			System.out.println("Já estamos no Térreo. Andar = 0");
+		}
+	}
+	
+	void imprime() {
+		System.out.println("------STATUS ELEVADOR-------");
+		System.out.println("Andar em que se encontra = " + this.andar_atual);
+		System.out.println("Quantidade de pessoas = " + this.qtd_pessoas);
+		System.out.println("O elevador pode ir do " + this.terreo + " até o andar " + this.total_andares);
+		System.out.println("Suporta até " + this.capacidade_pessoas + " pessoas dentro.");
+	}
+	
+}
+
+Exercício 4
+
+package geek;
+
+public class televisao {
+	int total_volume = 100;
+	int total_canais = 30;
+	int canal_atual = 1;
+	int volume_atual = 0;
+	
+	public televisao() {}
+	
+	void canal_seguinte() {
+		if(this.canal_atual < this.total_canais) {
+			this.canal_atual += 1;
+			System.out.println("Sintonizado no canal " + this.canal_atual);
+		}
+		else {
+			this.canal_atual = 1;
+			System.out.println("Sintonizado no canal " + this.canal_atual);
+		}
+	}
+	
+	void canal_anterior() {
+		if(this.canal_atual > 1) {
+			this.canal_atual -= 1;
+			System.out.println("Sintonizado no canal " + this.canal_atual);
+		}
+		else {
+			this.canal_atual = 30;
+			System.out.println("Sintonizado no canal " + this.canal_atual);
+		}
+	}
+	
+	void canal_especifico(int canal) {
+		if(canal <= 30) {
+			if(canal >= 1) {
+				this.canal_atual = canal;
+				System.out.println("Alterado para o canal " + this.canal_atual);
+			}
+			else {
+			System.out.println("CANAL NÃO DISPONÍVEL");
+			}
+		}
+		else {
+			System.out.println("CANAL NÃO DISPONÍVEL");
+		}
+	}
+	
+	void volume_seguinte() {
+		if(this.volume_atual < this.total_volume) {
+			this.volume_atual += 1;
+			System.out.println("VOLUME ATUAL = " + this.volume_atual);
+		}
+		else {
+			System.out.println("Já está no Máximo = " + this.volume_atual );
+		}
+	}
+	
+	void volume_anterior() {
+		if(this.volume_atual > 0) {
+			this.volume_atual -= 1;
+			System.out.println("VOLUME ATUAL = " + this.volume_atual);
+		}
+		else {
+			System.out.println("Já está no Mínimo = " + this.volume_atual );
+		}
+	}
+	
+	void volume_especifico(int volume) {
+		if(volume >= 0) {
+			if(volume <= 100) {
+				this.volume_atual = volume;
+				System.out.println("VOLUME ATUAL = " + this.volume_atual);
+			}
+			else {
+				System.out.println("volume não disponível");
+			}
+		}
+		else {
+			System.out.println("volume não disponível");
+		}
+	}
+	
+	void status() {
+		System.out.println(" CANAL ATUAL = " + this.canal_atual);
+		System.out.println(" VOLUME ATUAL = " + this.volume_atual);
+	}
+}

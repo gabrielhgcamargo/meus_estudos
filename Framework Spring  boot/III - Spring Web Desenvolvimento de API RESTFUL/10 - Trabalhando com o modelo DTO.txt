@@ -1,0 +1,40 @@
+O modelo DTO consiste em analisar os relacionamentos do banco de Dados,
+e a partir do código Json começar a criar os objetos e seus relacionamentos.
+
+Por exemplo, pedidos:
+
+{
+    "cliente" : 1,
+    "total" : 100,
+    "items" : [
+        {
+            "produto" : 1,
+            "quantidade" : 10
+        }
+    ]
+}
+
+código json acima de Pedidos.
+nós que definimos o que mostrar da entidade clientes, no caso o que importa é o ID.
+
+Criamos dentro do pacote rest, o pacote DTO, e nele :
+
+criar a classe itemPedidoDTO:
+
+	public class itemPedidoDTo {
+	    private Integer produto;
+	    private Integer quantidade;
+	}
+
+e a classe PedidoDTO (se observarmos, este código abaixo representa o json acima):
+
+	public class PedidoDTO {
+	        private Integer cliente;
+  	        private BigDecimal total;
+    		private List<itemPedidoDTo> items;
+	}
+ 
+
+	
+
+

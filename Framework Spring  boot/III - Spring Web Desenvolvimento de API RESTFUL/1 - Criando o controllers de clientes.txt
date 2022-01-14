@@ -1,0 +1,32 @@
+Primeiramente, limpar a classe da aplicação. Deixar apenas a inicialização do Spring boot.
+Ctrl + O para organizar e remover imports não utilizados.
+
+
+Agora, criar dentro da pasta raiz, um pacote chamado api ou rest.
+
+No aprendizado, dentro de 'io.github.gabrielhgcamargo', criar o pacote 'rest.controller', e dentro dela o 'ClienteController'.
+
+Após isso, o que fazer para realmente dizer que essa nova classe criada é um controlador rest ?
+
+Aplicar a esta classe o estereótipo @Controller.
+E também  @RequestMapping("/api/clientes"). -> toda requisição que for feita para api/clientes, cairá nesse controller.
+
+Agora, devemos definir os métodos que virão a partir desta URL (api/clientes).
+
+Como exemplo, vamos definir um método 'helloClientes':
+
+	@Controller
+	@RequestMapping("/api/clientes")
+	public class ClienteController {
+
+
+        @RequestMapping(value = "/hello/{nome}", method = RequestMethod.GET)
+        @ResponseBody
+        public String helloCliente (@PathVariable("nome") String nomeCliente){
+        return String.format("Hello %s", nomeCliente);
+        }
+       }
+
+
+
+Onde será possivel visualizar quando a aplicação rodar : http://localhost:8080/api/clientes/hello/Margola

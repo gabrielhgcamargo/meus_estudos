@@ -1,0 +1,23 @@
+'''
+Módulo Collections - Default Dict
+
+Default Dict -> ao criar um dicionario utilizando o Default Dict,
+podendo utilizar um lambda para isso.  Este valor será utilizado sempre que não houver
+um valor definido.
+E se tentar acessar alguma chave inexistente, ela será criada e o valor default será atribuído.
+
+OBS: LAMBDAS são funçoes sem nome, que podem ou não receber parâmetros de saida.
+
+#Fazendo o Import
+from collections import defaultdict
+
+dicionario = defaultdict(lambda: 0)
+
+
+dicionario['curso'] = 'Programação em Python'
+
+print(dicionario)
+print(dicionario['outro']) # se fosse um dicionario comum, teríamos KEY ERROR.
+# mas executa, pois é o Collection - Default Dict
+
+'''

@@ -1,0 +1,109 @@
+Nos notepads anteriores, vimos como foi trabalhar com jdbc utilizando Spring,
+ a partir de agora utilizaremos JPA.
+
+------
+
+
+	Mapear entidades com JPA
+
+   - Colocar a annotation em cima da classa da ENTIDADE :
+	
+	@Entity
+	@Table(name = "nome_da_tabela")
+
+	ambas do pacote javax.persistense.
+
+	
+	Também devemos utilizar as annotations:
+
+	@Id --> indica qual é a PRIMARY KEY DA TABELA/ENTIDADE (OBRIGATÓRIO)
+	@GeneratedValue(strategy = GenerationType.AUTO) --> aplicar SE for auto-incremento
+	@Column(name = "nome_da_coluna", length = 100) --> Define a qual coluna está se referenciando; 
+							Se o nome da variável for igual a da coluna.
+							Já o length do exemplo, seria se fosse um varchar de 100 unidades.
+							Mas, não é obrigatória a inserção se o nome da propriedade da entidade
+							for igual a da coluna da tabela.
+
+	
+
+Depois que feito isso, o arquivo data.sql não é mais necessário, pois a partir do momento que colocamos
+  a annotation @Entity, já é realizada a criação das tabelas e seus campos com suas características.
+
+
+------
+
+Realizado o mapeamento das entidades com JPA, devemos injetar o entity manager no repositório.
+
+		@Autowired
+		private EntityManager entityManager;
+
+------
+
+Após isto, as operações de salvar, atualizar, deletar e pesquisar podem ser realizadas sem o JDBC.
+O entity manager precisa de uma transação para poder realizar operações. 
+Por isso também a inserção do @Transactional acima da operação (seja salvar, deletar, etc)
+
+Ficará desta maneira (exemplo do sistema de vendas):
+
+
+// SALVAR
+    @Transactional
+    public Cliente salvar(Cliente cliente){
+        entityManager.persist(cliente);
+        return cliente;
+    }
+
+
+// ATUALIZAR
+
+    @Transactional
+    public Cliente atualizar(Cliente cliente){
+       entityManager.merge(cliente);
+        return cliente;
+    }
+
+
+// DELETE
+
+   @Transactional
+    public void deletar(Cliente cliente){
+        if(!entityManager.contains(cliente)) {
+            cliente = entityManager.merge(cliente);
+        }
+        entityManager.remove(cliente);
+    }
+
+    // -> Deletar por ID	
+    @Transactional 
+    public void deletar(Integer id){
+        Cliente cliente = entityManager.find(Cliente.class, id);
+        deletar(cliente);
+    }
+
+
+// PESQUISAR POR NOME
+
+
+    @Transactional(readOnly = true)
+    public List<Cliente> buscarPorNome(String nome){
+        String jpql = " select c from Cliente c where c.nome like :nome ";
+        TypedQuery<Cliente> query = entityManager.createQuery(jpql, Cliente.class);
+        query.setParameter("nome", "%" + nome + "%");
+        return query.getResultList();
+    }
+
+
+// OBTER TODOS (SELECT *)
+
+  @Transactional(readOnly = true)
+    public List<Cliente> obterTodos(){
+        return entityManager
+                .createQuery("from Cliente", Cliente.class)
+                .getResultList();
+    }
+
+
+
+
+--> ou seja JPA>JDBC
+

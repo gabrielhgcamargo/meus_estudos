@@ -1,0 +1,35 @@
+Como tratar erros da API, e retornar código de status apropriados.
+
+Criar uma nova classe chamada 'ApplicationControllerAdvice' dentro de rest.controller.
+Aplicar a annotation @RestControllerAdvice, para que consigamos dentro dela realizar tratamentos
+chamados Exception Handlers.
+
+Exception Handlers são métodos que quando algum erro é lançado, eles capturam e podemos realizar
+um tratamento podendo retornar códigos de status apropriados para o erro.
+
+Criar uma nova classe chamada 'ApiErrors', dentro de rest.
+E inserir:
+
+	public class ApiErrors {
+
+    @Getter
+    private List<String> errors;
+
+    public ApiErrors (String mensagemErro){
+        this.errors = Arrays.asList(mensagemErro);
+    }
+	}
+
+Voltando a classe criada mais acima, ficará assim:
+
+
+@RestControllerAdvice
+public class ApplicationControllerAdvice {
+
+    @ExceptionHandler(RegraNegocioException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiErrors handleRegraNegocioException(RegraNegocioException ex){
+        String mensagemErro = ex.getMessage();
+        return new ApiErrors(mensagemErro);
+    }
+}

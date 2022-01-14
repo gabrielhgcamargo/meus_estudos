@@ -1,0 +1,370 @@
+    # Exercício 1
+
+#nome = input('Digite um número : ')
+#print(nome)
+
+    # Exercício 2
+
+#nome = input('Digite um número : ')
+#print(nome)
+
+    # Exercício 3
+
+#print('Digite 3 valores para serem somados: ')
+#valor1 = int(input ('Primeiro número : '))
+#valor2 = int(input ('Segundo número : '))
+#valor3 = int(input ('Terceiro número : '))
+
+#soma = int(valor1) + int(valor2) + int(valor3)
+#soma = (valor1) + (valor2) + (valor3)
+#print(f'O resultado de {valor1} + {valor2} + {valor3} = {soma}')
+
+    # Exercício 4
+
+#num = float(input('Digite um número, e receba o quadrado dele: '))
+#res = num ** 2
+#print(f'O quadrado de {num} é igual a {res}')
+
+    # Exercício 5
+
+#num = float(input('Digite um número, e receba sua quinta parte : '))
+#res = num / 5
+#print(f'A quinta parte de {num} é {res}')
+
+    # Exercício 6
+
+#tempc = float(input('Digite em Celsius, e receba em Fahrenheit : '))
+#tempf = ( tempc * 1.8 ) + 32
+#print(f'Temperatura em graus Celcius : {tempc}\nTemperatura em Fahrenheit : {tempf}')
+
+    # Exercício 7
+
+#tempf = float(input('Digite em Fahrenheit, e receba em Celsius : '))
+#tempc = 5.0 * ( tempf - 32.0) / 9
+#print(f'Temperatura em Fahrenheit : {tempf}\nTemperatura em Celsius : {tempc}')
+
+    # Exercício 8
+
+#tempk = float(input('Digite em Kelvin, receba em Celcius : '))
+#tempc = tempk - 273.15
+#print(f'Temperatura em Kelvin : {tempk}\nTemperatua em Celsius: {tempc}')
+
+    # Exercício 9
+
+#tempc = float(input('Digite em Celsius, receba em Kelvin : '))
+#tempk = tempc + 273.15
+#print(f'Temperatura em Celsius : {tempc}\nTemperatura em Kelvin : {tempk}')
+
+    # Exercício 10
+
+#kmh = float(input('Digite em km/h e receba em m/s : '))
+#ms = kmh / 3.6
+#print(f'{kmh}KM/H é igual a {ms}m/s')
+
+    # Exercício 11
+
+#ms = float(input('Digite em m/s e receba em km/h: '))
+#kmh = ms * 3.6
+#print(f'{ms}m/s é igual a {kmh}KM/H')
+
+    # Exercício 12
+
+#mil = float(input('Digite em milhas, e receba em KM : '))
+#km = 1.61 * mil
+#print(f'Distância em milhas : {mil}\nDistância em KM : {km}')
+
+    # Exercício 13
+
+#km = float(input('Digite em KM, e receba em Milhas : '))
+#m = km / 1.61
+#print(f'{km} KM é igual a {m} Milhas')
+
+    # Exercício 14
+
+#grau = float(input('Digite em graus, e receba em radianos: '))
+#rad = grau * 3.14 /180
+#print(f'Convertendo {grau} graus para radianos, temos {rad} radianos')
+
+    # Exercício 15
+
+#rad = float(input('Digite em radianos, e receba em graus : '))
+#grau = rad * 180 / 3.14
+#print(f'Convertendo {rad} radianos para graus, temos {grau} graus')
+
+    # Exercício 16
+
+#pol = float(input('Digite em polegadas, e receba em centímetros : '))
+#cm = pol * 2.54
+#print(f'{pol} polegadas é igual a {cm} centímetros')
+
+    # Exercício 17
+
+#cm = float(input('Digite em cm, receba em polegadas : '))
+#pol = cm / 2.54
+#print(f'{cm} centímetros é igual a {pol} polegadas')
+
+    # Exercício 18
+
+#m3 = float(input('Insira um volume em metros cúbicos para receber em litros : '))
+#litro = 1000 * m3
+#print(f'Volume em metros cúbicos: {m3}\nLitros: {litro} ')
+
+    # Exercício 19
+
+#litro = float(input('Insira o valor em litros, e receba em metros cúbicos: '))
+#m3 = litro / 1000
+#print(f'Em litros : {litro}\nEm metros cúbicos: {m3}')
+
+    # Exercício 20
+
+#kg = float(input('Digite em kg, receba em libras : '))
+#libra = kg / 0.45
+#print(f'{kg} KG = {libra} libras')
+
+
+    # Exercício 21
+
+#libra = float(input('Digite em libras, receba em kg : '))
+#kg = libra * 0.45
+#print(f'{libra} libras = {kg} KG')
+
+    # Exercício 22
+
+#j = float(input('Digite em jardas, receba em metros: '))
+#m = j * 0.91
+#print(f'{j} jardas = {m} metros')
+
+    # Exercício 23
+
+#m =  float(input('Digite em metros, receba em jardas: '))
+#j = m /0.91
+#print(f'{m} metros = {j} jardas')
+
+    # Exercício 24
+
+#m2 = float(input('Insira a área em metros quadrados, receba em acres : '))
+#acre = m2 * 0.000247
+#print(f'{m2} metros quadrados é igual a {acre} acres')
+
+    # Exercício 25
+
+#acre = float(input('Insira em acres, recebe em metros quadrados : '))
+#m2 = acre * 4048.58
+#print(f' {acre} acres corresponde a {m2} metros quadrados')
+
+    # Exercício 26
+
+#m2 = float(input('Digite em metros quadrados, e receba em hectares : '))
+#h = m2 * 0.0001
+#print(f' {m2} metros quadrados = {h} hectares')
+
+    # Exercício 27
+
+#h = float(input('Digite em hectares, e receba em metros quadrados : '))
+#m2 = h * 10000
+#print(f'{h} hectares = {m2} metros quadrados')
+
+    # Exercício 28
+#print('Digite 3 valores, para que seus quadrados sejam somados ')
+#valor1 = float(input('Digite o primeiro valor : '))
+#valor2 = float(input('Digite o segundo valor : '))
+#valor3 = float(input('Digite o terceiro valor : '))
+#soma = valor1 **2 + valor2 **2 + valor3 **2
+#print(f'soma : {soma}')
+
+    # Exercício 29
+
+#nota1 = float(input('Digite a primeria nota : '))
+#nota2 = float(input('Digite a segunda nota : '))
+#nota3 = float(input('Digite a terceira nota : '))
+#nota4 = float(input('Digite a quarta nota : '))
+#media = (nota1 + nota2 + nota3 + nota4) / 4
+#print(f'Média das notas : {media}')
+
+    # Exercício 30
+
+#real = float(input('Digite um valor em reais : '))
+#dolar = float(input('Digite a atual cotação do dólar : '))
+#res = real / dolar
+#print(f'Valor em reais : R$ {real}\nValor em dólares :${res}')
+
+    # Exercício 31
+
+#num = int(input('Insira um valor, e será retornado seu antecessor e sucessor : '))
+#ant = num - 1
+#suc = num + 1
+#print(f'antecessor = {ant}\nsucessor = {suc}')
+
+    # Exercício 32
+
+#num = int(input('Digite um valor = '))
+#suc3 = (3 * num) + 1
+#ant2 = (2 * num) - 1
+#soma = suc3 + ant2
+#print(f' Sucessor do triplo de {num} + Antecessor de seu sobro = {soma}')
+
+    # Exercício 33
+
+#l = float(input('Digite o lado do quadrado, e receba sua área = '))
+#l = l **2
+#print(f'ÁREA = {l}')
+
+    # Exercício 34
+
+#r = float(input('Digite o raio do círculo, e receba a área dele : '))
+#a = 3.141592 * ((r) ** 2)
+#print(f'ÁREA DO QUADRADO = {a} ')
+
+    # Exercício 35
+
+#print('Insira os catetos para obter a hipotenusa')
+#a = float(input('Cateto 1 : '))
+#b = float(input('Cateto 2 : '))
+#h = (a **2 + b **2) ** 0.5
+#print(f' Hipotenusa = {h}')
+
+    # Exercício 36
+
+#print('Insira o que é pedido, para se obter o volume do cilindro')
+#h = float(input('Altura do cilindro : '))
+#r = float(input('Raio do cilindro: '))
+#v = 3.14159 * (r **2) * h
+#print(f'Volume do cilindro é : {v}')
+
+    # Exercício 37
+
+#v = float(input('---12% DE DESCONTO---\nInsira o valor do produto : '))
+#d = v * 0.88
+#print(f'Valor do produto : {v}\nValor com desconto : {d}')
+
+    # Exercício 38
+
+#s = float(input('Salário : '))
+#s *= 1.25
+#print(f' Salário com 25% de aumento = R${s}')
+
+    # Exercício 39
+
+#print('R$780.00,00 será dividido entre três pessoas\nA primeira leva 46%\nA segunda leva 32%\nA terceira leva 22%')
+#p1 = 780000 * 0.46
+#p2 = 780000 * 0.32
+#p3 = 780000 * 0.22
+#print(f'Primeira pessoa levou R${p1}\nA segunda levou R${p2}\nE a terceira levou R${p3}')
+
+    # Exercício 40
+
+#d = int(input('Quantos dias o encanador trabalhou : '))
+#q = (d * 30) * 0.92
+#print(f'O encanador recebeu R${q} por {d} dias de trabalho')
+
+    # Exercício 41
+
+#vh = float(input('Valor da hora de trabalho: '))
+#h = int(input('Horas trabalhadas : '))
+#s = (vh * h) * 1.1
+#print(f'Salário com 10% de acréscimo = R${s}')
+
+    # Exercício 42
+
+#sb = float(input('Salário Base do funcionário = R$'))
+#g = sb * 0.05
+#i = sb* 0.07
+#sf = (sb + g) - i
+#print(f'Salário Final =  R${sf}')
+
+    # Exercício 43
+
+#venda = float(input('Valor da venda : R$'))
+#d10 = venda * 0.90
+#vp3 = venda / 3
+#cvv = d10 * 0.05
+#cvp = venda * 0.05
+#print(f'Total a pagar com desconto de 10% : R${d10}\nParcela: 3x de R${vp3} sem juros\nComissão do vendedor á vista : R${cvv}\nComissão do vendedor parcelado R${cvp}')
+
+    # Exercício 44
+
+#ad = float(input('Altura do degrau em m: '))
+#h = float(input('Altura a ser subida em m: '))
+#d = h / ad
+#print(f'Número de degraus a serem subidos : {d}')
+
+    # Exercício 45
+
+#letra = input('Insira em maiúscula, e receba minúsculo : ')
+#print(letra.lower())
+
+    # Exercício 46
+
+#a = input('Digite, e receba ao contrário : ')
+#print(a[ :: -1])
+
+    # Exercício 47
+
+
+
+
+
+    # Exercício 48
+
+#time = int(input('Digite em segundos  e receba em horas, minutos e segundos : '))
+#hora = time / 3600
+#res = time - int(hora) * 3600
+#min = res / 60
+#seg = time - ((int(min) * 60) + (int(hora) * 3600))
+#print(f'{int(hora)}horas,{int(min)}minutos,{int(seg)}segundos')
+
+    # Exercício 49
+
+#h = int(input('Coloque a hora inicial: '))
+#m = int(input('Coloque o minuto inicial : '))
+#s = int(input('Coloque o segundo inicial: '))
+#d = int(input('Duração em segundos: '))
+
+#hora = d / 3600
+#res = d - int(hora) * 3600
+#min = res / 60
+#seg = d - ((int(min) * 60) + (int(hora) * 3600))
+
+#print(f'Término às {int(h + hora)},{int(min + m)}minutos,{int(s + seg)}')
+
+    # Exercício 50
+
+#i = int(input('Qual sua idade: '))
+#aa = int(input('Qual o ano atual: '))
+#an= aa - i
+#print(f'Você nasceu em {an}')
+
+    # Exercício 51
+
+#x = int(input('Digite a coordenada X: '))
+#y = int(input('Digite a coordenada Y: '))
+#d = ((x * x) + (y * y)) **0.5
+#print(f'Distância = {d}')
+
+    #  Exercício 52
+
+#amigo1 = float(input('Amigo 1 - Quantia investida: R$'))
+#amigo2 = float(input('Amigo 2 - Quantia investida: R$'))
+#amigo3 = float(input('Amigo 3 - Quantia investida: R$'))
+#premio = float(input('VALOR PRÊMIO : R$'))
+#total = (amigo1 + amigo2 + amigo3)
+#pamigo1 = (amigo1 / total) * premio
+#pamigo2 = (amigo2 / total) * premio
+#pamigo3 = (amigo3 / total) * premio
+#print(f'Amigo 1 = R${pamigo1}\nAmigo 2 = R${pamigo2}\nAmigo 3 = R${pamigo3}')
+
+    # Exercício 53
+
+#c = float(input('Comprimento (m) : '))
+#l = float(input('Largura (m) : '))
+#m = float(input('Preço metro : R$'))
+#total = (c * m) + (l * m)
+#print(f'Custo para cercar o terreno : R${total}')
+
+
+
+
+
+
+
+

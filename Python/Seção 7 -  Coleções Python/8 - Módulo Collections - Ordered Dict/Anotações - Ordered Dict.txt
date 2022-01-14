@@ -1,0 +1,38 @@
+'''
+Módulo Collections - Ordered Dict
+
+Em um dicionário a ordem de inserção não é garantida.
+
+
+
+dicionario = {'a': 1,'b': 2,'c': 3,'d': 4,'e': 5}
+
+#dicionario comum
+for chave, valor in dicionario.items():
+    print(f'chave = {chave} : valor = {valor}')
+print(type(dicionario))
+
+Ordered Dict -> é um dicionário que garante a ordem de inserção de elementos.
+
+# importando a collection
+from collections import OrderedDict
+
+dicionario = OrderedDict({'a': 1,'b': 2,'c': 3,'d': 4,'e': 5})
+
+for chave, valor in dicionario.items():
+    print(f'chave = {chave} : valor = {valor}')
+
+# ENTENDENDO A DIFERENÇA ENTRE DICT E ORDERED DICT
+#NORMAL
+dict1 = {'a': 1,'b': 2}
+dict2 = {'b': 2,'a': 1}
+
+print(dict1 == dict2)
+#ORDERED
+from collections import OrderedDict
+odict1 = OrderedDict({'a': 1,'b': 2})
+odict2 = OrderedDict({'b': 2,'a': 1})
+
+print(odict1 == odict2)
+
+'''

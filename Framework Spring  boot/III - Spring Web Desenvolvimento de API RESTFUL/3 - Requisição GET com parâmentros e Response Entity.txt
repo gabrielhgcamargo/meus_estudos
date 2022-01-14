@@ -1,0 +1,106 @@
+Faremos operações básicas de cadastro de clientes,
+Neste notepad, veremos como buscar:
+
+
+1. Buscar (get)
+
+	Via ID:
+
+	Requisição GET
+	No @RequestMapping trabalharemos com json, por isso não é necessário informar nada como consumer ou produces.
+	Pois por padrão o Spring Boot já trabalha com Json.
+
+	Colocamos o método Get.
+	Pois como estaremos obtendo recursos do servidor, devemos utitlizar o verbo GET.
+
+	Ficaria assim:
+	
+	@RequestMapping(
+            value = "/hello/{nome}",
+            method = RequestMethod.GET
+   	 )@GetMapping
+   	 @ResponseBody
+   	 public String helloCliente (@PathVariable("nome") String nomeCliente){
+        return String.format("Hello %s", nomeCliente);
+    	}
+
+
+	-----
+	
+	Porém a annotation @GetMapping é equivalente a esta configuração de @RequestMapping, simplificando o código.
+	
+	E agora, simplificado, ficaria assim:
+
+	@GetMapping
+	@ResponseBody
+    	public String helloCliente (@PathVariable("nome") String nomeCliente){
+        return String.format("Hello %s", nomeCliente);
+    	}
+
+	------
+
+	Mantemos o @ResponseBody porque ele transformará o retorno do método em um objeto do tipo Json.
+
+	-----
+	
+	Exemplo:
+
+	@GetMapping("/api/clientes/{id}")
+    	@ResponseBody
+    	public ResponseEntity<Cliente> getClienteById (@PathVariable Integer id){
+
+    	}
+
+	-----
+
+	Agora, como buscar no Banco de Dados o nome do Cliente por ID ? 
+	Através do repository de Clientes:
+
+	 private Clientes clientes;
+
+    	public ClienteController(Clientes clientes) {
+        this.clientes = clientes;
+    	}
+
+	-----
+
+	Juntando tudo acima, Busca por ID de clientes:
+
+	
+	No Controller de Clientes:
+
+	@Controller
+	public class ClienteController {
+
+   	 private Clientes clientes;
+
+    	public ClienteController(Clientes clientes) {
+        this.clientes = clientes;
+    	}
+	
+   	 @GetMapping("/api/clientes/{id}")
+   	 @ResponseBody
+   	 public ResponseEntity getClienteById(@PathVariable Integer id) {
+        Optional<Cliente> cliente = clientes.findById(id);
+
+        if (cliente.isPresent()) {
+            return ResponseEntity.ok(cliente.get());
+        }
+
+        return ResponseEntity.notFound().build();
+   	 }
+	}
+	
+	---
+
+	Na classe da aplicação para testar o funcionamento do controller, apenas inserir alguns clientes no banco de dados, por meio do @Bean CommandLineRunner:
+
+	Exemplo:
+
+                Cliente c = new Cliente(null,"Gabriel");
+                clientes.save(c);
+                
+
+	E no browser, colocar : http://localhost:8080/api/clientes/1  --> (1 é o ID desejado para exibir o cliente)
+	
+	

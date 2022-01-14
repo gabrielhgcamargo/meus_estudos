@@ -1,0 +1,75 @@
+// CLASSE EQUIPAMENTO SUPER
+
+
+package heranca;
+
+public class Equipamento {
+	private String nome;
+	private double preco;
+	
+	public Equipamento(String nome, double preco) {
+		this.nome = nome;
+		this.preco = preco;
+	}
+	
+	public String get_nome() {
+		return this.nome;
+	}
+	
+	public double get_preco() {
+		return this.preco;
+	}
+
+	public void set_nome(String nome) {
+		this.nome = nome;
+	}
+	
+	public void set_preco(double preco) {
+		this.preco = preco;
+	}
+	
+	public String toString() {
+		return "Nome = " + this.nome + "  Preço = R$ " + this.preco;
+	}
+	
+}
+
+
+
+
+//------------------------------------------
+
+
+CLASSE COMPUTADOR
+
+package heranca;
+
+public class Computador extends Equipamento {
+	private String modelocpu, modelogpu;
+	
+	public Computador(String nome, double preco, String modelocpu, String modelogpu) {
+		super(nome, preco);
+		this.modelocpu = modelocpu;
+		this.modelogpu = modelogpu;
+	}
+	
+	public String get_modelocpu() {
+		return this.modelocpu;
+	}
+	
+	public String get_modelogpu() {
+		return this.modelogpu;
+	}
+	
+	public void set_modelocpu(String modelo) {
+		this.modelocpu = modelo;
+	}
+	
+	public void set_modelogpu(String modelo) {
+		this.modelogpu = modelo;
+	}
+	
+	public String toString() {
+		return super.toString() + "  Modelo CPU = " + this.modelocpu + "  Modelo GPU = " + this.modelogpu;
+	}
+}

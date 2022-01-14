@@ -1,0 +1,54 @@
+'''
+Mapas -> Conhecidos em Python como dicionários
+Representados por chaves
+
+receitas = {'jan': 100,'fev': 200,'mar': 300}
+print(receitas)
+# Iterar sobre dicionários
+
+# Exibir as chaves
+for chave in receitas:
+    print(chave)
+
+# Exibir os valores das chaves
+for chave in receitas:
+    print(receitas[chave])
+
+for chave in receitas:
+    print(f'Em {chave} recebi R${receitas[chave]}')
+
+# Acessando chaves
+print(receitas.keys())
+
+for chave in receitas.keys():
+    print(receitas[chave])
+
+# Acessando os Valores
+print(receitas.values())
+
+for valor in receitas.values():
+    print(valor)
+
+# Desempacotamento de dicionários
+receitas = {'jan': 100,'fev': 200,'mar': 300}
+
+for chave, valor in receitas.items():
+    print(f'chave = {chave} e valor = {valor}')
+
+'''
+# Soma, Valor Máx e Mín, e Tamanho
+# Se os valores forem inteiros ou float
+
+receitas = {'jan': 100,'fev': 200,'mar': 300}
+
+# Soma
+print(sum(receitas.values()))
+
+# Valor Máx
+print(max(receitas.values()))
+
+# Valor Mín
+print(min(receitas.values()))
+
+# Tamanho
+print(len(receitas))

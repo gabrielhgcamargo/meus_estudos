@@ -1,0 +1,22 @@
+Uma forma de criar Querys e injetar nos métodos da interface, para que sejam executados no JPA.
+
+Caso não queiramos utilizar:
+
+	List<Cliente> findByNomeLike(String nome);
+
+	Podemos fazer o seguinte:
+
+	No caso, em vez de findByNomeLike, que é a convenção onde o JPA já reconhece,
+	colocamos encontrarPorNome com algumas dessas configurações, para que funcione 
+	igualmente.
+	
+	@Query(value = " select c from Cliente c where c.nome like :nome")
+        List<Cliente> encontrarPorNome(@Param("nome") String nome);
+
+
+SE a Query modificar alguma coisa, tabela, objeto da entidade no caso, DEVE-SE utilizar o @Modifying
+Como por exemplo uma Query de remoção:
+
+	@Query(" delete fom Cliente c where c.nome =:nome ")
+	@Modifying
+	void deletarPorNome(String nome);

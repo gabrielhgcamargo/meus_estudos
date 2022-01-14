@@ -1,0 +1,262 @@
+Exercício 1 e 2
+
+public class Pessoa {
+	String nome, endereco, telefone;
+	
+	public Pessoa() {}
+	
+	public Pessoa(String nome, String endereco, String telefone) {
+		this.nome = nome;
+		this.endereco = endereco;
+		this.telefone = telefone;
+	}
+	
+	void imprimir() {
+		System.out.println("Nome = " + this.nome + "\nEndereço = " + this.endereco + "\nTelefone = " + this.telefone + "\n");
+	}
+}
+
+
+Exercício 3 e 4
+
+public class Quadrado {
+	float lado, area, perimetro;
+	
+	public Quadrado() {}
+	
+	public Quadrado(float lado, float area, float perimetro) {
+		this.lado = lado;
+		this.area = area;
+		this.perimetro = perimetro;
+	}
+	
+	void calcula(float num) {
+		this.area = num * num;
+		this.perimetro = num * 4;
+	}
+	
+	void imprimir() {
+		System.out.println("LADO DO QUADRADO = " + this.lado + "\nSUA ÁREA = " + this.area + "\nSEU PERIMETRO = " + this.perimetro + "\n");
+	}
+}
+
+
+
+Exercício 5 e 6
+
+public class Retangulo {
+	float comprimento, largura, area, perimetro;
+	
+	public Retangulo() {}
+	public Retangulo(float comprimento, float largura, float area, float perimetro) {
+		this.comprimento = comprimento;
+		this.largura = largura;
+		this.area = area;
+		this.perimetro = perimetro;
+	}
+	
+	void calcula() {
+		this.area = this.comprimento * this.largura;
+		this.perimetro = (this.comprimento * 2) + (this.largura * 2);
+	}
+	
+	void imprimir() {
+		System.out.println("Comprimeto = " + this.comprimento + "\nLargura = " + this.largura + "\nArea = " + this.area + "\nPerimetro = " + this.perimetro + "\n");
+		
+	}
+}
+
+
+
+
+Exercício 7 e 8
+
+public class Circulo {
+	float raio, area, perimetro;
+	
+	public Circulo(float raio) {
+		this.raio = raio;
+	}
+	
+	public Circulo(float raio, float area, float perimetro) {
+		this.raio = raio;
+		this.area = area;
+		this.perimetro = perimetro;
+	}
+	
+	void calcula() {
+		this.area = 3.14f * this.raio * this.raio;
+		this.perimetro = 2 * 3.14f * this.raio;
+	}
+	
+	void imprimir() {
+		System.out.println("RAIO = " + this.raio + "\nAREA = " + this.area + "\nPERIMETRO = " + this.perimetro + "\n");
+	}
+}
+
+
+Exercício 9 até 16
+
+package geek;
+
+public class Moto {
+	private String marca, modelo, cor;
+	private int marcha, maiormarcha, menormarcha;
+	private boolean estado;
+	
+	public Moto() {}
+	public Moto(String marca, String modelo, String cor, int marcha, int menormarcha, int maiormarcha, boolean estado) {
+		this.marca = marca;
+		this.modelo = modelo;
+		this.cor = cor;
+		this.marcha = marcha;
+		this.menormarcha = menormarcha;
+		this.maiormarcha = maiormarcha;
+		this.estado = estado;
+	}
+	
+	void marchaAcima() {
+		this.marcha += 1;
+	}
+	
+	void marchaAbaixo() {
+		this.marcha -= 1;
+	}
+	
+	void liga() {
+		if(this.estado)
+			this.estado = false;
+		else
+			this.estado = true;
+	}
+	
+	void imprimir() {
+		System.out.println("-- INFORMACAO DA MOTO --\nMARCA = " + this.marca + "\nMODELO = " + this.modelo + "\nCOR = " + this.cor + "\nMARCHA ATUAL = " + this.marcha + "\nMAIOR MARCHA = " + this.maiormarcha + "\nMENOR MARCHA = " + this.menormarcha + "\nTrue - LIGADA ou False - Desligada = " + this.estado + "\n");
+		}
+	
+}
+
+
+Exercício 17 até 19
+
+public class Eletrodomestico {
+	private boolean estado;
+	
+	public Eletrodomestico(boolean estado) {
+		this.estado = estado;
+	}
+	
+	void imprimir() {
+		if(this.estado)
+			System.out.println("O eletrodoméstico está LIGADO! pois " + this.estado);
+		else
+			System.out.println("O eletrodoméstico está DESLIGADO! pois " + this.estado);
+	}
+	
+	void liga_desliga() {
+		if(this.estado) {
+			this.estado = false;
+		}
+		else
+			this.estado = true;
+	}
+	
+}
+
+
+Exercício 20 até 25
+
+public class Tv {
+	private boolean estado;
+	private int canal, volume, maxcanais = 10, maxvolume = 10;
+	
+	public Tv(boolean estado, int canal, int volume) {
+		this.estado = estado;
+		this.canal = canal;
+		this.volume = volume;
+	}
+	
+	
+	void canal_cima() {
+		if(this.canal < this.maxcanais)
+			this.canal += 1;
+		else
+			this.canal = 1;
+	}
+	
+	void canal_abaixo() {
+		if(this.canal > 1)
+			this.canal -= 1;
+		else
+			this.canal = this.maxcanais;
+	}
+	
+	void volume_cima() {
+		if(this.volume < this.maxvolume)
+			this.volume += 1;
+		else
+			System.out.println("Ja está no volume maximo, volume [" + this.volume + "]");
+	}
+	
+	void volume_baixo() {
+		if(this.volume > 0)
+			this.volume -= 1;
+		else
+			System.out.println("Já está sem SOM, não foi possível abaixar o volume [" + this.volume + "]");
+	}
+	
+	void liga_desliga() {
+		if(this.estado)
+			this.estado = false;
+		else
+			this.estado = true;
+	}
+	
+	void imprimir() {
+		System.out.println("Estado (ligado - true) or (desligado - false) =  " + this.estado + "\nCANAL = " + this.canal + "\nVOLUME = " + this.volume + "\nVOLUME MAX = " + this.maxvolume + "\nCANAL MAX = " + this.maxcanais + "\n");
+	}
+}
+
+
+
+Exercício 26 ao 31
+
+
+public class Microondas {
+	private boolean estado, fechado = true;
+	
+	public Microondas(boolean estado) {
+		this.estado = estado;
+	}
+	
+	void liga_desliga() {
+		if(this.fechado){
+		if(this.estado)
+			this.estado = false;
+		else
+			this.estado = true;
+	       }
+		else
+			System.out.println("A PORTA PRECISA ESTAR FECHADA PARA LIGAR!");
+	}
+	
+	void abre_fecha() {
+		if(this.fechado) 
+			this.fechado = false;
+		else
+			this.fechado = true;	
+	}
+	
+	void imprimir() {
+		System.out.println("LIGADO-TRUE   OR   DESLIGADO-FALSE = " + this.estado + " PORTA DO MICROONDAS ESTÁ FECHADA ? " + this.fechado);
+	}
+	
+}
+
+
+
+
+
+
+
+

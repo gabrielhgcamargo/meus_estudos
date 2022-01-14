@@ -1,0 +1,6 @@
+Resumindo, o Request Mapping serve para definir a rota, definir o verbo http que vai ser tratado através dessa rota,
+e outros parâmetros, como value = endpoint da rota
+			  method = método utilziado ao acessar a rota definida no value
+			  consumes = recebe array que define o que a requisição pode receber
+			  produces = recebe array que define o que a requisição pode retornar
+

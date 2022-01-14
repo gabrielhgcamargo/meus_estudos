@@ -1,0 +1,28 @@
+package sobrecarga;
+
+public class Pessoa {
+	private int codigo, idade;
+	private String nome;
+	
+	public Pessoa() {
+		System.out.println("CONSTRUTOR PADRÃO");
+	}
+	
+	public Pessoa(int codigo, String nome, int idade) {
+		this.codigo = codigo;
+		this.nome = nome;
+		this.idade = idade;
+	}
+	
+	void imprime() {
+		System.out.println("\nCÓDIGO = " + this.codigo + "\nNome = " + this.nome + "\nIdade = " + this.idade + "\n\n");
+	}
+	
+	void imprime(int num) {
+		if(num == 1)
+			System.out.println("Idade = " + this.idade + "\n\n");
+		else
+			System.out.println("CÓDIGO = " + this.codigo + "\nNome = " + this.nome + "\n\n");
+	}
+	
+}

@@ -1,0 +1,35 @@
+Faremos operações básicas de cadastro de clientes,
+Neste notepad, veremos como pesquisar por parâmetros:
+
+4. Atualizar (Put Mapping)
+
+Criar um método para a operação, no caso, para buscar um cliente por parâmetro.
+Inserir neste método a annotation @GetMapping;
+
+onde @GetMapping define a url de acesso para a operação, no exemplo: @GetMapping("/api/clientes")
+
+Ficará assim:
+
+    @GetMapping("/api/clientes")
+    public ResponseEntity find( Cliente filtro){
+        ExampleMatcher matcher = ExampleMatcher
+                                                .matching()
+                                                .withIgnoreCase()
+                                                .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+        Example example = Example.of(filtro, matcher);
+
+        List<Cliente> lista = clientes.findAll(example);
+        return ResponseEntity.ok(lista);
+    }
+
+
+--------
+
+Abrir o app PostMan para testar:
+
+Selecionar GET, colocar a url definida no método de salvar configurado acima:
+Exemplo utilizado: http://localhost:8080/api/clientes
+
+Se clicar em SEND, será exibido todos os Clientes cadastrados.
+Se quiser buscar por nome, Ir em Params, escrever em "key" a propriedade NOME, e em "value" o que deseja buscar. E clicar em SEND.
+Se quiser buscar por ID, Ir em Params, escrever em "key" a propriedade ID, e em "value" o ID que deseja buscar. E clicar em SEND.

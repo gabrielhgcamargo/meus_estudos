@@ -1,0 +1,206 @@
+'''
+Conjuntos
+
+- Conjuntos em qualquer linguagem de programação estamos fazendo referência a Teoria dos Conjuntos de Matemática.
+
+- No Python, conjuntos são chamados de Sets.
+Dito isto, da mesma forma que na matemática.
+
+- Sets (conjuntos) não possuem valores duplicados.
+- Sets (conjuntos) não possuem valores ordenados.
+- Elementos não são acessados via índice, ou seja, conjuntos não são indexados.
+
+Conjuntos são bons para se utilizar quando precisamos armazenar elementos
+mas não nos importamos com a ordenação deles. Quando não precisamos se preocupar com chaves, valores e itens duplicados.
+
+Os conjuntos (sets) são referenciados em Python com chaves {}
+
+Diferença entre Conjuntos ( Sets ) e Mapas ( Dicionários ) em Python:
+    -  Um dicionário tem chave/valor
+       Um conjunto tem apenas valor
+
+
+
+# Definindo um conjunto
+
+# Forma 1
+s = set({1, 2, 3, 4, 5, 5, 6, 7, 2, 3}) # repare que temos valores repetidos
+print(s)
+print(type(s))
+# ao criar um conjunto, caso seja adicionado um valor existente, será ignorado e não fará parte do conjunto.
+
+# Forma 2 ( MAIS COMUM )
+s = {1, 2, 3, 4, 5, 5} # repare que temos valores repetidos
+print(s)
+print(type(s))
+# e também são ignorados os repetidos
+
+# verificando se o elemento existe no conjunto
+if 3 in s:
+    print('tem o 3')
+else:
+    print('Não tem o 3')
+
+
+# IMPORTANTE lembrar que além de não termos valores duplicados, não temos ordem.
+
+
+# lista
+# aceitam valores duplicados, por isso 7 elementos
+# ordem =  a que foi digitada / informada
+lista = [99, 10, 1, 15, 71, 35, 15]
+print(f'Lista : {lista} com {len(lista)} elementos')
+print(type(lista))
+
+# tupla
+# aceitam valores duplicados, por isso 7 elementos
+# ordem =  a que foi digitada / informada
+tupla = (99, 10, 1, 15, 71, 35, 15)
+print(f'Tupla : {tupla} com {len(tupla)} elementos')
+print(type(tupla))
+
+# DICIONARIO
+# não aceitam chaves dupliados, por isso 6 elementos
+# ordem =  a que foi digitada / informada
+dict = {}.fromkeys([99, 10, 1, 15, 71, 35, 15], 'dict')
+print(f'Dicionário : {dict} com {len(dict)} elementos')
+print(type(dict))
+
+# conjunto
+# não aceitam valores duplicados, por isso 6 elementos
+# ordenação própria, não gera ordenação comum
+set = {99, 10, 1, 15, 71, 35, 15}
+print(f'Conjunto : {set} com {len(set)} elementos')
+print(type(set))
+
+# Assim como todo outro conjunto Python podemo colocar tipos de dados misturados em Sets
+
+s = {1, 'b', True, 34, 22, 44}
+print(s)
+print(type(s))
+
+# podemos tirar em set normalmente
+
+for valor in s:
+    print(valor)
+
+# Usos interessantes com Sets
+
+# Imagine que fizemos um formulário de cadastro de visitantes em uma feira ou museu.
+# E os visitantes informam manualmente a cidade de onde vieram
+# nós adicionameos cada cidade em uma lista python, ja que é mutável, e repetível.
+
+cidades = ['Belo Horizonte', 'São Paulo', 'Cuiaba', 'Campo Grande', 'São Paulo', 'Cuiaba']
+print(cidades)
+print(len(cidades))
+
+# Agora precisamos saber quantas cidades distintas, ou seja, ÚNICAS, temos.
+# o que voce faria ?
+# podemos utilizar o set para isso
+print(len(set(cidades)))
+
+# Adicionando elementos em conjunto
+s = {1, 2, 3}
+s.add(4)
+s.add(4) # Ignora termos repetidos
+print(s)
+
+# Remover elementos em conjunto
+s = {1, 2, 3}
+
+# Forma 1
+# gera erro se tentar remover o que nao existe
+s.remove(3) # não é indice, informamos o valor a ser removido!!! CONJUNTOS NÃO SÃO INDEXADOS
+print(s)
+
+# Forma 2
+# não gera erro se tentar remover o que não existe
+s.discard(2)
+print(s)
+
+
+# Copiando um conjunto para outro
+s = {1, 2, 3}
+# forma 1 - DEEP COPY
+novo = s.copy()
+novo.add(4)
+print(novo)
+print(s)
+
+# forma 2 - SHALLOW COPY
+s = {1, 2, 3}
+novo = s
+novo.add(4)
+print(novo)
+print(s)
+
+# Podemos remover todos os itens de um conjunto
+s = {1, 2, 3}
+s.clear()
+print(s)
+
+# Métodos Matemáticos
+
+# Imagine que temos dois conjuntos
+# Um de estudantes de Python, e outro de estudantes de Java
+
+estudantes_python = {'Marcos','Patricia','Elen','Julia','Guilherme','Bosley'}
+estudantes_java = {'Fernando','Gustavo','Gabriel','Julia','Patricia'}
+
+# Veja que alguns dos alunos estudam as duas linguagem.
+# Precisamos gerar um conjunto com nomes de estudantes únicos.
+# Forma 1 - Union (UNIÃO sem repetição) - RECOMENDADO
+unicos1 = estudantes_python.union(estudantes_java)
+print(unicos1)
+
+# Forma 2 - Utilizando o caractere pipe |
+unicos2 = estudantes_python | estudantes_java
+print(unicos2)
+
+# Gerar um conjunto de estudantes em que estão em ambos os cursos
+estudantes_python = {'Marcos','Patricia','Elen','Julia','Guilherme','Bosley'}
+estudantes_java = {'Fernando','Gustavo','Gabriel','Julia','Patricia'}
+
+# Forma 1 - Intersection
+ambos1 = estudantes_python.intersection(estudantes_java)
+print(ambos1)
+
+# Forma 2 - Utilizando o E comercial &
+ambos2 = estudantes_python & estudantes_java
+print(ambos2)
+
+# Gerar um conjunto de estudantes que não estão no outro
+estudantes_python = {'Marcos','Patricia','Elen','Julia','Guilherme','Bosley'}
+estudantes_java = {'Fernando','Gustavo','Gabriel','Julia','Patricia'}
+
+# estudam apenas o Python
+only_python = estudantes_python.difference(estudantes_java)
+print(only_python)
+
+# estudam apenas o java
+only_java = estudantes_java.difference(estudantes_python)
+print(only_java)
+
+# soma, valor max e min, e tamanho
+# se forem inteiros ou float
+s = {1, 2, 3, 4, 6}
+
+# soma
+print(sum(s))
+
+#max
+print(max(s))
+
+#min
+print(min(s))
+
+#tamanho
+print(len(s))
+
+'''
+
+
+
+
+
+

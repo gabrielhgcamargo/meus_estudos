@@ -1,0 +1,26 @@
+Faremos operações básicas de cadastro de clientes,
+Neste notepad, veremos como deletar:
+
+3. Deletar (Delete Mapping)
+
+Criar um método para a operação, no caso, para deletar um cliente.
+Inserir neste método as annotations @DeleteMapping e @ResponseBody
+
+@DeleteMapping -> passar a rota de acesso para a operação ; Exemplo:  @DeleteMapping("/api/clintes/{id}")
+@ResponseBody é para que o Spring Boot entenda que está retornando é o corpo da resposta.
+
+	Delete passando como argumento o ID:
+	
+    @DeleteMapping("/api/clientes/{id}")
+    @ResponseBody
+    public ResponseEntity delete( @PathVariable Integer id ){
+        Optional<Cliente> cliente = clientes.findById(id);
+
+        if(cliente.isPresent()){
+            clientes.delete( cliente.get() );
+            return ResponseEntity.noContent().build();
+        }
+
+        return ResponseEntity.notFound().build();
+    }
+

@@ -1,0 +1,40 @@
+'''
+Módulo Collections - Named Tuple
+
+Named Tuple -> TUPLA NOMEADA
+São tuplas, diferenciadas, onde, especificamos um nome para a mesma e também paramentros.
+
+
+'''
+# IMPORTANDO
+from collections import namedtuple
+
+# Precisamos definir o nome e parâmetros.
+# Forma 1 - Declaração Named Tuple
+cachorro = namedtuple('cachorro','idade raça nome')
+
+# Forma 2 - Declaração Named Tuple
+cachorro = namedtuple('cachorro','idade, raça, nome')
+
+# Forma 3 - Declaração Named Tuple (RECOMENDADO)
+
+cachorro = namedtuple('cachorro', ['idade','raça','nome'])
+
+# USANDO
+
+ray = cachorro(idade= 6, raça = 'Lhasa',nome = 'Bilbo')
+print(ray)
+
+# acessando dados
+# Forma 1
+print(ray[0]) # idade
+print(ray[1]) # raça
+print(ray[2]) # nome
+
+# Forma 2
+print(ray.idade) # idade
+print(ray.raça) # raça
+print(ray.nome) # nome
+
+print(ray.index('Lhasa')) # Em qual índice se encontra este valor
+print(ray.count('Lhasa')) # Quantas ocorrências deste valor

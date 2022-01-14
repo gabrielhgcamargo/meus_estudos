@@ -1,0 +1,86 @@
+
+
+PEP8 - Python Enhancement Proposal
+    São propostas de melhorias para a linguagem Python.
+    
+   The Zen of Python
+    
+    import this
+
+    A ideia da PEP8 é que possamos escrever códigos Python de forma Pythonica. ( A forma bonita, agradável)
+
+[1] - Utilize Camel Case (Letra inicial Maiúscula) para nomes de classes;
+    Exemplo 
+                class Calculadora
+                    pass
+
+                class CalculadoraCientifica
+                    pass
+
+[2] - Utilize nomes em Minúsculo, separados por underline para funções ou variáveis;
+    Exemplo 
+
+            FUNÇÕES
+
+                def soma()
+                    pass
+
+                def soma_dois()
+                    pass
+
+
+            VARIÁVEIS
+
+                numero = 4
+
+                numero_impar = 5
+
+[3] - Utilize 4 espaços para a identação!!! (não utilizar TAB)
+    Exemplo
+
+     errado   if 'a1 in 'banana'
+               print ('tem')
+
+     correto if 'a1 in 'banana'
+                  print ('tem')
+
+[4] - Linhas em branco;
+    Separar funções e definições de classe com duas linhas em branco;
+    Métodos dentro de uma classe devem ser separados com uma única linha em branco
+
+[5] - Imports;
+    Imports devem ser sempre feitos em linhas separadas;
+
+    Errado  import sys,os
+
+
+    Correto import sys
+             import os
+
+    Também, imports devem ser colocados no topo do arquivo, logo depois de quaisquer comentários ou docstrings.
+    E antes de constantes e docstrings.
+
+[6] - Espaços em expressões e instruções
+
+    Errado   funcao( algo [ 1 ] , { outro 2 } )
+    Correto  funcao(algo[1], {outro 2})
+
+    Errado  algo (1)
+    Correto algo(1)
+
+    Errado   dict ['chave'] = list [indice]
+    Correto  dict['chave'] = list[indice]
+
+    Errado   x              = 1
+              y              = 3
+              variavel_longa = 5
+    Correto x = 1
+             y = 3
+             variavel_longa = 5
+
+[7] - Termine sempre uma instrução com uma nova linha
+
+
+
+
+

@@ -1,0 +1,57 @@
+Faremos operações básicas de cadastro de clientes,
+Neste notepad, veremos como salvar:
+
+2. Salvar (POST)
+
+Quando gostariamos de salvar algum recurso no servidor, utilizamos o PostMapping:
+
+Então, criamos dentro do Controller, um método com algum nome, no caso Save para essa operação,
+onde como argumento é passado um cliente, e este método possui a Annotation @PostMapping e @ResponseBody.
+
+
+@PostMapping -> passar a rota de acesso para a operação ; Exemplo:  @PostMapping("/api/clientes")
+@ResponseBody é para que o Spring Boot entenda que está retornando é o corpo da resposta.
+
+Implementar no argumento do método a annotation @RequestBody para mapear o objeto de argumento para o objeto que
+virá no corpo da requisição.
+
+Ficando assim:
+
+
+	@PostMapping("/api/clientes")
+    	@ResponseBody
+    	public ResponseEntity save(@RequestBody Cliente cliente){
+        	Cliente clienteSalvo = clientes.save(cliente);
+        	return ResponseEntity.ok(clienteSalvo);
+    }
+
+------
+
+Abrir o app PostMan para testar:
+
+Selecionar POST, colocar a url definida no método de salvar configurado acima:
+Exemplo utilizado: http://localhost:8080/api/clientes
+
+Abrir a aba body, selecionar o texto como Json
+
+e Inserir o Cliente para ser salvado:
+
+	{
+    	"nome" : "Gabriel Camargo"
+	}
+
+-------
+E Após isso, clicar em SEND.
+
+No exemplo do aprendizado, retornará assim:
+
+{
+    "id": 1,
+    "nome": "Gabriel Camargo",
+    "pedidos": null
+}
+
+-------
+
+Para evitar que a propriedade pedidos seja exibida, inserir na classe da Entidade clientes,
+a annotation @JsonIgnore, em cima da annotation @OneToMany.

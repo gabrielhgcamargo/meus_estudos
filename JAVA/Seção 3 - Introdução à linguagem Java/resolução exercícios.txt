@@ -1,0 +1,29 @@
+Exercicio 1
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		int num = 5;
+		System.out.println("Numero = " + num);
+	}
+}
+
+
+
+
+Exercício 2
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		float num = 5;
+		System.out.println("Numero = " + num);
+	}
+}
+
+
+
+
+Exercício 3
+
+
+
+

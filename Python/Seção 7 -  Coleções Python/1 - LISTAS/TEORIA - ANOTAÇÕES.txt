@@ -1,0 +1,385 @@
+'''
+LISTAS
+
+Listas = vetores/matrizes
+Em python são DINAMINCAS, pois não possui tipo de dado fixo ou tamanho.
+Representadas por : [] (colchetes)
+
+'''
+
+# Exemplos
+
+lista1 = [1, 99, 4, 27, 15, 22, 3, 1, 44, 42, 27]
+
+lista2 = ['G','e','e','k',' ','U','n','i','v','e','r','s','i','t','y']
+
+lista3 = []
+
+lista4 = list(range(11))
+
+lista5 = list('Geek University')
+
+# Como podemos utilizá-las?
+'''
+
+# EXEMPLO 1
+if 8 in lista4:
+    print('A lista possui o número  8')
+else:
+    print('A lista NÃO possui o número 8')
+
+# EXEMPLO 2
+num = 15
+if num in lista4:
+    print(f'A lista possui o número {num}')
+else:
+    print(f'A lista NÃO possui o número {num}')
+
+# EXEMPLO 3
+if 'e' in lista5:
+    print('Encontrei a letra e')
+else:
+    print('Não encontrei a letra e')
+
+# EXEMPLO 4 - ORDENAR LISTA
+lista1.sort()
+print(lista1)
+
+lista5.sort()
+print(lista5)
+
+# EXEMPLO 5 - CONTAR O NÚMERO DE OCORRENCIAS DE UM VALOR EM UMA LISTA
+print(lista1.count(1))
+print(lista5.count('e'))
+
+# EXEMPLO 6 - ADICIONAR ELEMENTOS EM LISTAS
+#OBS: para adicionar elementos em listas, utilizamos a função append
+#OBS: Com append, só conseguimos adicionar UM elemento por vez.
+#OBS: valor inserido sempre no final da lista
+
+print(lista1)
+lista1.append(42)
+print(lista1)
+
+# LISTA DENTRO DE OUTRA LISTA
+# COM APPEND, A INSERÇÃO DE MAIS DE UM VALOR ENTRA COMO UMA SUB-LISTA
+#OBS: valor inserido sempre no final da lista
+lista1.append([8, 3, 1])
+print(lista1)
+
+if [8, 3, 1] in lista1:
+    print('Encontrei a lista')
+else:
+    print('Não encontrei a lista')
+
+#OBS: adicionando lista com EXTEND
+#COM EXTEND, A INSERÇÃO DE MAIS DE UM VALOR ENTRA COMO VALOR ADICIONAL
+#NÃO FUNCIONA COM VALOR ÚNICO
+#OBS: valor inserido sempre no final da lista
+lista1.extend([123, 44, 67])
+print(lista1)
+
+
+
+# EXEMPLO 7 - INSERIR NOVO ELEMENTO, INFORMANDO SUA POSIÇÃO
+# OBS: Não é substituição
+lista1.insert(2, 'Novo Valor')
+print(lista1)
+
+
+
+# EXEMPLO 8 - JUNTAR DUAS LISTAS
+# abaixo algumas maneiras de fazer isto:
+lista6 = lista1 + lista5
+print(lista6)
+
+lista1 += lista2
+print(lista1)
+
+lista1.extend(lista2)
+print(lista1)
+
+
+# EXEMPLO 9 - IMPRIMIR A LISTA INVERSA
+
+# FORMA 1
+lista1.reverse()
+lista2.reverse()
+
+print(lista1)
+print(lista2)
+
+# FORMA 2
+print(lista1[ ::-1])
+print(lista2[ ::-1])
+
+
+# EXEMPLO 10 - COPIAR UMA LISTA
+lista6 = lista2.copy()
+print(lista6)
+
+
+# EXEMPLO 11 - CONTAR ELEMENTOS DE UMA LISTA
+print(len(lista5))
+
+# EXEMPLO 12 - PODEMOS REMOVER O ULTIMO ELEMENTO DE UMA LISTA
+# POP REMOVE O ULTIMO ELEMENTO, se executado no console, ele também exibe o elemento removido.
+
+print(lista5)
+lista5.pop()
+print(lista5)
+
+# podemos remover um elemento pelo ÍNDICE com POP também
+lista5.pop(2)
+print(lista5)
+
+
+# EXEMPLO 13 - PODEMOS REMOVER TODOS OS ELEMENTOS ( ZERAR A LISTA )
+print(lista5)
+lista5.clear()
+print(lista5)
+
+
+# EXEMPLO 14 - PODEMOS REPETIR ELEMENTOS DE UMA LISTA
+nova = [1, 2, 3]
+print(nova)
+nova *= 3
+print(nova)
+
+
+# EXEMPLO 15 - PODEMOS FACILAMENTE CONVERTER STRING PARA LIST
+# por padrão, ele separa os elementos da lista pelo espaço entre elas.
+# forma 1
+curso = 'Programação top'
+print(curso)
+curso = curso.split()
+print(curso)
+
+# forma 2 - separador agora é a virgula
+curso = 'programaçao muito,top,demais'
+print(curso)
+curso = curso.split(',')
+print(curso)
+
+
+# EXEMPLO 16 - CONVERTER LISTA PARA STRING
+lista6 = ['programação','em','Python','Essencial']
+print(lista6)
+
+#Abaixo estamos falando, PEGA A LISTA6, COLOCA ESPAÇO ENTRE ELAS E TRANSFORMA EM STRING
+    # EXEMPLO 1 - INSERINDO ESPAÇO ENTRE ELEMENTOS
+curso = ' '.join(lista6)
+print(curso)
+
+    # EXEMPLO 2 - INSERINDO TRAÇO ENTRE ELEMENTOS
+lista6 = ['programação','em','Python','Essencial']
+curso = '-'.join(lista6)
+print(curso)
+
+
+#  EXEMPLO 17 - inserir varios tipos de valores em uma mesma lista
+lista6 = [1, 2, 3, True, 'Geek','d',[1, 2, 3]]
+print(lista6)
+
+
+
+            #ITERANDO SOBRE LISTAS
+
+# EXEMPLO 1 - FOR
+for elemento in lista1:
+    print(elemento)
+
+# EXEMPLO 2 - FOR
+soma = 0
+for elemento in lista1:
+    print(elemento)
+    soma += elemento
+print(soma)
+
+
+# EXEMPLO 3 - WHILE
+carrinho = []
+produto = ''
+
+while produto != 'sair':
+    print("Adicione um produto na lista ou digite 'sair' para sair: ")
+    produto = input()
+    if produto != 'sair':
+        carrinho.append(produto)
+for produto in carrinho:
+    print(produto)
+
+# EXEMPLO 4 - Variáveis em LISTAS
+numeros = [1, 2, 3, 4, 5]
+print(numeros)
+
+num1 = 1
+num2 = 2
+num3 = 3
+num4 = 4
+num5 = 5
+numeros = [num1, num2, num3, num4, num5]
+print(numeros)
+
+# Exemplo 5 - Acesso aos elementos de forma indexada
+cores = ['verde','amarelo','branco']
+print(cores[0])
+
+# Exemplo 5 - Acesso aos elementos de forma indexada inversa
+cores = ['verde','amarelo','branco']
+print(cores[-1])
+
+
+# EXEMPLO 6
+
+cores = ['verde','amarelo','branco']
+
+for cor in cores:
+    print(cor)
+
+indice = 0
+while indice < len(cores):
+    print(cores[indice])
+    indice += 1 
+
+
+# EXEMPLO 7 - GERAR INDICE EM UM FOR
+cores = ['verde','amarelo','branco']
+
+for indice, cor in enumerate(cores):
+    print(indice, cor)
+    
+
+# RELEMBRANDO O ENUMERATE
+cores = ['verde','amarelo','branco']
+cores = list(enumerate(cores))
+print(cores)
+
+
+
+# Métodos não importantes, mas úteis
+
+# Encontrar índice de um elemento na lista
+
+# em qual indice esta o valor 6 ?
+numeros = [5, 6, 7, 8, 9, 10]
+print(numeros.index(6))
+
+# em qual indice esta o valor 6 ?
+numeros = [5, 6, 7, 8, 9, 10]
+print(numeros.index(9))
+
+#obs: caso o elemento não exista, será retornado um ERRO
+
+
+# se houver mais de um valor na lista, será retornado o índice do primeiro encontrado
+numeros = [5, 6, 5, 7, 8, 9, 10, 5]
+print(numeros.index(5))
+
+#podemos fazer busca indice, determinando um range dentro da lista
+# abaixo diz, encontrar o indice do valor 5, a partir do índice 1
+print(numeros.index(5, 1))
+
+# abaixo diz, encontrar o indice do valor 5, a partir do índice 2
+print(numeros.index(5, 3))
+
+#obs: caso o elemento não exista, será retornado um ERRO
+
+
+# podemos fazer busca indice, determinando um range dentro da lista ( inicio e fim )
+# abaixo diz, encontrar o indice do valor 5, a partir do índice 1 até o 3
+numeros = [5, 6, 5, 7, 8, 9, 10, 5]
+print(numeros.index(5, 1, 3))
+
+
+# REVISÃO DE SLICING
+
+#lista[inicio:fim:passo]
+#range[inicio:fim:passo]
+
+# trabalhando com slice de lista com o parametro 'inicio'
+
+lista = [1, 2, 3, 4]
+print(lista[1:])
+
+# trabalhando com slice de lista com o parametro 'fim'
+print(lista[:3])
+
+# trabalhando com slice de lista com o parametro 'passo'
+print(lista[::2])
+
+# trabalhando com slice de lista com o parametro 'passo inverso'
+print(lista[::-2])
+
+
+    # INVERTENDO VALORES EM UMA LISTA
+nome = ['Geek', 'University']
+nome[0], nome[1] = nome[1], nome[0]
+print(nome)
+
+
+# SOMA, Valor Max, Valor Min, tamanho
+
+# APENAS COM VALORES INT OU FLOAT
+lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 101]
+print(sum(lista)) # soma
+print(max(lista)) # valor maximo
+print(min(lista)) # valor minimo
+print(len(lista)) # tamanho da lista
+
+# TRANSFORMAR LISTA EM TUPLA
+
+lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 101]
+print(lista)
+print(type(lista))
+
+tupla = tuple(lista)
+print(tupla)
+print(type(tupla))
+
+
+# DESENPACOTAMENTO DE LISTAS
+
+listas = [1, 2, 3, 4]
+num1, num2, num3 = lista1
+print(num1)
+print(num2)
+print(num3)
+
+# se tivermos um numero diferente de elementos na lista ou variaveis para receber esses valores, teremos VALUE ERROR
+
+listas = [1, 2, 3]
+num1, num2, num3 = listas
+print(num1)
+print(num2)
+print(num3)
+
+
+# COPIANDO UMA LISTA PARA OUTRA ( Shallow copy e Deep Copy)
+
+# FORMA 1 - DEEP COPY
+lista = [1, 2, 3]
+print(lista)
+
+nova = lista.copy()
+print(nova)
+
+nova.append(4)
+
+print(lista)
+print(nova)
+
+# FORMA 2 -  SHALLOW COPY
+
+lista = [1, 2, 3]
+print(lista)
+
+nova = lista
+print(nova)
+
+nova.append(4)
+
+print(lista)
+print(nova)
+
+'''

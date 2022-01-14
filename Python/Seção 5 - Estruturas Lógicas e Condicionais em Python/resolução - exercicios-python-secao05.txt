@@ -1,0 +1,596 @@
+# Seção 5 - Estruturas Lógicas e Condicionais em Python
+
+
+    # Exercício 1
+
+#num1 = int(input("Digite um número : "))
+#num2 = int(input("Digite outro número : "))
+#if num1 > num2:
+#    print(f'número {num1} é maior que {num2}')
+#else:
+#    print(f' O número {num2} é maior que o número {num1}')
+
+    # Exercício 2
+
+#num = int(input('Digite um número para que seja calculada sua raiz : '))
+#if num < 0:
+#    print(f' Não foi possível calcular a raiz do número {num}, insira um número positivo!')
+#else:
+#    print(f'Raiz quadrada de {num} é {int(num ** 0.5)}')
+
+    # Exercício 3
+
+#num = float(input('Digite um número: '))
+#if num >= 0:
+#    print(f'Raiz quadrada de {num} é {num ** 0.5}')
+#else:
+#    print(f'O quadrado de {num} é {num ** 2}')
+
+    # Exercício 4
+
+#num = float(input('Digite um número positivo : '))
+#if num > 0:
+#    print(f'Quadrado de {num} = {num ** 2}\nRaiz quadrada de {num} = {num ** 0.5}')
+#else:
+#    print('Digite um número positivo!')
+
+    # Exercício 5
+
+#num = int(input('Digite um número : '))
+#if num % 2 == 0:
+#    print('Número PAR')
+#else:
+#    print('Número IMPAR')
+
+    # Exercício 6
+
+#num1 = int(input('Digite um número : '))
+#num2 = int(input('Digite outro número : '))
+#if num1 > num2:
+#    print(f'Maior número : {num1}\nDiferença entre eles : {num1 - num2}')
+#else:
+#    print(f'Maior número : {num2}\nDiferença entre eles : {num2 - num1}')
+
+    # Exercício 7
+
+#num1 = int(input('Digite um número: '))
+#num2 = int(input('Digite outro número: '))
+#if num1 > num2:
+#    print(f'Maior número = {num1}')
+#elif num1 == num2:
+#    print('Números Iguais!')
+#else:
+#    print(f'Maior número = {num2}')
+
+    # Exercício 8
+
+#nota1 = float(input('Digite a primeira nota do aluno: '))
+#if nota1 <= 10 and nota1 >= 0:
+#    nota2 = float(input('Digite a segunda nota do aluno: '))
+#    if nota2 <= 10 and nota2 >= 0:
+#        print(f'Média = {(nota1 + nota2) / 2}')
+#    else:
+#        print('Digite uma nota válida!')
+#else:
+#    print('Digite uma nota válida!')
+
+    # Exercício 9
+
+#salario = float(input('Digite seu salário : R$'))
+#emp = float(input('Digite a prestação do empréstimo : R$'))
+#if emp > (salario * 0.2):
+#    print('Empréstimo não concedido!')
+#else:
+#    print('Empréstimo concedido!')
+
+    # Exercício 10
+
+#h = float(input('Digite sua altura: '))
+#sexo = input('M para Masculino ou F paraFeminino :  ')
+#if sexo == 'M':
+#    print(f'Peso ideal para homens com {h} de altura: {(72.7 * h) - 58}')
+#else:
+#    print(f'Peso ideal para mulheres com {h} de altura : {(62.1 * h) - 44.7}')
+
+    # Exercício 11
+
+
+
+    # Exercício 12
+
+#num = int(input('Digite um número = '))
+#if num > 0:
+#    print(f'Número positivo, logo seu log é {math.log10(num)}')
+#else:
+#    print('Número negativo, digite novamente!')
+
+    # Exercício 13
+
+#nota1 = float(input('---Cálculo Média Ponderada---\nDigite a primeira nota do aluno : '))
+#nota2 = float(input('Digite a segunda nota do aluno : '))
+#nota3 = float(input('Digite a terceira nota do aluno : '))
+#mediaponderada = ((nota1 * 1) + (nota2 * 1) + (nota3 * 2)) / 4
+#if mediaponderada >= 6:
+#    print(f' média = {mediaponderada}\nSituação =  APROVADO')
+#else:
+#    print(f' média = {mediaponderada}\nSituação = REPROVADO')
+
+    # Exercício 14
+
+#nota1 = float(input('---CÁLCULO NOTA FINAL---\nNota Trabalho de Laboratório : '))
+#nota2 = float(input('Nota Avaliação Semestral : '))
+#nota3 = float(input('Nota Exame Final : '))
+#mediaponderada = ((nota1 * 2) + (nota2 * 3) + (nota3 * 5)) / 10
+#if mediaponderada <= 2.9:
+#    print(f'Média = {mediaponderada}\nSituação : REPROVADO')
+#elif mediaponderada <= 4.9:
+#    print(f'Média = {mediaponderada}\nSituação :  EM RECUPERAÇÃO')
+#else:
+#    print(f'Média = {mediaponderada}\nSituação : APROVADO')
+
+    # Exercício 15
+
+
+
+
+
+    # Exercício 16
+
+
+
+
+    # Exercício 17
+
+#bmaior = float(input('-- CÁLCULO ÁREA TRAPÉZIO ---\nBase Maior = '))
+#bmenor = float(input('Base menor = '))
+#h = float(input('Altura = '))
+#if bmaior and bmenor > 0:
+#    a = ((bmaior + bmenor) * h) / 2
+#    print(f'ÁREA DO TRAPÉZIO = {a}')
+#else:
+#    print('Número inválido')
+
+    # Exercício 18
+
+#op = int(input('--- Calculadora ---\n   Operações:\nadição : 1\nSubtração : 2\nMultiplicação : 3\nDivisão : 4\nOperação escolhida = '))
+#valor1 = float(input('Valor 1 : '))
+#valor2 = float(input('Valor 2 : '))
+#if op == 1:
+#    print(f'{valor1} + {valor2} = {valor1 + valor2}')
+#elif op == 2:
+#    print(f'{valor1} - {valor2} = {valor1 - valor2}')
+#elif op == 3 :
+#    print(f'{valor1} * {valor2} = {valor1 * valor2}')
+#elif op == 4:
+#    print(f'{valor1} / {valor2} = {valor1 / valor2}')
+#else:
+#    print('Número inválido')
+
+    # Exercício 19
+
+#num = int(input('insira um número inteiro, afim de verificar se é divisível por 3 ou 5\nValor : '))
+#if num % 3 == 0:
+#    print('Divisível por 3')
+#elif num % 5 == 0:
+#    print('Divisível por 5')
+#else:
+#    print('Não é divisível por 3 ou 5')
+
+    # Exercício 20
+
+#lado1 = float(input('Verificador de triângulos\n Lado A : '))
+#lado2 = float(input('Lado B : '))
+#lado3 = float(input('Lado C : '))
+#if lado1 == lado2 == lado3:
+#    print('Triângulo equilátero')
+#elif lado1 == lado2 or lado2 == lado3:
+#    print('Triângulo Isósceles')
+#else:
+#    print('Triângulo escaleno')
+
+    # Exercício 21
+
+#op = int(input('--- Calculadora ---\n   Operações:\n1 - Soma de 2 números\n2 - Diferença de dois números\n3 - Produto entre dois números\n4 - Divisão entre dois números\nOperação escolhida = '))
+#valor1 = float(input('Valor 1 : '))
+#valor2 = float(input('Valor 2 : '))
+#if op == 1:
+#    print(f'{valor1} + {valor2} = {valor1 + valor2}')
+#elif op == 2:
+#    print(f'{valor1} - {valor2} = {valor1 - valor2}')
+#elif op == 3 :
+#    print(f'{valor1} * {valor2} = {valor1 * valor2}')
+#elif op == 4:
+#    print(f'{valor1} / {valor2} = {valor1 / valor2}')
+#else:
+#   print('Número inválido')
+
+    # Exercício 22
+
+#idade = int(input('         Avaliação de aposentadoria\nIdade: '))
+#ts = int(input('Tempo de serviço (anos) : '))
+#if idade >= 65:
+#    print('Aposentadoria concedida')
+#elif ts >= 30:
+#    print('Aposentadoria concedida')
+#elif idade >= 60 and ts >= 25:
+#    print('Aposentadoria concedida')
+#else:
+#    print('Aposentadoria não concedida')
+
+    # Exercício 23
+
+#ano = int(input('Digite um ano para verificar se é bissexto : '))
+#if ano % 400 == 0:
+#    print(f'{ano} é bissexto')
+#elif ano % 4 == 0 and ano % 100 != 0:
+#    print(f'{ano} é bissexto')
+#else:
+#    print(f'{ano} não é bissexto')
+
+    # Exercício 24
+
+#valor = float(input('Digite o valor do produto: '))
+#estado = input('Digite o estado( MG / SP / RJ / MS ) : ')
+#if estado == 'MG':
+#    print(f'Valor sem imposto : R${valor}\nValor com imposto: R${valor + (valor * 0.07)}')
+#elif estado == 'SP':
+#    print(f'Valor sem imposto: R${valor}\nValor com imposto : R${valor + (valor * 0.12)}')
+#elif estado == 'RJ':
+#   print(f'Valor sem imposto : R${valor}\nValor com imposto : R${valor + (valor * 0.15)}')
+#elif estado == 'MS':
+#    print(f'Valor sem imposto : R${valor}\nValor com imposto : R${valor + (valor * 0.08)}')
+#else:
+#    print('Estado Inválido.')
+
+    # Exercício 25
+
+#a = float(input('--- Calculadora de Raiz 2o Grau ---\n Ax2 + Bx + C = 0\nValor de A = '))
+#b= float(input('Valor de B = '))
+#c = float(input('Valor de C = '))
+#if a != 0:
+#    delta = (b ** 2) - (4 * a  * c)
+#    if delta < 0:
+#        print('Não existe raiz real.')
+#    elif delta == 0:
+#       raiz = -(b) / (2 * a)
+#        print(f'Raiz única, logo, raiz = {raiz}')
+#    else:
+#        raiz1 = (-(b) + (delta ** 0.5))/(2 * a)
+#        raiz2 = (-(b) - (delta ** 0.5))/(2 * a)
+#        print(f'{raiz1} e {raiz2} são as raízes da equação.')
+#else:
+#    print('Não é equação de segundo grau.')
+
+    # Exercício 26
+
+#d = float(input('Custo Benefício CONSUMO/DISTÂNCIA\nDigite a distância (KM) : '))
+#c = float(input('Consumo de gasolina na distância acima (Litros): '))
+#cb = d / c
+#if cb < 8:
+#    print('VENDA O CARRO!')
+#elif cb >= 8 and cb <= 14:
+#    print('Econômico!')
+#else:
+#    print('Super econômico!')
+
+    # Exercício 27
+
+#idade = int(input('Digite sua idade afim de classificar sua categoria: '))
+#if idade >= 5 and idade <= 7:
+#    print('Infantil A')
+#elif idade >= 8 and idade <= 10:
+#    print('Infantil B')
+#elif idade >= 11 and idade <= 13:
+#    print('Juvenil A')
+#elif idade >= 14 and idade <= 17:
+#    print('Juvenil B')
+#else:
+#    print('Sênior')
+
+    # Exercício 28
+
+#x = int(input('\nInsira valores inteiros positivos :\nValor X: '))
+#y = int(input('Valor Y: '))
+#z = int(input('Valor X: '))
+#media = input('Digite a letra da média desejada, para que seja calculada com os números inseridos acima:\n(a) Geométrica\n(b) Ponderada\n(c) Harmônica\n(d) Aritmética\n Letra : ')
+#if media == 'a' or 'A':
+#    print(f'Média Geométria : {(x * y * z) ** 1/3}')
+#elif media == 'b' or 'B':
+#    print(f'Média Ponderada : {((x + 2) * (y + 3) * z) / 6  }')
+#elif media == 'c' or 'C':
+#    print(f'Média Harmônica : {1 /((1/x)+(1/y)+(1/x))}')
+#elif media == 'd' or 'D':
+#    print(f'Média Aritmética: {(x + y + z) / 3}')
+#else:
+#    print('Opção Inválida!')
+
+    # Exercício 29
+
+''''
+res1 = int(input('--- PROVA DE MATEMÁTICA ---\n Questão 01\n   10 + 15 = '))
+res2 = int(input('Questão 02\n   30 + 10 = '))
+res3 = int(input('Questão 03\n   50 +  2 = '))
+res4 = int(input('Questão 04\n   12 + 58 = '))
+res5 = int(input('Questão 05\n   19 + 19 = '))
+count = 0
+ques1 = 0
+ques2 = 0
+ques3 = 0
+ques4 = 0
+ques5 = 0
+if res1 == 25:
+    count += 1
+    ques1 += 1
+if res2 == 40:
+    count += 1
+    ques2 += 1
+if res3 == 52:
+    count += 1
+    ques3 += 1
+if res4 == 70:
+    count += 1
+    ques4 += 1
+if res5 == 38:
+    count += 1
+    ques5 += 1
+
+print('--- PROVA CORRIGIDA ---')
+if ques1 == 1:
+    print('Questão 01\n   10 + 15 = 25 ----> CORRETA')
+if ques2 == 1:
+    print('Questão 02\n   30 + 10 = 40 ----> CORRETA')
+if ques3 == 1:
+    print('Questão 03\n   50 +  2 = 52 ----> CORRETA')
+if ques4 == 1:
+    print('Questão 04\n   12 + 58 = 70 ----> CORRETA')
+if ques5 == 1:
+     print('Questão 05\n   19 + 19 = 38 ----> CORRETA')
+if count == 0:
+    print(f'Total de 0 acertos!')
+else:
+    print(f'\nTotal de respostas corretas = {count}')
+'''
+
+    # Exercício 30
+
+'''
+num1 = int(input('Número 1 = '))
+num2 = int(input('Número 2 = '))
+num3 = int(input('Número 3 = '))
+if num1 < num2:
+    if num1 < num3:
+        if num2 < num3:
+            print(f'Ordem Crescente = {num1},{num2},{num3}')
+        else:
+            print(f'Ordem Crescente = {num1},{num3},{num2}')
+    else:
+        print(f'Ordem Crescente = {num3},{num1},{num2}')
+elif num2 < num3:
+    if num2 < num1:
+        if num3 < num1:
+            print(f'Ordem Crescente = {num2},{num3},{num1}')
+        else:
+            print(f'Ordem Crescente = {num2},{num1},{num3}')
+else:
+    print(f'Ordem Crescente = {num3},{num2},{num1}')
+
+'''
+
+      # Exercício 31
+
+'''
+h = float(input('Digite sua altura = '))
+m = float(input('Digite seu peso = '))
+if h < 1.2:
+    if m <= 60:
+        print ('Classificação = A')
+    elif m >= 60 and m <= 90:
+        print('Classificação = D')
+    else:
+        print('Classificação = G')
+elif h >= 1.2 and h <= 1.7:
+    if m <= 60:
+        print('Classificação = B')
+    elif m >= 60 and m <= 90:
+        print('Classificação = E')
+    else:
+        print('Classificação = H')
+else:
+    if m <= 60:
+        print('Classificação = C')
+    elif m >= 60 and m <= 90:
+        print('Classificação = F')
+    else:
+        print('Classificação = I')
+'''
+
+    # Exercício 32
+'''
+l = int(input('---CARDÁRPIO---\n\n100 - CACHORRO QUENTE - R$ 1.20\n101 - BAURU SIMPLES - R$ 1.30\n102 - BAURU COM OVO - R$1.5\n103 - HAMBURGER - R$ 1.20\n104 - CHEESEBURGER - R$ 1.7\n105 - SUCO - R$ 2.20\n106 - REFRIGERANTE - R$ 1.00\nDigite o número de seu lanche : '))
+qtd = int(input('Número de unidades = '))
+if l == 100:
+    print(f'{qtd} unidade(s) de Cachorro Quente\nVALOR = R${1.2 * qtd}')
+elif l == 101:
+    print(f'{qtd} unidade(s) de Bauru Simples\nVALOR = R${1.3 * qtd}')
+elif l == 102:
+    print(f'{qtd} unidade(s) de Bauru com Ovo\nVALOR = R${1.5 * qtd}')
+elif l == 103:
+    print(f'{qtd} unidade(s) de Hamburger\nVALOR = R${1.2 * qtd}')
+elif l == 104:
+    print(f'{qtd} unidade(s) de CheeseBurger\nVALOR = R${1.7 * qtd}')
+elif l == 105:
+    print(f'{qtd} unidade(s) de Suco\nVALOR = R${2.2 * qtd}')
+elif l == 106:
+    print(f'{qtd} unidade(s) de Refrigerante\nVALOR = R${1 * qtd}')
+
+'''
+
+    # EXERCÍCIO 33
+'''
+preco = float(input('Digite o preço antigo para consultar o valor atual : R$'))
+if preco <= 50:
+    preco += (0.05 * preco)
+elif preco > 50 and preco <= 100:
+    preco += (0.1 * preco)
+else:
+    preco += (0.15 * preco)
+
+if preco <= 80:
+    print(f'PREÇO NOVO = R${preco} - BARATO')
+elif preco > 80 and preco <= 120:
+    print(f'PREÇO NOVO = R${preco} - NORMAL')
+elif preco > 120 and preco <= 200:
+    print(f'PREÇO NOVO = R${preco} - CARO')
+else:
+    print(f'PREÇO NOVO = R${preco} - MUITO CARO')
+
+'''
+'''
+    # Exercício 34
+
+n = float(input('Digite a nota do aluno = '))
+f = int(input('Digite o número de faltas do aluno = '))
+if n <= 3.9:
+     print('Conceito = E')
+elif 4 <= n <= 4.9:
+    if f <= 20:
+        print ('Conceito = D')
+    else:
+        print('Conceito = E')
+elif 5 <= n <= 7.4:
+    if f <= 20:
+        print('Conceito = C')
+    else:
+        print('Conceito = D')
+elif 7.5 <= n <= 8.9:
+    if f <= 20:
+        print('Conceito = B')
+    else:
+        print('Conceito = C')
+elif 9 <= n <= 10:
+    if f <= 20:
+        print('Conceito = A')
+    else:
+        print('Conceito = B')
+else:
+    print(f'Nota inválida')
+
+'''
+
+    # Exercício 35
+
+'''
+d = int(input('Digite o dia = '))
+m = int(input('Digite o mês = '))
+a = int(input('Digite o ano = '))
+
+if a % 4 == 0:
+    if m == 2:
+        if d <= 0 or d >= 30:
+            print('Dia Inválido')
+        else:
+            print(f'A data {d}/{m}/{a} é válida.')
+    elif m < 1 or m > 12:
+        print('Mês Inválido')
+    else:
+        if d <= 0 or d > 31:
+            print('Dia Inválido.')
+        else:
+            print(f'A data {d}/{m}/{a} é válida.')
+else:
+    if m == 2:
+        if d <= 0 or d >= 29:
+            print('Dia inválido')
+        else:
+            print(f'A data {d}/{m}/{a} é válida.')
+    elif  m < 1 or m > 12:
+        print('Mês Inválido')
+    else:
+        if d <= 0 or d > 31:
+            print('Dia Inválido.')
+        else:
+            print(f'A data {d}/{m}/{a} é válida.')
+
+'''
+
+    # Exercício 36
+'''
+
+vv = float(input('Digite o valor da venda mensal, para ser calculada a comissão : R$'))
+if vv >= 100000:
+    print(f'Comissão = R${700 + (vv * 0.16)}')
+elif 100000 > vv >= 80000:
+    print(f'Comissão = R${650 + (vv * 0.14)}')
+elif 80000 > vv >= 60000:
+    print(f'Comissão = R${600 + (vv * 0.14)}')
+elif 60000 > vv >= 40000:
+    print(f'Comissão = R${550 + (vv * 0.14)}')
+elif 40000 > vv >= 20000:
+    print(f'Comissão = R${500 + (vv * 0.14)}')
+else:
+    print(f'Comissão = R${400 + (vv * 0.14)}')
+    
+'''
+
+
+    # Exercício 37
+
+'''
+
+he = int(input('Digite a hora de entrada : '))
+me = int(input('Digite o minuto de entrada : '))
+hs = int(input('Digite a hora de saída : '))
+ms = int(input('Digite o minuto de saída: '))
+
+mt = ((hs - he) * 60) + (ms - me)
+if mt <= 60:
+    print('Tarifa = R$1.00')
+elif 61 <= mt <= 120:
+    print('Tarifa = R$2.00')
+elif 121 <= mt <= 180:
+    print('Tarifa = R$4.20')
+elif 181 <= mt <= 240:
+    print('Tarifa = R$5.60')
+elif mt >= 241:
+    print(f'Tarifa = R${(mt / 60) * 2}')
+
+'''
+
+    # Exercício 39
+
+'''
+s = float(input('Digite seu salário = R$'))
+t = int(input('Digite seu tempo de trabalho em anos = '))
+b = 0
+
+# BONUS
+if t > 10:
+    b += 500
+elif 7 <= t <= 10:
+    b += 300
+elif 4 <= t <= 6:
+    b += 200
+elif 1 <= t <= 3:
+    b += 100
+
+# aumento em %
+if s <= 500:
+    print(f'Sálario reajustado = R${(s + (s * 0.25 )) + b}')
+elif s <= 1000:
+    print(f'Salário reajustado = R${(s + (s * 0.2)) + b}')
+elif s <= 1500:
+    print(f'Salário reajustado = R${(s + (s * 0.15)) + b}')
+elif s <= 2000:
+    print(f'Salário reajustado = R${(s + (s * 0.1) + b)}')
+if s > 2000:
+    print(f'Você não tem direito à reajuste.\nBônus = R${b}')
+
+'''
+
+   
+
+
+
+
+
+

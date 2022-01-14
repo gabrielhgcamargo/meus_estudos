@@ -1,0 +1,7 @@
+Mostrar na saída do console o SQL que está sendo gerado nas consultas.
+
+
+Para isso, inserir no application.properties o seguinte:
+
+spring.jpa.properties.hibernate.show_sql=true
+spring.jpa.properties.hibernate.format_sql=true

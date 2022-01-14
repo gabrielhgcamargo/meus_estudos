@@ -1,0 +1,441 @@
+Exercício 1
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		int vet[] = {1, 0, 5, -2, -5, 7}, soma = 0;
+		for(int numero: vet)
+			System.out.println(numero);
+		soma += vet[0] + vet[1] + vet[5];
+		System.out.println(soma);
+		vet[4] = 100;
+		for(int numero: vet)
+			System.out.println(numero);
+	}
+}
+
+Exercício 2
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		int vet[] = new int[6], i, aux;
+		for(i = 0; i < vet.length; i ++) {
+			System.out.println("Digite o número da posição " + i + " = ");
+			aux = teclado.nextInt();
+			vet[i] = aux;
+			}
+		for(int numero : vet)
+			System.out.println(numero);
+		}
+}
+
+Exercício 3
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		float vet[] = new float[10], vet1[] = new float[10], aux;
+		int i;
+		for(i = 0; i < vet.length; i++) {
+			System.out.println("Digite o numero da posição " + i + " = ");
+			aux = teclado.nextInt();
+			vet[i] = aux;
+		}
+		for(i = 0; i < vet.length; i++) {
+			vet1[i] = vet[i] * vet[i];
+		}
+		for(float numero : vet)
+			System.out.println(numero);
+		System.out.println(" ");
+		for(float number : vet1)
+			System.out.println(number);
+	}
+}
+
+Exercício 5
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		int vet[] = new int[10], i, aux = 0;
+		for(i=0; i<vet.length; i++) {
+			System.out.println("Digite o número da posição " + i + " = ");
+			vet[i] = teclado.nextInt();
+		}
+		for(int j : vet) {
+			if(j % 2 == 0) {
+				aux += 1;
+				System.out.println(j);
+			}
+		}
+		System.out.println("Quantidade de Pares = " + aux);
+	}
+}
+
+Exercício 6
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		int vet[] = new int[10], i, aux;
+		for(i = 0; i < vet.length; i ++) {
+			System.out.println(" Digite o número da posição " + i + " = ");
+			vet[i] = teclado.nextInt();
+		}
+		aux = vet[0];
+		for(int number : vet) {
+			if(number > aux)
+				aux = number;
+		}
+		System.out.println("MAIOR NÚMERO = " + aux);
+		for(int number : vet) {
+			if(number < aux)
+				aux = number;
+		}
+		System.out.println("MENOR NÚMERO = " + aux);
+	}
+}
+
+Exercício 7
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		int vet[] = new int[10], i, aux, count = 0;
+		for(i = 0; i < vet.length; i++) {
+			System.out.println("Digite o número[" + i + "] = ");
+			vet[i] = teclado.nextInt();
+		}
+		aux = vet[0];
+		for(int j : vet) {
+			System.out.println(j);
+			if(j > aux) 
+				aux = j;
+		}
+		for(int j : vet) {
+			if(aux == j) {
+				System.out.println("MAIOR VALOR = " + aux + " POSIÇÃO = " + count);
+				break;
+			}
+			count += 1;
+		}
+		
+	}
+}
+
+
+Exercício 8
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		int vet[] = new int[6], i;
+		for(i = 0; i < vet.length; i++) {
+			System.out.println("Digite o número[" + i + "] = ");
+			vet[i] = teclado.nextInt();
+		}
+		for(i = vet.length; i > 0; i--) {
+			System.out.println(vet[i - 1]);
+		}
+	}
+}
+ 
+Exercício 10
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		float vet[] = new float[15], soma = 0;
+		int  i;
+		for(i = 0; i < vet.length; i ++) {
+			System.out.println("Nota do aluno [" + (i + 1) + "] = ");
+			vet[i] = teclado.nextFloat();
+			soma += vet[i];
+		}
+		System.out.println("Média dos alunos = " + (soma / 15));
+	}
+}
+
+Exercício 11
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		float vet[] = new float[10], soma = 0;
+		int i, count = 0;
+		for(i = 0; i < vet.length; i++){
+			System.out.println("Digite o número [" + i + "] = ");
+			vet[i] = teclado.nextFloat();
+			if(vet[i] > 0)
+				soma += vet[i];
+			else
+				count += 1;
+		}
+		System.out.println("SOMA DOS POSITIVOS = " + soma + " QUANTIDADE DE NEGATIVOS = " + count);
+	}
+
+
+Exercício 12
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		int vet[] = new int[5], i, aux, count = 0, soma = 0;
+		for(i = 0; i < vet.length; i++) {
+			System.out.println("Digite o número[" + i + "] = ");
+			vet[i] = teclado.nextInt();
+			soma += vet[i];
+		}
+		aux = vet[0];
+		for(int j : vet) {
+			System.out.println(j);
+			if(j > aux) 
+				aux = j;
+		}
+		for(int j : vet) {
+			if(aux == j) {
+				System.out.println("MAIOR VALOR = " + aux + " POSIÇÃO = " + count);
+				break;
+			}
+			count += 1;
+		}
+		aux = vet[0];
+		count = 0;
+		for(int j : vet) {
+			if(j < aux) 
+				aux = j;
+		}
+		for(int j : vet) {
+			if(aux == j) {
+				System.out.println("MENOR VALOR = " + aux + " POSIÇÃO = " + count);
+				break;
+			}
+			count += 1;
+		}
+		System.out.println("MÉDIA GERAL = " + (soma / 5));
+	}
+}
+
+
+Exercício 13
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		int vet[] = new int[5], i, aux, count = 0;
+		for(i = 0; i < vet.length; i++) {
+			System.out.println("Digite o número[" + i + "] = ");
+			vet[i] = teclado.nextInt();
+		}
+		aux = vet[0];
+		for(int j : vet) {
+			if(j > aux) 
+				aux = j;
+		}
+		for(int j : vet) {
+			if(aux == j) {
+				System.out.println("MAIOR VALOR = " + aux + " POSIÇÃO = " + count);
+				break;
+			}
+			count += 1;
+		}
+		aux = vet[0];
+		count = 0;
+		for(int j : vet) {
+			if(j < aux) 
+				aux = j;
+		}
+		for(int j : vet) {
+			if(aux == j) {
+				System.out.println("MENOR VALOR = " + aux + " POSIÇÃO = " + count);
+				break;
+			}
+			count += 1;
+		}
+	}
+}
+
+Exercício 14
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		int vet[] = new int[10], i, j;
+		for(i = 0; i < vet.length; i++) {
+			System.out.println("Número [" + i + "] = ");
+			vet[i] = teclado.nextInt();
+		}
+		for(i = 0; i < vet.length; i++) {
+			for(j = 0; j < vet.length; j++) {
+				if(i != j) {
+					if(vet[i] == vet[j]) {
+							System.out.println("o número " + vet[i] + " aparece mais de 1 vez.");
+							vet[i] = -415615656;
+						}
+					}
+			}
+		}
+	}
+
+
+Exercício 16
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		float vet[] = new float[5];
+		int i, op;
+		for(i = 0; i < vet.length; i++) {
+			System.out.println("numero [" + i + "] = ");
+			vet[i] = teclado.nextFloat();
+		}
+		System.out.println("1 - para imprimir ");
+		System.out.println("2 - para imprimir na ordem inversa");
+		op = teclado.nextInt();
+		switch(op) {
+		case 1:
+			for(float x: vet)
+				System.out.println(x);
+			break;
+		case 2:
+			for(i = vet.length -1 ; i >= 0; i--)
+				System.out.println(vet[i]);
+			break;
+		default:
+			System.out.println("Opção Inválida!");
+			
+		}
+	}
+}
+
+
+
+Exercício 17
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		int vet[] = new int[10], i;
+		for(i= 0; i < vet.length; i++) {
+			System.out.println("Número [" + i + "] = ");
+			vet[i] = teclado.nextInt();
+			if(vet[i] < 0)
+				vet[i] = 0;
+		}
+		for(int x: vet)
+			System.out.println(x);
+	}
+}
+
+
+Exercício 18
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		int vet[] = new int[10], i, x,count = 0;
+		for(i= 0; i < vet.length; i++) {
+			System.out.println("Número [" + i + "] = ");
+			vet[i] = teclado.nextInt();
+		}
+		System.out.println("numero para verificar seus multiplos = ");
+		x = teclado.nextInt();
+		for(int y: vet) {
+			if(y % x == 0) {
+				System.out.println(y + " é múltiplo de " + x);
+				count += 1; 
+			}
+		}
+		System.out.println("Total de múltiplos = " + count);
+		}
+	}
+
+
+
+ 
+Exercício 28
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		int vet[] = new int[10], i, countp = 0, counti = 0, counterp = 0, counteri = 0;
+		for(i = 0; i < vet.length; i++) {
+			System.out.println("NÚMERO [" + i + "] = ");
+			vet[i] = teclado.nextInt();
+			if(vet[i] % 2 == 0) {
+				countp += 1;
+			}
+			else {
+				counti += 1;
+			}
+		}
+		int vet1[] = new int[countp], vet2[] = new int[counti];
+		for(int x: vet) {
+			if(x % 2 == 0) {
+				vet1[counterp] = x;
+				counterp += 1;
+			}
+			else {
+				vet2[counteri] = x;
+				counteri += 1;
+			}
+		}
+		for(int w: vet)
+			System.out.println("INICIAL = " + w);
+		for(int y: vet1)
+			System.out.println("PARES = " + y);
+		for(int z: vet2)
+			System.out.println("ÍMPARES = " + z);
+
+	}
+}
+
+
+
+
+

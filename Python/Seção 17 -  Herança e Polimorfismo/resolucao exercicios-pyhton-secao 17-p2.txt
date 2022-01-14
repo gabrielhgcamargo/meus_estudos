@@ -1,0 +1,61 @@
+class Equipamento:
+
+    def __init__(self, tipo, utilidade):
+        self.__tipo = tipo
+        self.__utilidade = utilidade
+
+    def __repr__(self):
+        return f'Equipamento - Tipo = {self.__tipo} / Utilidade = {self.__utilidade}'
+
+
+class Computador(Equipamento):
+
+    def __init__(self, cpu, gpu, tipo, utilidade):
+        Equipamento.__init__(self, tipo, utilidade)
+        self.__cpu = cpu
+        self.__gpu = gpu
+
+    def set_tipo(self, nome):
+        self._Equipamento__tipo = nome
+
+    def set_utilidade(self, nome):
+        self._Equipamento__utilidade = nome
+
+    def set_cpu(self, nome):
+        self.__cpu = nome
+
+    def set_gpu(self, nome):
+        self.__gpu = nome
+
+    def get_gpu(self):
+        print (f'{self.__gpu}')
+
+    def get_cpu(self):
+         print(f'{self.__cpu}')
+
+    def get_utilidade(self):
+        print(f'{self._Equipamento__utilidade}')
+
+    def get_tipo(self):
+        print(f'{self._Equipamento__tipo}')
+
+    def __repr__(self):
+        return f'Computador - Tipo = {self._Equipamento__tipo}, Utilidade = {self._Equipamento__utilidade}, CPU = {self.__cpu}, GPU = {self.__gpu} '
+
+
+teste1 = Equipamento('Notebook', 'Mobilidade')
+teste2 = Computador('i7 10700k', '1660 SUPER', 'Gabinete', 'Desempenho')
+print(teste1)
+print(teste2)
+teste2.get_cpu()
+teste2.get_gpu()
+teste2.get_utilidade()
+teste2.get_tipo()
+
+teste2.set_cpu('i9 10900K')
+teste2.set_gpu('3080 SUPER')
+teste2.set_utilidade('PRO Player')
+teste2.set_tipo('Gamer')
+
+print(teste2)
+

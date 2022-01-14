@@ -1,0 +1,34 @@
+Quando trabalhamos com Spring Boot, fazemos o mínimo de configuração possível.
+Mas as vezes, customizações destas são necessárias.
+
+Por isso dentro da pasta Java do projeto, em seguida dentro de resources é criado
+um File com o nome "application.properties". 
+A extensão .properties trabalha com chave/valor.
+É neste arquivo que são realizadas as configurações, sem a necessidade de criação de @Beans.
+
+---
+
+Exemplo de como realizar estas configurações:
+
+No arquivo application.properties
+
+	application.name=Sistema de Vendas do Margs
+	// Em vez de utiliar o @Bean, atribuimos ao application.name a String: Sistema de Vendas do Margs
+
+
+Na classe da aplicação, como utilizar:
+
+	@Value("${application.name}")    // puxa o valor de application.name do arquivo criado (application.properties). 
+	private String applicationName;	 //E insere este valor na variavel applicationName.
+    	
+
+Exemplo acima trabalha com String.
+Mas pode se trabalhar com outros tipos também.
+Link abaixo:
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html
+
+é também utilizado para definir a porta e o caminho de contexto para a aplicação:
+
+server.port= 8000
+serve.servlet.context-path =/sistema-vendas

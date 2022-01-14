@@ -1,0 +1,36 @@
+O projeto Lombok elimina a necessidade de ficar criando para cada objeto java,
+seus respectivos Getters and Setters, Contrutores e ToString().
+
+Para instalar:
+
+adicionar ao pom.xml
+
+	<dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+
+E ir em plugins no IntelliJ, procurar por Lombok e instalar.
+
+
+Agora, se excluirmos os Getters and Setters das entidades, e adicionar nelas a Annotation @Getter e @Setter,
+funcionará como antes, porém com código muito mais clean.
+
+Pode também ser utilizado como Annotations:
+
+@ToString 
+@NoArgsConstructor -> Construtor sem argumentos
+@AllArgsConstructor -> Construtor recebendo todas propriedades como argumentos
+@EqualsAndHashCode
+
+podemos também usar o @Data, que é varios destes acima em uma só Annotation:
+
+
+@Data:  @Getter
+	@Setter
+	@RequiredArgsConstructor
+	@ToString
+	@EqualsAndHashCode
+	@lombok.value

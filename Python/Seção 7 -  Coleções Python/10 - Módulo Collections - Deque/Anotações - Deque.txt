@@ -1,0 +1,29 @@
+'''
+Módulo Collections - Deque
+Podemos dizer que é uma lista de alta performance.
+
+
+# importando
+from collections import deque
+
+# Criando Deques
+deq = deque('geek')
+print(deq)
+
+# Adicionando elementos no deque
+
+deq.append('y') #adiciona no final
+print(deq)
+
+deq.appendleft('k') #adiciona no começo
+print(deq)
+
+# Remover elementos
+
+print(deq.pop()) # Remove e retorna o ultimo elemento
+print(deq)
+
+print(deq.popleft())
+print(deq)
+
+'''

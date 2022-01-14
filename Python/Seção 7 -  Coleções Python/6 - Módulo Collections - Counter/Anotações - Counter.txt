@@ -1,0 +1,47 @@
+'''
+Módulo Collections - COUNTER (Contador)
+
+Collections -> High-Performance Container Datetypes
+
+Counter -> Recebe um interável como parámetro e cria um objeto do tipo Collection Counter que é parecido
+com um dicionário, contendo como chave o elemento da lista passada como parâmetro e como valor a quantidade.
+
+
+
+# Realizando o import
+from collections import Counter
+
+#podemos utilizar qualquer iterável, aqui usamos a lista.
+lista = [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 1, 2, 1, 2, 3, 65, 95, 101, 55]
+
+# UTILIZANDO O COUNTER
+
+# EXEMPLO 1
+res = Counter(lista)
+print(res)
+print(type(res))
+# Veja que para cada elemento da lista, o Counter calculou quantas vezes os elementos se repetiram na lista.
+
+
+# EXEMPLO 2
+# Realizando o import
+from collections import Counter
+
+# UTILIZANDO O COUNTER
+print(Counter('Geek University'))
+
+'''
+# EXEMPLO 3 (INTERESSANTE)
+# Realizando o import
+from collections import Counter
+texto ='''O Nagato foi um navio couraçado operado pela Marinha Imperial Japonesa e a primeira embarcação da Classe Nagato, seguido pelo Mutsu. Sua construção começou em agosto de 1917 no Arsenal Naval de Kure e foi lançado ao mar em novembro de 1919, sendo comissionado na frota japonesa em novembro do ano seguinte. Era armado com uma bateria principal de oito canhões de 410 milímetros montados em quatro torres de artilharia duplas, possuía um deslocamento de mais de 39 mil toneladas e conseguia alcançar uma velocidade máxima de mais de 25 nós.
+O Nagato foi finalizado depois do fim da Primeira Guerra Mundial e ajudou a transportar suprimentos para as vítimas do Grande Sismo de Kantō em 1923. Entre as décadas de 1920 e 1930 a embarcação teve uma carreira sem incidentes e alternou períodos de serviço ativo com estadas na reserva, em que atuou como navio de treinamento. Ele passou por enormes modernizações entre 1934 e 1936 que reformularam seu armamento, fortaleceram sua blindagem, aprimoraram seus maquinários internos e reconstruíram sua superestrutura, dentre outras modificações. '''
+
+palavras = texto.split()
+print(palavras)
+res = Counter(palavras)
+print(res)
+
+# ENCONTRANDO AS 5 PALAVRAS COM MAIS OCORRENCIAS NO TEXTO
+print(res.most_common(5))
+

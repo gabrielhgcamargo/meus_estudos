@@ -1,0 +1,72 @@
+Consiste em criar um DTO apenas para a visulização completa dos pedidos.
+
+Então dentro do pacote DTO, criar a classe Java chamada 'informacoesPedidoDTO'
+
+Resumindo um pouco, utilizamos DTO para não sair expondo os dados de nosso modelo de dados.
+Isso é uma boa prática.
+
+
+
+1 - Criamos dentro do pacote DTO, criar a classe Java chamada 'InformacaoItemPedidoDTO' dentro do pacote DTO.
+    Dentro de nosso exemplo, ficaria assim:
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class InformacaoItemPedidoDTO {
+    private String descricaoProduto;
+    private BigDecimal precoUnidade;
+    private Integer quantidade;
+}
+
+2 - Agora, criamos a classe Java 'InformacoesPedidoDTO' dentro do pacote DTO.
+
+3 - Dentro de PedidoService, criamos um método chamado ObterPedidoCompleto:
+
+	Optional<Pedido> obterPedidoCompleto(Integer id);
+
+4 - Dentro do repositório de Pedidos, inserir:
+
+ 	 @Query("select p from Pedido p left join fetch p.itens where p.id = :id ")
+    	 Optional<Pedido> findByIdFetchItens(@Param("id") Integer id);
+
+5 - Dentro de PedidoServiceImpl, vai ser requisitado um Override, que ficará assim:
+
+    @Override
+    public Optional<Pedido> obterPedidoCompleto(Integer id) {
+        return repository.findByIdFetchItens(id);
+    }
+
+
+6 - E por fim, dentro de Pedido Controller, implementar os métodos:
+
+    @GetMapping("{id}")
+    public InformacoesPedidoDTO getById(@PathVariable Integer id){
+        return service.obterPedidoCompleto(id)
+                .map(p -> converter(p) )
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pedido não encontrado!"));
+    }
+
+    private InformacoesPedidoDTO converter(Pedido pedido){
+    return InformacoesPedidoDTO.builder()
+            .codigo(pedido.getId())
+            .dataPedido(pedido.getDataPedido().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")))
+            .nomeCliente(pedido.getCliente().getNome())
+            .total(pedido.getTotal())
+            .items(converter(pedido.getItens()))
+            .build();
+    }
+
+    private List<InformacaoItemPedidoDTO> converter(List <ItemPedido> itens){
+        if(CollectionUtils.isEmpty(itens)){
+            return Collections.emptyList();
+        }
+        return itens.stream().map(item -> InformacaoItemPedidoDTO
+                .builder().descricaoProduto(item.getProduto().getDescricao())
+                .precoUnidade(item.getProduto().getPreco())
+                .quantidade(item.getQuantidade())
+                .build()
+        ).collect(Collectors.toList());
+    }

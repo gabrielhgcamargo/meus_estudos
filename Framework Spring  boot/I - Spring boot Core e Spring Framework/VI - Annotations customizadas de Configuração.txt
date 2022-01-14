@@ -1,0 +1,116 @@
+Criando uma annotation customizada.
+
+Vamos nos basear no exemplo dos múltiplos ambientes/perfis.
+
+Para não ter de escrever @Profile("development") no @Configuration
+Podemos simplesmente colocar @Development
+
+Mas como?
+
+
+Criar uma Nova classe Java do tipo Annotation com o nome do perfil
+
+no caso, Development
+
+e inserir acima da interface:
+
+@Target(ElementType.TYPE)            // annotation obrigatória para criar uma annotation
+@Retention(RetentionPolicy.RUNTIME)  // annotation obrigatória para criar uma annotation
+@Configuration			     // Pois se trata de uma Configuration
+@Profile("development")              // Perfil da annotation 
+
+
+
+
+
+
+---------------------------------------------
+
+
+Outro exemplo de uso:
+
+Criada a classe animal com um método de fazer barulho:
+
+
+public interface Animal {
+    void fazerBarulho();
+}
+
+
+Criada uma configuração para essa classe, chamada Animal_Configuration:
+
+@Configuration
+public class Animal_Configuration {
+
+    @Bean(name = "cachorro")
+    public Animal cachorro(){
+        return new Animal(){
+            @Override
+            public void fazerBarulho(){
+                    System.out.println("Au Au");
+            }
+        };
+
+    }
+
+    @Bean(name = "gato")
+    public Animal gato(){
+        return new Animal(){
+            @Override
+            public void fazerBarulho(){
+                System.out.println("Miau");
+            }
+        };
+
+    }
+}
+
+
+Para que possamos usar uma Annotation específica para Gato e Cachorro
+
+
+Cachorro:
+
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Autowired
+@Qualifier("cachorro")
+public @interface Cachorro {
+}
+
+
+Gato:
+
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Autowired
+@Qualifier("gato")
+public @interface Gato {
+}
+
+
+Agora na classe da aplicação:
+
+
+@Cachorro
+    private Animal animal;
+
+    @Bean(name = "executarAnimal")
+    public CommandLineRunner executar(){
+        return args -> {
+            this.animal.fazerBarulho();
+        };
+    }
+
+ou 
+
+
+@Gato
+    private Animal animal;
+
+    @Bean(name = "executarAnimal")
+    public CommandLineRunner executar(){
+        return args -> {
+            this.animal.fazerBarulho();
+        };
+    }

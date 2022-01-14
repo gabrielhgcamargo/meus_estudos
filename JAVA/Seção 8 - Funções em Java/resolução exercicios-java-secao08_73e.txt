@@ -1,0 +1,227 @@
+Exercício 1
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		int numero;
+		System.out.println("Número a ser calculado o dobro = ");
+		numero = teclado.nextInt();
+		System.out.println(dobro(numero));
+	}	
+	
+static int dobro(int num) {
+	return num * 2;
+    }
+}
+
+
+Exercício 2
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		int d, m, y;
+		
+		System.out.print("Dia = ");
+		d = teclado.nextInt();
+		System.out.print("Mês = ");
+		m = teclado.nextInt();
+		System.out.print("Ano = ");
+		y = teclado.nextInt();
+
+		teclado.close();
+		System.out.println();
+		format(d,m,y);
+	}	
+	
+	static String format(int dia, int mes, int ano) {
+		
+		if(mes == 1) {
+			System.out.println(dia + " de Janeiro de " + ano);
+		}
+		else if(mes == 2) {
+			System.out.println(dia + " de fevereiro de " + ano);
+		}
+		else if(mes == 3) {
+			System.out.println(dia + " de março de " + ano);
+		}
+		else if(mes == 4) {
+			System.out.println(dia + " de abril de " + ano);
+		}
+		else if(mes == 5) {
+			System.out.println(dia + " de maio de " + ano);
+		}
+		else if(mes == 6) {
+			System.out.println(dia + " de Junho de " + ano);
+		}
+		else if(mes == 7) {
+			System.out.println(dia + " de Julho de " + ano);
+		}
+		else if(mes == 8) {
+			System.out.println(dia + " de Agosto de " + ano);
+		}
+		else if(mes == 9) {
+			System.out.println(dia + " de Serembro de " + ano);
+		}
+		else if(mes == 10) {
+			System.out.println(dia + " de Outubro de " + ano);
+		}
+		else if(mes == 11) {
+			System.out.println(dia + " de novembro de " + ano);
+		}
+		else if(mes == 12) {
+			System.out.println(dia + " de dezembro de " + ano); 
+		}
+		return null;
+	}
+}
+
+Exercício 3
+
+import java.util.Scanner;
+
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		int x;
+		System.out.println("Digite = ");
+		x = teclado.nextInt();
+		System.out.println(verifica(x));
+	}
+	
+	static int verifica(int num) {
+		if(num > 0)
+			return 1;
+		else if(num < 0)
+			return -1;
+		else
+			return 0;
+	}
+}
+
+Exercício 4
+
+import java.util.Scanner;
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		int x;
+		System.out.print(" Número a ser verificado (QUADRADO PERFEITO) = ");
+		x = teclado.nextInt();
+		verifica(x);
+		
+	}
+	
+	
+static void verifica(int numero) {
+	double num;
+	num = Math.sqrt(numero);
+	if((num * num) == numero) {
+		System.out.println(" É QUADRADO PERFEITO! ");
+	}
+	else {
+		System.out.println("Não é quadrado perfeito!!!");
+	}
+}
+}
+
+
+Exercício 5
+
+import java.util.Scanner;
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		float r;
+		System.out.print("Digite o tamanho do RAIO da esfera = ");
+		r = teclado.nextFloat();
+		teclado.close();
+		System.out.println("Volume da esfera = " + calcula(r)); 
+    }
+	
+	static double calcula(float raio) {
+		double volume;
+		volume = 1.33 * 3.14 * (raio * raio * raio);
+		return volume; 
+	}
+}
+
+
+Exercício 6
+
+import java.util.Scanner;
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		float c;
+		System.out.print("Digite a temperatura em Celsius = ");
+		c = teclado.nextFloat();
+		teclado.close();
+		System.out.println("Temperatura em fahreneit = " + calcula(c)); 
+    }
+	
+	static double calcula(float celsius) {
+		double f;
+		f = (celsius * 1.8) + 32;
+		return f;
+	}
+}
+
+
+Exercício 7
+
+import java.util.Scanner;
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		double a, b;
+		System.out.println("Informe o cateto A = ");
+		a =  teclado.nextDouble();
+		System.out.println("Informe o cateto B = ");
+		b = teclado.nextDouble();
+		teclado.close();
+		System.out.println(calcula(a,b));
+    }
+	
+	static double calcula(double cat1, double cat2) {
+		return Math.sqrt((cat1 * cat1) + (cat2 * cat2));
+	}
+}
+
+Exercício 10
+
+import java.util.Scanner;
+
+public class ProgramaDef {
+	public static void main(String[] args) {
+		Scanner teclado =  new Scanner(System.in);
+		int a, b;
+		System.out.println("Insira o numero 1 = ");
+		a = teclado.nextInt();
+		System.out.println("Insira o numero 2 = ");
+		b =  teclado.nextInt();
+		teclado.close();
+		System.out.println(verifica(a,b));
+     }
+	
+	static int verifica(int num1, int num2) {
+		if(num1>num2)
+			return num1;
+		else
+			return num2;
+	
+	}
+}
+
+

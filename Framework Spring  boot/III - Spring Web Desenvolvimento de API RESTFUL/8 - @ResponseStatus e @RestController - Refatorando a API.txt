@@ -1,0 +1,105 @@
+Feito as operações de busca/pesquisa, atualizar, salvar e deletar, segue
+outras maneiras de se trabalhar com controllers/rest no Spring Boot.
+
+Iremos refatorar o controller para isso, ficará mais simples.
+
+1 - Modificar a annotation @Controller para @RestController
+
+	@RestController é uma annotation especializada de Controller.
+	Ao abrir o código fonte, ela também já possui o @ResponseBody,
+	descartando a necessidade da implementação de @ResponseBody nos
+	métodos deste controller.
+
+2 - Modificar o mapeamento das Rotas de acesso das operações
+
+	Implementamos abaixo de @RestController, a annotation @RequestMapping("url_base_da_api")
+	Exemplo: @RequestMapping("/api/clientes")
+
+	Métodos que resultam na url base descrita no @RequestMapping não necessitam que sejam
+	informados novamente. 
+
+	No caso se o método de save antes era : @PostMapping("/api/clientes")
+	Agora é apenas @PostMapping.
+
+	E aqueles que antes eram por exemplo: ("/api/clientes/{id}")
+	Agora são apenas ("{id}").
+
+3 - Eliminar o Response Entity do Controller
+
+	Trocar o Response Entity pela própria Entidade, no exemplo, a entidade Cliente.
+	
+	Abaixo, como ficou as operações de:
+
+
+	Busca por ID:
+
+	 @GetMapping("{id}")
+    	public Cliente getClienteById(@PathVariable Integer id) {
+        return clientes
+                .findById(id)
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        "Cliente não encontrado"));
+    	}
+
+	---------------------------------------------------------------------------------
+	
+	Salvar:
+	
+	 @PostMapping
+    	@ResponseStatus(HttpStatus.CREATED)
+   	 public Cliente save(@RequestBody Cliente cliente){
+        return clientes.save(cliente);
+
+    	}
+
+	---------------------------------------------------------------------------------
+
+	Delete:
+
+	@DeleteMapping("{id}")
+   	 @ResponseStatus(HttpStatus.NO_CONTENT)
+    	public void delete( @PathVariable Integer id ){
+        clientes.findById(id)
+                .map( cliente -> {
+                    clientes.delete(cliente);
+                    return cliente;
+                })
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        "Cliente não encontrado"));
+
+    	}
+	
+	---------------------------------------------------------------------------------
+	
+	Update/Atualizar:
+
+	@PutMapping("{id}")
+    	public void update(@PathVariable Integer id,
+                       @RequestBody Cliente cliente){
+        clientes
+                .findById(id)
+                .map(clienteExistente -> {
+                    cliente.setId(clienteExistente.getId());
+                    clientes.save(cliente);
+                    return clienteExistente;
+                }).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        "Cliente não encontrado"));
+    }
+	
+
+	---------------------------------------------------------------------------------
+
+	Find:
+
+	@GetMapping
+   	 public List<Cliente> find( Cliente filtro){
+        ExampleMatcher matcher = ExampleMatcher
+                                                .matching()
+                                                .withIgnoreCase()
+                                                .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+        Example example = Example.of(filtro, matcher);
+
+        return clientes.findAll(example);
+   	 }
+
+

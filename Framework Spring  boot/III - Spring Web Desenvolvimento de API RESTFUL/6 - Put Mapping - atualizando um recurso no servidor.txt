@@ -1,0 +1,50 @@
+Faremos operações básicas de cadastro de clientes,
+Neste notepad, veremos como atualizar:
+
+4. Atualizar (Put Mapping)
+
+Criar um método para a operação, no caso, para atualizar um cliente.
+Inserir neste método as annotations @PutMapping e @ResponseBody
+
+@PutMapping -> passar a rota de acesso para a operação ; Exemplo:  @PutMapping("/api/clintes/{id}")
+@ResponseBody é para que o Spring Boot entenda que está retornando é o corpo da resposta.
+
+Também, implementar no argumento do método a annotation @RequestBody para 
+mapear o objeto de argumento para o objeto que virá no corpo da requisição.
+
+
+    @PutMapping("/api/clientes/{id}")
+    @ResponseBody
+    public ResponseEntity update(@PathVariable Integer id,
+                                 @RequestBody Cliente cliente){
+        return clientes
+                .findById(id)
+                .map(clienteExistente -> {
+                    cliente.setId(clienteExistente.getId());
+                    clientes.save(cliente);
+                    return ResponseEntity.noContent().build();
+                }).orElseGet( () -> ResponseEntity.notFound().build());
+    }
+
+
+------
+
+	Abrir o app PostMan para testar:
+
+Selecionar PUT, colocar a url definida no método de atualizar configurado acima:
+Exemplo utilizado: http://localhost:8080/api/clientes/1 -> onde 1 é o ID do cliente que deve ser atualizado
+
+Abrir a aba body, selecionar o texto como Json
+
+E inserir o novo nome do Cliente, pois é a unica propriedade da Entidade, além do ID:
+
+	{
+    "nome": "Fulano Cicraneidred"
+	}
+
+-------	
+
+Clicar em SEND, e está atualizado.
+
+OU SEJA, o cliente com ID 1 (infomado na URL: http://localhost:8080/api/clientes/1) terá
+seu nome atualizado para "Fulano Cicraneidred".

@@ -1,0 +1,95 @@
+Criando a propriedade de STATUS de pedido, refatorando o código para sua implementação:
+
+
+1 - Dentro da entidade de Pedidos, inserir:
+
+	@Enumerated(EnumType.STRING)
+    	@Column(name = "status")
+    	private StatusPedido status;
+
+2 - Criar o pacote Enums, dentro de domain.
+
+3 - E nele criar essa classe chamada 'StatusPedido'
+
+	public enum StatusPedido {
+
+  	  REALIZADO,
+  	  CANCELADO;
+	}
+
+4 - Dentro de PedidoServiceImpl, abaixo do código 'pedido.setCliente(cliente);'
+  inserimos :
+
+	        pedido.setStatus(StatusPedido.REALIZADO);
+
+5 - Dentro de InformacoesPedidoDTO:
+
+	private String status;
+
+6 - Dentro de PedidoController, no método de converter:
+
+        pedido.setStatus(StatusPedido.REALIZADO);
+
+
+
+Até aqui a implementação do Status de Pedido realizado já está feito.
+Agora, para o Status de Pedido Cancelado:
+
+
+
+1 - Criar um método no PedidoController
+
+	@PatchMapping("{id}")
+    	@ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateStatus(@PathVariable Integer id,
+                             @RequestBody AtualizacaoStatusPedidoDTO dto){
+        String novoStatus = dto.getNovoStatus();
+        service.atualizaStatus(id, StatusPedido.valueOf(novoStatus));
+
+    }
+
+
+2 - Criar uma nova classe java 'AtualizacaoStatusPedidoDTO' no pacote DTO:
+
+	@Getter
+	@Setter
+	public class AtualizacaoStatusPedidoDTO {
+    private String novoStatus;
+	}
+
+
+3 - Dentro de PedidoService:
+	
+	void atualizaStatus(Integer id, StatusPedido statusPedido);
+
+	Nisso, vai reclamar para realizar o Override em PedidoServiceImpl:
+
+	  @Override
+	  @Transactional
+    	public void atualizaStatus(Integer id, StatusPedido statusPedido) {
+        repository.findById(id)
+                .map(pedido -> {
+                    pedido.setStatus(statusPedido);
+                    return repository.save(pedido);
+                }).orElseThrow(() -> new PedidoNaoEncontradoException());
+    	}
+	
+4 - Criar a classe PedidoNaoEncontradoException, dentro do pacote Exception:
+
+	public class PedidoNaoEncontradoException extends RuntimeException {
+    	public PedidoNaoEncontradoException() {
+        super("Pedido não encontrado!");
+    }
+}
+
+
+5 - Dentro da classe 'ApplicationControllerAdvice', criar o método 'handlePedidoNotFoundException':
+
+    @ExceptionHandler(PedidoNaoEncontradoException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ApiErrors handlePedidoNotFoundException(PedidoNaoEncontradoException ex){
+    return new ApiErrors(ex.getMessage());
+    }
+
+
+

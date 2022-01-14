@@ -1,0 +1,55 @@
+Fazendo consultas com relacionamentos JPA
+
+Ao consultar um cliente, exibir também os pedidos:
+
+	Deve estar na entidade para funcionar:
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+    	private Set<Pedido> pedidos;
+
+	E então no repositório, inserir o método:
+
+	@Query(" select c from Cliente c left join fetch c.pedidos where c.id =:id ")
+	Cliente findClienteFetchPedidos( Integer ID);
+
+
+
+// Consultas na classe da aplicação
+
+
+Cliente fulano = new Cliente("Fulano");
+            clientes.save(fulano);
+
+
+            Pedido p = new Pedido();
+            p.setCliente(fulano);
+            p.setDataPedido(LocalDate.now());
+            p.setTotal(BigDecimal.valueOf(100));
+
+            pedidos.save(p);
+
+            Cliente cliente = clientes.findClienteFetchPedidos(fulano.getId());
+            System.out.println(cliente);
+            System.out.println(cliente.getPedidos());
+
+
+
+----------------------------------------------------------
+Repositório de Pedidos: para exibir os pedidos feitos pelo cliente "fulano"
+
+List<Pedido> findByCliente( Cliente cliente);
+
+
+// verificando o funcionamento:
+
+	    System.out.println("Salvando Clientes");
+            Cliente fulano = new Cliente("Fulano");
+            clientes.save(fulano);
+
+
+            Pedido p = new Pedido();
+            p.setCliente(fulano);
+            p.setDataPedido(LocalDate.now());
+            p.setTotal(BigDecimal.valueOf(100));
+
+	   pedidos.findByCliente(fulano).forEach(System.out::println);
+
