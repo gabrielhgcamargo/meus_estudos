@@ -9,7 +9,7 @@ Dentro deste repositório você encontrará anotações e prática de:
 
 Criador do repositório - Gabriel Henrique Garcia Camargo
 
-[LINKEDIN](https://twitter.com/gacamarguh) 
+[LINKEDIN](https://www.linkedin.com/in/gabrielhgcamargo/) 
 
 [GitHub](https://github.com/gabrielhgcamargo)
 
