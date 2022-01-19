@@ -8,16 +8,15 @@ Nele você encontrará anotações e prática de:
   * Framework Spring Boot
 * PYTHON
 
-------------
-
-[GitHub](https://github.com/gabrielhgcamargo)
-
-Email para contato:
-- gacamargos4@gmail.com
 
 
 ------------
 
 Disponibilizado por [Gabriel Camargo](https://www.linkedin.com/in/gabrielhgcamargo/ "Linkedin de Gabriel Camargo").
+
+[GitHub](https://github.com/gabrielhgcamargo "GitHub de Gabriel Camargo")
+
+Email para contato: gacamargos4@gmail.com
+
 
 
