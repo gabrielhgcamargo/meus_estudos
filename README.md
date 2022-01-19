@@ -10,12 +10,14 @@ Nele você encontrará anotações e prática de:
 
 #### Criador do repositório - Gabriel Henrique Garcia Camargo
 
-[LINKEDIN](https://www.linkedin.com/in/gabrielhgcamargo/) 
-
 [GitHub](https://github.com/gabrielhgcamargo)
 
 Email para contato:
 - gacamargos4@gmail.com
 
+
+------------
+
+Disponibilizado por [Gabriel Camargo](https://www.linkedin.com/in/gabrielhgcamargo/ "Linkedin de Gabriel Camargo").
 
 
