@@ -8,7 +8,17 @@ Nele você encontrará anotações e prática de:
   * Framework Spring Boot
 * PYTHON
 
+------------
 
+## 🛠️ Ferramentas utilizadas para o Aprendizado
+> Java
+* [Java 11](https://dev.java/) - Linguagem utilizada.
+* [IntelliJ](https://www.jetbrains.com/pt-br/idea/) - Ambiente de Desenvolvimento utilizado.
+
+
+> Pyhton
+* [Python 3.9.6](https://www.python.org/) - Linguagem utilizada.
+* [PyCharm](https://www.jetbrains.com/pt-br/pycharm/) - Ambiente de Desenvolvimento utilizado.
 
 ------------
 
