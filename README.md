@@ -2,6 +2,7 @@
 > Repositório destinado a estudos
 
 Neste repositório se encontram meus estudos já realizados, exercícios resolvidos, por meio de cursos, e também será atualizado conforme novos aprendizados e conhecimentos.
+
 Nele você encontrará anotações e prática de:
 
 * JAVA
