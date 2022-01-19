@@ -8,7 +8,7 @@ Nele você encontrará anotações e prática de:
   * Framework Spring Boot
 * PYTHON
 
-#### Criador do repositório - Gabriel Henrique Garcia Camargo
+------------
 
 [GitHub](https://github.com/gabrielhgcamargo)
 
