@@ -10,7 +10,7 @@ Nele você encontrará anotações e prática de:
 
 ------------
 
-## 🛠️ Ferramentas utilizadas para o Aprendizado
+## 🛠️ Ferramentas utilizadas para o aprendizado
 > Java
 * [Java 11](https://dev.java/) - Linguagem utilizada.
 * [IntelliJ](https://www.jetbrains.com/pt-br/idea/) - Ambiente de Desenvolvimento utilizado.
