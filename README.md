@@ -15,6 +15,7 @@ Nele você encontrará anotações e prática de:
 > Java
 * [Java 11](https://dev.java/) - Linguagem utilizada.
 * [IntelliJ](https://www.jetbrains.com/pt-br/idea/) - Ambiente de Desenvolvimento utilizado.
+* [Apache Maven 3.8.4](https://maven.apache.org/) -  Ferramenta de automação e gerenciamento de projetos Java.
 
 
 > Pyhton
